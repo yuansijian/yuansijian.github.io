@@ -1,0 +1,734 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      category: 文学 | 守护
+    
+  </title>
+  <meta name="author" content="Estace-Kidd">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/3.jpg">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
+
+					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						分类
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<!-- <a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a> -->
+				</li>
+				<li>
+					<!-- <a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a> -->
+				</li>
+				<li>
+					<!-- <a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a> -->
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<!-- <style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script> -->
+</div></header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-08
+	描述：The archive module refers to 'https://1984n.win/archives-post/' & 'http://1900.live/one-theme/', include js、css. Relevant rights reserved by them! 
+-->
+<div class="layout-archive">
+    <div class="i-container">
+        <i class="fa fa-book">
+			
+				文学 2 篇
+			
+		</i>
+    </div>
+
+    <!-- Archive by year, display in page( archive ) -->
+    <div 25 2019 id="layout-archive-year" style="display: 
+        
+        
+        <ul>
+            
+                <li>
+                    <a href=" 03 hello-world ">
+            			<em year="2019">
+                            03-25
+                        </em>
+        			    <span itemprop="name">
+                            Hello World
+                        </span>
+        			    
+                    
+                
+            
+                <li>
+                    <a href="/2019/03/23/mysql执行顺序/">
+            			<em year="2019">
+                            03-23
+                        </em>
+        			    <span itemprop="name">
+                            mysql执行顺序
+                        </span>
+        			    
+                			<a href="/tags/Mysql优化/" class="tag">
+                				Mysql优化
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/03/01/牛客网练习/">
+            			<em year="2019">
+                            03-01
+                        </em>
+        			    <span itemprop="name">
+                            牛客网练习
+                        </span>
+        			    
+                			<a href="/tags/linux/" class="tag">
+                				linux
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/23/SPFA/">
+            			<em year="2019">
+                            02-23
+                        </em>
+        			    <span itemprop="name">
+                            SPFA
+                        </span>
+        			    
+                			<a href="/tags/蓝桥杯/" class="tag">
+                				蓝桥杯
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/22/最短路径/">
+            			<em year="2019">
+                            02-22
+                        </em>
+        			    <span itemprop="name">
+                            最短路径
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/19/算法训练-审美课/">
+            			<em year="2019">
+                            02-19
+                        </em>
+        			    <span itemprop="name">
+                            算法训练-审美课
+                        </span>
+        			    
+                			<a href="/tags/蓝桥杯/" class="tag">
+                				蓝桥杯
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/19/简单dfs和bfs/">
+            			<em year="2019">
+                            02-19
+                        </em>
+        			    <span itemprop="name">
+                            简单dfs和bfs
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/18/快速排序/">
+            			<em year="2019">
+                            02-18
+                        </em>
+        			    <span itemprop="name">
+                            快速排序
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/17/归并排序/">
+            			<em year="2019">
+                            02-17
+                        </em>
+        			    <span itemprop="name">
+                            归并排序
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/17/插入排序/">
+            			<em year="2019">
+                            02-17
+                        </em>
+        			    <span itemprop="name">
+                            插入排序
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/17/冒泡排序/">
+            			<em year="2019">
+                            02-17
+                        </em>
+        			    <span itemprop="name">
+                            冒泡排序
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/02/17/选择排序/">
+            			<em year="2019">
+                            02-17
+                        </em>
+        			    <span itemprop="name">
+                            选择排序
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/01/29/春江花月夜/">
+            			<em year="2019">
+                            01-29
+                        </em>
+        			    <span itemprop="name">
+                            春江花月夜
+                        </span>
+        			    
+                			<a href="/tags/诗词/" class="tag">
+                				诗词
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/01/29/堆排序/">
+            			<em year="2019">
+                            01-29
+                        </em>
+        			    <span itemprop="name">
+                            堆排序
+                        </span>
+        			    
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/01/28/汉诺塔问题/">
+            			<em year="2019">
+                            01-28
+                        </em>
+        			    <span itemprop="name">
+                            汉诺塔问题
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/01/27/如梦令·昨夜雨疏风骤/">
+            			<em year="2019">
+                            01-27
+                        </em>
+        			    <span itemprop="name">
+                            如梦令·昨夜雨疏风骤
+                        </span>
+        			    
+                			<a href="/tags/诗词/" class="tag">
+                				诗词
+                			</a>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/2019/01/27/链表基本操作/">
+            			<em year="2019">
+                            01-27
+                        </em>
+        			    <span itemprop="name">
+                            链表基本操作
+                        </span>
+        			    
+                			<a href="/tags/算法/" class="tag">
+                				算法
+                			</a>
+                        
+                    </a>
+                </li>
+            
+        
+    </div>
+
+     <!-- Archive by month, called by page( categories, tags... ) -->
+    <div id="layout-archive-month" style="display: 
+         
+            block"> 
+        
+
+        
+        
+            
+
+            
+                
+                <h3 class="archive-year">
+                    <!-- <a href="/archives/2019/01"> -->
+                    <a>
+                        2019 - 01
+                    </a>
+                </h3>
+            
+
+            <ul>
+                <li>
+                    <a href="/2019/01/29/春江花月夜/">
+                        <em>
+                            01-29
+                        </em>
+                        <span itemprop="name">
+                            春江花月夜
+                        </span>
+                        
+                            <a href="/tags/诗词/" class="tag">
+                                诗词
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+            
+
+            
+
+            <ul>
+                <li>
+                    <a href="/2019/01/27/如梦令·昨夜雨疏风骤/">
+                        <em>
+                            01-27
+                        </em>
+                        <span itemprop="name">
+                            如梦令·昨夜雨疏风骤
+                        </span>
+                        
+                            <a href="/tags/诗词/" class="tag">
+                                诗词
+                            </a>
+                               
+                    </a>
+                </li>
+            </ul>
+        
+    </div>
+
+    
+        
+	
+
+    
+</div>
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Estace-Kidd. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
+</footer>
+		
+    <!-- set '1' to show motto in all pages! -->
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>

@@ -1,0 +1,777 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      插入排序 | 守护
+    
+  </title>
+  <meta name="author" content="Estace-Kidd">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/3.jpg">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
+
+					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《插入排序》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<!-- <a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a> -->
+				</li>
+				<li>
+					<!-- <a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a> -->
+				</li>
+				<li>
+					<!-- <a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a> -->
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<!-- <style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script> -->
+</div></header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2019/02/17/插入排序/" itemprop="url">
+		插入排序
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2019/02/17/插入排序/" itemprop="url">
+		<time datetime="2019-02-17T10:38:47.000Z" itemprop="datePublished">
+	  		2019-02-17
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2019/02/17/插入排序/" itemprop="url">
+		<time datetime="2019-02-17T10:38:47.000Z" itemprop="dateUpdated">
+	  		2019-02-17
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/算法/" class=" ">
+			算法
+		</a>
+	
+		
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2019/02/17/插入排序/_visitors" data-url="/2019/02/17/插入排序/" data-title="插入排序">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2019/02/17/插入排序/_likes" data-url="/2019/02/17/插入排序/" data-title="插入排序" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p><center> 插入排序(Insert Sort)  </center></p>
+<p>插入排序（英语：Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采用in-place排序（即只需用到 O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。  </p>
+<p>一般来说，插入排序都采用in-place在数组上实现。具体算法描述如下：  </p>
+<p>1、从第一个元素开始，该元素可以认为已经被排序<br>2、取出下一个元素，在已经排序的元素序列中从后向前扫描<br>3、如果该元素（已排序）大于新元素，将该元素移到下一位置<br>4、重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<br>5、将新元素插入到该位置后<br>6、重复步骤2~5<br>如果比较操作的代价比交换操作大的话，可以采用二分查找法来减少比较操作的数目。该算法可以认为是插入排序的一个变种，称为二分查找插入排序。</p>
+<p>最坏时间复杂度O(n^2)<br>最优时间复杂度O(n)<br>平均时间复杂度O(n^2)<br>最坏空间复杂度    总共O(n) ，需要辅助空间O(1)   </p>
+<p>示例代码：</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+void insert(int a[], int len)
+{
+    for(int i=1; i&lt;len; i++)
+    {
+        int key = a[i];
+        int  j = i-1;
+        while(j&gt;=0 &amp;&amp; (key&lt;a[j]))
+        {
+            a[j+1] = a[j];
+            j--;
+        }
+        a[j+1] = key;
+    }
+}
+int main()
+{
+    int a[10] = {0,3,4,2,1,6,5,9,8,7};
+    int len = sizeof(a)/sizeof(a[0]);
+    insert(a, len);
+    for(int i=0; i&lt;len; i++)
+    {
+        cout &lt;&lt; a[i] &lt;&lt; &apos; &apos;;
+    }
+    cout &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>运行截图：<br><img src="/img/article-picture/7-1.PNG" alt="avatar"></p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/post-cover/7.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="/2019/02/17/归并排序/" title="归并排序" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="/2019/02/17/冒泡排序/" title="冒泡排序" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/02/23/SPFA/" title="SPFA">
+							SPFA
+						</a>
+						<p>
+							 算法训练-最短路径  
+适用范围：给定的图存在负权边，这时类似Dijkstra等算法便没有了用武之地，而Bellman-Ford算法的复杂度又过高，SPFA算法便派上用场了。 我们约定有向加权图G不存在负权回路，即最短路径一定存在。...
+						</p>
+					</div>
+
+					<a href="/2019/02/23/SPFA/" title="SPFA">				
+						<img src="/img/post-cover/13.jpg" class="relateImg" alt="SPFA">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/22/最短路径/" title="最短路径">
+							最短路径
+						</a>
+						<p>
+							 最短路径   
+建立邻接表（邻接矩阵也可以）12345678struct Node&#123;    int v;          //顶点    int dis;        //权值    Node(int x, int y...
+						</p>
+					</div>
+
+					<a href="/2019/02/22/最短路径/" title="最短路径">				
+						<img src="/img/post-cover/12.png" class="relateImg" alt="最短路径">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">
+							算法训练-审美课
+						</a>
+						<p>
+							算法训练-审美课   
+思路：
+统计所有相同字符串的个数寻找和本身字符串数字完全相反的字符串两个字符串个数相乘将所有相乘的和加起来大佬解题思路：用map&lt;string,int&gt;cnt 存   
+注意：map&lt;stri...
+						</p>
+					</div>
+
+					<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">				
+						<img src="/img/post-cover/11.png" class="relateImg" alt="算法训练-审美课">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs">
+							简单dfs和bfs
+						</a>
+						<p>
+							 简单dfs和bfs
+主要为如何做标记及递归处理
+ 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950...
+						</p>
+					</div>
+
+					<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs">				
+						<img src="/img/post-cover/10.jpg" class="relateImg" alt="简单dfs和bfs">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/18/快速排序/" title="快速排序">
+							快速排序
+						</a>
+						<p>
+							快速排序(Quick Sort)  
+主要事如何划分再排序，使用递归方法，即创建两个函数，一个划分，一个排序。划分伪代码：123456789101112i = lowx = A[low]for j=low+1 to high     ...
+						</p>
+					</div>
+
+					<a href="/2019/02/18/快速排序/" title="快速排序">				
+						<img src="/img/post-cover/9.png" class="relateImg" alt="快速排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/归并排序/" title="归并排序">
+							归并排序
+						</a>
+						<p>
+							 归并排序(Merge Sort)  
+是创建在归并操作上的一种有效的排序算法，效率为O(nlog n)（大O符号）。1945年由约翰·冯·诺伊曼首次提出。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/归并排序/" title="归并排序">				
+						<img src="/img/post-cover/8.png" class="relateImg" alt="归并排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/冒泡排序/" title="冒泡排序">
+							冒泡排序
+						</a>
+						<p>
+							冒泡排序(Bubble Sort)
+是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/冒泡排序/" title="冒泡排序">				
+						<img src="/img/post-cover/6.jpg" class="relateImg" alt="冒泡排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/选择排序/" title="选择排序">
+							选择排序
+						</a>
+						<p>
+							选择排序  
+选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/选择排序/" title="选择排序">				
+						<img src="/img/post-cover/5.png" class="relateImg" alt="选择排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/01/27/链表基本操作/" title="链表基本操作">
+							链表基本操作
+						</a>
+						<p>
+							 链表基本操作
+首先生成一个结构体，例如struct node{    int data;    node *link;};  
+1、创建单链表123456789101112131415161718192021222324252627...
+						</p>
+					</div>
+
+					<a href="/2019/01/27/链表基本操作/" title="链表基本操作">				
+						<img src="/img/post-cover/1-1.png" class="relateImg" alt="链表基本操作">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/01/28/汉诺塔问题/" title="汉诺塔问题">
+							汉诺塔问题
+						</a>
+						<p>
+							 汉诺塔问题  
+有三根杆子A，B，C。A杆上有 N 个 (N&gt;1) 穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至 C 杆：1、每次只能移动一个圆盘；2、大盘不能叠在小盘上面。提示：可将圆盘临时置于 B 杆，...
+						</p>
+					</div>
+
+					<a href="/2019/01/28/汉诺塔问题/" title="汉诺塔问题">				
+						<img src="/img/post-cover/3.jpg" class="relateImg" alt="汉诺塔问题">
+					</a>
+				</li>											
+		
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know 【表情】-->
+			
+		
+		
+	
+
+</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Estace-Kidd. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
+</footer>
+		
+    <!-- set '1' to show motto in all pages! -->
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>
