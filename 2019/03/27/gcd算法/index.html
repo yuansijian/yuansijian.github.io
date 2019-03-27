@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      mysql执行顺序 | 守护
+      gcd算法 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -110,7 +110,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《mysql执行顺序》
+						当前文章&nbsp;:&nbsp;《gcd算法》
 					
 				</p>
 				<!-- Progress bar -->
@@ -269,8 +269,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/03/23/mysql执行顺序/" itemprop="url">
-		mysql执行顺序
+	<a href="/2019/03/27/gcd算法/" itemprop="url">
+		gcd算法
 	</a>
 
 	</div>
@@ -279,17 +279,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/03/23/mysql执行顺序/" itemprop="url">
-		<time datetime="2019-03-23T08:42:19.000Z" itemprop="datePublished">
-	  		2019-03-23
+	<a href="/2019/03/27/gcd算法/" itemprop="url">
+		<time datetime="2019-03-27T12:55:09.000Z" itemprop="datePublished">
+	  		2019-03-27
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/03/23/mysql执行顺序/" itemprop="url">
-		<time datetime="2019-03-23T08:42:19.000Z" itemprop="dateUpdated">
-	  		2019-03-25
+	<a href="/2019/03/27/gcd算法/" itemprop="url">
+		<time datetime="2019-03-27T12:55:09.000Z" itemprop="dateUpdated">
+	  		2019-03-27
 	  </time>
 	</a> 	
 
@@ -299,8 +299,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/Mysql/" class=" ">
-			Mysql
+		<a href="/tags/算法/" class=" ">
+			算法
 		</a>
 	
 		
@@ -308,7 +308,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/03/23/mysql执行顺序/_visitors" data-url="/2019/03/23/mysql执行顺序/" data-title="mysql执行顺序">
+    <span class="leancloud_visitors" id="/2019/03/27/gcd算法/_visitors" data-url="/2019/03/27/gcd算法/" data-title="gcd算法">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -317,7 +317,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/03/23/mysql执行顺序/_likes" data-url="/2019/03/23/mysql执行顺序/" data-title="mysql执行顺序" rel="unlike">
+    <span class="leancloud_likes" id="/2019/03/27/gcd算法/_likes" data-url="/2019/03/27/gcd算法/" data-title="gcd算法" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -326,20 +326,22 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><center> mysql执行顺序  </center></p>
-<p>(1)from<br>(3) join<br>(2) on<br>(4) where<br>(5)group by(开始使用select中的别名，后面的语句中都可以使用)<br>(6)avg,sum….<br>(7)having<br>(8) select<br>(9) distinct<br>(10) order by<br>(11) limit  </p>
-<p>从这个顺序中我们不难发现，所有的 查询语句都是从from开始执行的，在执行过程中，每个步骤都会为下一个步骤生成一个虚拟表，这个虚拟表将作为下一个执行步骤的输入。<br>第一步：首先对from子句中的前两个表执行一个笛卡尔乘积，此时生成虚拟表 vt1（选择相对小的表做基础表）<br>第二步：接下来便是应用on筛选器，on 中的逻辑表达式将应用到 vt1 中的各个行，筛选出满足on逻辑表达式的行，生成虚拟表 vt2<br>第三步：如果是outer join 那么这一步就将添加外部行，left outer jion 就把左表在第二步中过滤的添加进来，如果是right outer join 那么就将右表在第二步中过滤掉的行添加进来，这样生成虚拟表 vt3 </p>
-<p>第四步：如果 from 子句中的表数目多余两个表，那么就将vt3和第三个表连接从而计算笛卡尔乘积，生成虚拟表，该过程就是一个重复1-3的步骤，最终得到一个新的虚拟表 vt3。 </p>
-<p>第五步：应用where筛选器，对上一步生产的虚拟表引用where筛选器，生成虚拟表vt4，在这有个比较重要的细节不得不说一下，对于包含outer join子句的查询，就有一个让人感到困惑的问题，到底在on筛选器还是用where筛选器指定逻辑表达式呢？on和where的最大区别在于，如果在on应用逻辑表达式那么在第三步outer join中还可以把移除的行再次添加回来，而where的移除的最终的。举个简单的例子，有一个学生表（班级,姓名）和一个成绩表(姓名,成绩)，我现在需要返回一个x班级的全体同学的成绩，但是这个班级有几个学生缺考，也就是说在成绩表中没有记录。为了得到我们预期的结果我们就需要在on子句指定学生和成绩表的关系（学生.姓名=成绩.姓名）那么我们是否发现在执行第二步的时候，对于没有参加考试的学生记录就不会出现在vt2中，因为他们被on的逻辑表达式过滤掉了,但是我们用left outer join就可以把左表（学生）中没有参加考试的学生找回来，因为我们想返回的是x班级的所有学生，如果在on中应用学生.班级=’x’的话，left outer join会把x班级的所有学生记录找回（感谢网友康钦谋__康钦苗的指正），所以只能在where筛选器中应用学生.班级=’x’ 因为它的过滤是最终的。 </p>
-<p>第六步：group by 子句将中的唯一的值组合成为一组，得到虚拟表vt5。如果应用了group by，那么后面的所有步骤都只能得到的vt5的列或者是聚合函数（count、sum、avg等）。原因在于最终的结果集中只为每个组包含一行。这一点请牢记。 </p>
-<p>第七步：应用cube或者rollup选项，为vt5生成超组，生成vt6.<br>第八步：应用having筛选器，生成vt7。having筛选器是第一个也是为唯一一个应用到已分组数据的筛选器。<br>第九步：处理select子句。将vt7中的在select中出现的列筛选出来。生成vt8. </p>
-<p>第十步：应用distinct子句，vt8中移除相同的行，生成vt9。事实上如果应用了group by子句那么distinct是多余的，原因同样在于，分组的时候是将列中唯一的值分成一组，同时只为每一组返回一行记录，那么所以的记录都将是不相同的。 </p>
-<p>第十一步：应用order by子句。按照order_by_condition排序vt9，此时返回的一个游标，而不是虚拟表。sql是基于集合的理论的，集合不会预先对他的行排序，它只是成员的逻辑集合，成员的顺序是无关紧要的。对表进行排序的查询可以返回一个对象，这个对象包含特定的物理顺序的逻辑组织。这个对象就叫游标。正因为返回值是游标，那么使用order by 子句查询不能应用于表表达式。排序是很需要成本的，除非你必须要排序，否则最好不要指定order by，最后，在这一步中是第一个也是唯一一个可以使用select列表中别名的步骤。 </p>
-<p>第十二步：应用top选项。此时才返回结果给请求者即用户</p>
+		<center><br>    gcd算法<br></center>
+
+<p>欧几里德算法又称<a href="https://baike.baidu.com/item/%E8%BE%97%E8%BD%AC%E7%9B%B8%E9%99%A4%E6%B3%95/4625352" target="_blank" rel="noopener">辗转相除法</a>，是指用于计算两个正整数a，b的正整数。应用领域有数学和计算机两个方面。计算公式gcd(a,b) = gcd(b,a mod b)。  </p>
+<p>证明：</p>
+<p>a可以表示成a = kb + r（a，b，k，r皆为正整数，且r&lt;b），则r = a mod b</p>
+<p>第一步：令c=gcd(a,b)，则设a=mc，b=nc</p>
+<p>第二步：可知r =a-kb=mc-knc=(m-kn)c</p>
+<p>第三步：根据第二步结果可知c也是r的因数</p>
+<p>第四步：可以断定m-kn与n互素【否则，可设m-kn=xd,n=yd,(d&gt;1)，则m=kn+xd=kyd+xd=(ky+x)d，则a=mc=(ky+x)dc，b=nc=ycd，故a与b最大公约数≥cd，而非c，与前面结论矛盾】</p>
+<p>从而可知gcd(b,r)=c，继而gcd(a,b)=gcd(b,r)，得证</p>
+<p>简单代码实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>` `gcd(``<span class="keyword">int</span>` `a，``<span class="keyword">int</span>` `b)</span><br><span class="line">&#123;</span><br><span class="line">    ``<span class="keyword">if</span>` `(a &lt; b)</span><br><span class="line">        ``<span class="built_in">std</span>::swap(a, b);</span><br><span class="line">    ``<span class="keyword">return</span>` `b == <span class="number">0</span> ? a : gcd(b, a % b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/15.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/17.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -353,12 +355,12 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/03/25/hello-world/" title="Hello World" rel="prev">
+			<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="/2019/03/01/牛客网练习/" title="牛客网练习" rel="next">
+			<a href="/2019/03/25/SQL连接/" title="SQL连接" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -373,24 +375,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/03/25/SQL连接/" title="SQL连接">
-							SQL连接
-						</a>
-						<p>
-							 sql连接操作
-
-left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
-						</p>
-					</div>
-
-					<a href="/2019/03/25/SQL连接/" title="SQL连接">				
-						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -414,76 +398,6 @@ left join(左联接) 返回包括左表中的所有记录和右表中联结字�
 		
 				<li>
 					<div>
-						<a href="/2019/03/27/gcd算法/" title="gcd算法">
-							gcd算法
-						</a>
-						<p>
-							    gcd算法
-
-欧几里德算法又称辗转相除法，是指用于计算两个正整数a，b的正整数。应用领域有数学和计算机两个方面。计算公式gcd(a,b) = gcd(b,a mod b)。  
-证明：
-a可以表示成a = kb + r（a，b...
-						</p>
-					</div>
-
-					<a href="/2019/03/27/gcd算法/" title="gcd算法">				
-						<img src="/img/post-cover/17.jpg" class="relateImg" alt="gcd算法">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/25/hello-world/" title="Hello World">
-							Hello World
-						</a>
-						<p>
-							Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
-						</p>
-					</div>
-
-					<a href="/2019/03/25/hello-world/" title="Hello World">				
-						<img src="/img/cart_cover.png" class="relateImg" alt="Hello World">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/01/牛客网练习/" title="牛客网练习">
-							牛客网练习
-						</a>
-						<p>
-							 牛客网练习–linux  
-1、Vi编辑器中，s/AAA/yyy/g将字符AAA全部替换成yyy2、计划让系统自动在每个月的第一天早上4点钟执行一个维护工作，00 4 1 1-12 * /maintenance.pl（计划任务内容格...
-						</p>
-					</div>
-
-					<a href="/2019/03/01/牛客网练习/" title="牛客网练习">				
-						<img src="/img/post-cover/14.jpg" class="relateImg" alt="牛客网练习">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/02/23/SPFA/" title="SPFA">
-							SPFA
-						</a>
-						<p>
-							 算法训练-最短路径  
-适用范围：给定的图存在负权边，这时类似Dijkstra等算法便没有了用武之地，而Bellman-Ford算法的复杂度又过高，SPFA算法便派上用场了。 我们约定有向加权图G不存在负权回路，即最短路径一定存在。...
-						</p>
-					</div>
-
-					<a href="/2019/02/23/SPFA/" title="SPFA">				
-						<img src="/img/post-cover/13.jpg" class="relateImg" alt="SPFA">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
 						<a href="/2019/02/22/最短路径/" title="最短路径">
 							最短路径
 						</a>
@@ -495,25 +409,6 @@ a可以表示成a = kb + r（a，b...
 
 					<a href="/2019/02/22/最短路径/" title="最短路径">				
 						<img src="/img/post-cover/12.png" class="relateImg" alt="最短路径">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">
-							算法训练-审美课
-						</a>
-						<p>
-							算法训练-审美课   
-思路：
-统计所有相同字符串的个数寻找和本身字符串数字完全相反的字符串两个字符串个数相乘将所有相乘的和加起来大佬解题思路：用map&lt;string,int&gt;cnt 存   
-注意：map&lt;stri...
-						</p>
-					</div>
-
-					<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">				
-						<img src="/img/post-cover/11.png" class="relateImg" alt="算法训练-审美课">
 					</a>
 				</li>											
 		
@@ -549,6 +444,109 @@ a可以表示成a = kb + r（a，b...
 
 					<a href="/2019/02/18/快速排序/" title="快速排序">				
 						<img src="/img/post-cover/9.png" class="relateImg" alt="快速排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/归并排序/" title="归并排序">
+							归并排序
+						</a>
+						<p>
+							 归并排序(Merge Sort)  
+是创建在归并操作上的一种有效的排序算法，效率为O(nlog n)（大O符号）。1945年由约翰·冯·诺伊曼首次提出。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/归并排序/" title="归并排序">				
+						<img src="/img/post-cover/8.png" class="relateImg" alt="归并排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/插入排序/" title="插入排序">
+							插入排序
+						</a>
+						<p>
+							 插入排序(Insert Sort)  
+插入排序（英语：Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/插入排序/" title="插入排序">				
+						<img src="/img/post-cover/7.jpg" class="relateImg" alt="插入排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/冒泡排序/" title="冒泡排序">
+							冒泡排序
+						</a>
+						<p>
+							冒泡排序(Bubble Sort)
+是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/冒泡排序/" title="冒泡排序">				
+						<img src="/img/post-cover/6.jpg" class="relateImg" alt="冒泡排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/17/选择排序/" title="选择排序">
+							选择排序
+						</a>
+						<p>
+							选择排序  
+选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排...
+						</p>
+					</div>
+
+					<a href="/2019/02/17/选择排序/" title="选择排序">				
+						<img src="/img/post-cover/5.png" class="relateImg" alt="选择排序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/01/28/汉诺塔问题/" title="汉诺塔问题">
+							汉诺塔问题
+						</a>
+						<p>
+							 汉诺塔问题  
+有三根杆子A，B，C。A杆上有 N 个 (N&gt;1) 穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至 C 杆：1、每次只能移动一个圆盘；2、大盘不能叠在小盘上面。提示：可将圆盘临时置于 B 杆，...
+						</p>
+					</div>
+
+					<a href="/2019/01/28/汉诺塔问题/" title="汉诺塔问题">				
+						<img src="/img/post-cover/3.jpg" class="relateImg" alt="汉诺塔问题">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/01/27/链表基本操作/" title="链表基本操作">
+							链表基本操作
+						</a>
+						<p>
+							 链表基本操作
+首先生成一个结构体，例如struct node{    int data;    node *link;};  
+1、创建单链表123456789101112131415161718192021222324252627...
+						</p>
+					</div>
+
+					<a href="/2019/01/27/链表基本操作/" title="链表基本操作">				
+						<img src="/img/post-cover/1-1.png" class="relateImg" alt="链表基本操作">
 					</a>
 				</li>											
 		
