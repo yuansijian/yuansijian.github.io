@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      扩展欧几里得算法 | 守护
+      数据库 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -110,7 +110,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《扩展欧几里得算法》
+						当前文章&nbsp;:&nbsp;《数据库》
 					
 				</p>
 				<!-- Progress bar -->
@@ -269,8 +269,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/03/27/扩张欧几里得算法/" itemprop="url">
-		扩展欧几里得算法
+	<a href="/2019/04/03/数据库/" itemprop="url">
+		数据库
 	</a>
 
 	</div>
@@ -279,17 +279,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/03/27/扩张欧几里得算法/" itemprop="url">
-		<time datetime="2019-03-27T14:23:01.000Z" itemprop="datePublished">
-	  		2019-03-27
+	<a href="/2019/04/03/数据库/" itemprop="url">
+		<time datetime="2019-04-03T12:36:38.000Z" itemprop="datePublished">
+	  		2019-04-03
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/03/27/扩张欧几里得算法/" itemprop="url">
-		<time datetime="2019-03-27T14:23:01.000Z" itemprop="dateUpdated">
-	  		2019-03-27
+	<a href="/2019/04/03/数据库/" itemprop="url">
+		<time datetime="2019-04-03T12:36:38.000Z" itemprop="dateUpdated">
+	  		2019-04-03
 	  </time>
 	</a> 	
 
@@ -299,8 +299,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/算法/" class=" ">
-			算法
+		<a href="/tags/牛客网/" class=" ">
+			牛客网
 		</a>
 	
 		
@@ -308,7 +308,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/03/27/扩张欧几里得算法/_visitors" data-url="/2019/03/27/扩张欧几里得算法/" data-title="扩展欧几里得算法">
+    <span class="leancloud_visitors" id="/2019/04/03/数据库/_visitors" data-url="/2019/04/03/数据库/" data-title="数据库">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -317,7 +317,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/03/27/扩张欧几里得算法/_likes" data-url="/2019/03/27/扩张欧几里得算法/" data-title="扩展欧几里得算法" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/03/数据库/_likes" data-url="/2019/04/03/数据库/" data-title="数据库" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -326,15 +326,60 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    扩展欧几里得算法<br></center>
+		<center><br>    牛客网–数据库<br></center>
 
-<p>用于求ax+by=gcd（a, b）；</p>
-<p>代码实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ext_euclid</span><span class="params">(a, b)</span>:</span></span><br><span class="line">     <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>, <span class="number">0</span>, a</span><br><span class="line">     <span class="keyword">else</span>:</span><br><span class="line">         x, y, q = ext_euclid(b, a % b) <span class="comment"># q = gcd(a, b) = gcd(b, a%b)</span></span><br><span class="line">         x, y = y, (x - (a // b) * y)		<span class="comment">#整除</span></span><br><span class="line">         <span class="keyword">return</span> x, y, q</span><br></pre></td></tr></table></figure>
+<p>1、数据库系统由数据库(数据)、数据库管理系统(软件)、数据库管理员(人员)、硬件平台(硬件)、软件平台5个部分构成。其中数据库管理系统是数据库系统的核心，它负责数据库中的数据组织、数据操纵、数据维护、控制及保护和数据服务等工作。</p>
+<p>2、使用%进行查询是全表扫描</p>
+<p>3、DBMS提供DML实现对数据的操作。嵌入高级语言中使用的 DML称为交互型。</p>
+<p>4、数据库语言</p>
+<p><strong>1.数据查询语言DQL</strong></p>
+<p>数据查询语言DQL基本结构是由SELECT子句，FROM子句，WHERE子句组成的查询块：</p>
+<p>SELECT &lt;字段名表&gt;</p>
+<p>FROM &lt;表或视图名&gt;</p>
+<p>WHERE &lt;查询条件&gt;</p>
+<p><strong>2 .数据操纵语言DML</strong></p>
+<p>数据操纵语言DML主要有三种形式：</p>
+<p>1) 插入：INSERT</p>
+<p>2) 更新：UPDATE</p>
+<p>3) 删除：DELETE</p>
+<p><strong>3. 数据定义语言DDL（数据库模式描述语言）</strong></p>
+<p>数据定义语言DDL用来创建数据库中的各种对象—–表、视图、</p>
+<p>索引、同义词、聚簇等如：</p>
+<p>CREATE TABLE/VIEW/INDEX/SYN/CLUSTER</p>
+<p>​        表 视图 索引 同义词 簇</p>
+<p>DDL操作是隐性提交的！不能rollback</p>
+<p><strong>4. 数据控制语言DCL</strong></p>
+<p>数据控制语言DCL用来授予或回收访问数据库的某种特权，并控制</p>
+<p>数据库操纵事务发生的时间及效果，对数据库实行监视等。如：</p>
+<p>1) GRANT：授权。</p>
+<p>2) ROLLBACK [WORK] TO [SAVEPOINT]：回退到某一点。</p>
+<p>回滚—ROLLBACK</p>
+<p>回滚命令使数据库状态回到上次最后提交的状态。其格式为：</p>
+<p>SQL&gt;ROLLBACK;</p>
+<p>3) COMMIT [WORK]：提交。</p>
+<p>​    在数据库的插入、删除和修改操作时，只有当事务在提交到数据</p>
+<p>库时才算完成。在事务提交前，只有操作数据库的这个人才能有权看</p>
+<p>到所做的事情，别人只有在最后提交完成后才可以看到。</p>
+<p>提交数据有三种类型：显式提交、隐式提交及自动提交。</p>
+<p>5、<strong>数据库中可能存在不一致的数据，主要有以下三个方面：</strong></p>
+<p><strong>A.数据冗余；</strong></p>
+<p><strong>B.并发控制不当；</strong></p>
+<p><strong>C.故障或者错误</strong></p>
+<p>6、数据库系统与文件系统的主要区别是文件系统不能解决数据冗余和数据独立性问题，而数据库系统可以解决。<br>7、丢失修改：原本两个事务的目的是T1先把A的值加10，A变为58。然后T2把A的值再减2，即A变成56。但是根据题目中的执行顺序，A的值变为48-2=46，即T2的修改覆盖了T1的修改，这种现象叫做丢失修改。</p>
+<p>不可重复读：不可重复读是指事务T1读取数据后，事务T2执行更新操作，使T1无法再现前一次读取结果。</p>
+<p>读”脏”数据：读”脏”数据是指事务T1修改某一数据，并将其写回磁盘，事务T2读取同一数据后，T1由于某种原因被撤消，这时T1已修改过的数据恢复原值，T2读到的数据就与数据库中的数据不一致，则T2读到的数据就为”脏”数据，即不正确的数据。</p>
+<p>8、按照规范的设计方法，一个完整的数据库设计一般分为以下六个阶段：</p>
+<p>⑴需求分析：分析用户的需求，包括数据、功能和性能需求；</p>
+<p>⑵概念结构设计：主要采用E-R模型进行设计，包括画E-R图；</p>
+<p>⑶逻辑结构设计：通过将E-R图转换成表，实现从E-R模型到关系模型的转换；</p>
+<p>⑷数据库物理设计：主要是为所设计的数据库选择合适的存储结构和存取路径；</p>
+<p>⑸数据库的实施：包括编程、测试和试运行；</p>
+<p>⑹数据库运行与维护：系统的运行与数据库的日常维护。</p>
+<p>9、规范化过程主要为克服数据库逻辑结构中的插入异常、删除异常以及冗余度大的缺陷。</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/18.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/19.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -348,12 +393,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/03/数据库/" title="数据库" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/03/27/gcd算法/" title="gcd算法" rel="next">
+			<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -368,6 +409,26 @@
 
 <div class="relate-post">
 	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法">
+							扩展欧几里得算法
+						</a>
+						<p>
+							    扩展欧几里得算法
+
+用于求ax+by=gcd（a, b）；
+代码实现：
+1234567def ext_euclid(a, b):     if b == 0:         return 1, 0, a     else: ...
+						</p>
+					</div>
+
+					<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法">				
+						<img src="/img/post-cover/18.jpg" class="relateImg" alt="扩展欧几里得算法">
+					</a>
+				</li>											
+		
 		
 				<li>
 					<div>
@@ -391,6 +452,91 @@ a可以表示成a = kb + r（a，b...
 		
 				<li>
 					<div>
+						<a href="/2019/03/25/SQL连接/" title="SQL连接">
+							SQL连接
+						</a>
+						<p>
+							 sql连接操作
+
+left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
+						</p>
+					</div>
+
+					<a href="/2019/03/25/SQL连接/" title="SQL连接">				
+						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/25/hello-world/" title="Hello World">
+							Hello World
+						</a>
+						<p>
+							Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
+						</p>
+					</div>
+
+					<a href="/2019/03/25/hello-world/" title="Hello World">				
+						<img src="/img/cart_cover.png" class="relateImg" alt="Hello World">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">
+							mysql执行顺序
+						</a>
+						<p>
+							 mysql执行顺序  
+(1)from(3) join(2) on(4) where(5)group by(开始使用select中的别名，后面的语句中都可以使用)(6)avg,sum….(7)having(8) select(9) ...
+						</p>
+					</div>
+
+					<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">				
+						<img src="/img/post-cover/15.jpg" class="relateImg" alt="mysql执行顺序">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/01/牛客网练习/" title="牛客网练习">
+							牛客网练习
+						</a>
+						<p>
+							 牛客网练习–linux  
+1、Vi编辑器中，s/AAA/yyy/g将字符AAA全部替换成yyy2、计划让系统自动在每个月的第一天早上4点钟执行一个维护工作，00 4 1 1-12 * /maintenance.pl（计划任务内容格...
+						</p>
+					</div>
+
+					<a href="/2019/03/01/牛客网练习/" title="牛客网练习">				
+						<img src="/img/post-cover/14.jpg" class="relateImg" alt="牛客网练习">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/23/SPFA/" title="SPFA">
+							SPFA
+						</a>
+						<p>
+							 算法训练-最短路径  
+适用范围：给定的图存在负权边，这时类似Dijkstra等算法便没有了用武之地，而Bellman-Ford算法的复杂度又过高，SPFA算法便派上用场了。 我们约定有向加权图G不存在负权回路，即最短路径一定存在。...
+						</p>
+					</div>
+
+					<a href="/2019/02/23/SPFA/" title="SPFA">				
+						<img src="/img/post-cover/13.jpg" class="relateImg" alt="SPFA">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/02/22/最短路径/" title="最短路径">
 							最短路径
 						</a>
@@ -402,6 +548,25 @@ a可以表示成a = kb + r（a，b...
 
 					<a href="/2019/02/22/最短路径/" title="最短路径">				
 						<img src="/img/post-cover/12.png" class="relateImg" alt="最短路径">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">
+							算法训练-审美课
+						</a>
+						<p>
+							算法训练-审美课   
+思路：
+统计所有相同字符串的个数寻找和本身字符串数字完全相反的字符串两个字符串个数相乘将所有相乘的和加起来大佬解题思路：用map&lt;string,int&gt;cnt 存   
+注意：map&lt;stri...
+						</p>
+					</div>
+
+					<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">				
+						<img src="/img/post-cover/11.png" class="relateImg" alt="算法训练-审美课">
 					</a>
 				</li>											
 		
@@ -420,126 +585,6 @@ a可以表示成a = kb + r（a，b...
 
 					<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs">				
 						<img src="/img/post-cover/10.jpg" class="relateImg" alt="简单dfs和bfs">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/02/18/快速排序/" title="快速排序">
-							快速排序
-						</a>
-						<p>
-							快速排序(Quick Sort)  
-主要事如何划分再排序，使用递归方法，即创建两个函数，一个划分，一个排序。划分伪代码：123456789101112i = lowx = A[low]for j=low+1 to high     ...
-						</p>
-					</div>
-
-					<a href="/2019/02/18/快速排序/" title="快速排序">				
-						<img src="/img/post-cover/9.png" class="relateImg" alt="快速排序">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/02/17/归并排序/" title="归并排序">
-							归并排序
-						</a>
-						<p>
-							 归并排序(Merge Sort)  
-是创建在归并操作上的一种有效的排序算法，效率为O(nlog n)（大O符号）。1945年由约翰·冯·诺伊曼首次提出。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用...
-						</p>
-					</div>
-
-					<a href="/2019/02/17/归并排序/" title="归并排序">				
-						<img src="/img/post-cover/8.png" class="relateImg" alt="归并排序">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/02/17/插入排序/" title="插入排序">
-							插入排序
-						</a>
-						<p>
-							 插入排序(Insert Sort)  
-插入排序（英语：Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采...
-						</p>
-					</div>
-
-					<a href="/2019/02/17/插入排序/" title="插入排序">				
-						<img src="/img/post-cover/7.jpg" class="relateImg" alt="插入排序">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/02/17/冒泡排序/" title="冒泡排序">
-							冒泡排序
-						</a>
-						<p>
-							冒泡排序(Bubble Sort)
-是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是...
-						</p>
-					</div>
-
-					<a href="/2019/02/17/冒泡排序/" title="冒泡排序">				
-						<img src="/img/post-cover/6.jpg" class="relateImg" alt="冒泡排序">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/02/17/选择排序/" title="选择排序">
-							选择排序
-						</a>
-						<p>
-							选择排序  
-选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排...
-						</p>
-					</div>
-
-					<a href="/2019/02/17/选择排序/" title="选择排序">				
-						<img src="/img/post-cover/5.png" class="relateImg" alt="选择排序">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/01/28/汉诺塔问题/" title="汉诺塔问题">
-							汉诺塔问题
-						</a>
-						<p>
-							 汉诺塔问题  
-有三根杆子A，B，C。A杆上有 N 个 (N&gt;1) 穿孔圆盘，盘的尺寸由下到上依次变小。要求按下列规则将所有圆盘移至 C 杆：1、每次只能移动一个圆盘；2、大盘不能叠在小盘上面。提示：可将圆盘临时置于 B 杆，...
-						</p>
-					</div>
-
-					<a href="/2019/01/28/汉诺塔问题/" title="汉诺塔问题">				
-						<img src="/img/post-cover/3.jpg" class="relateImg" alt="汉诺塔问题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/01/27/链表基本操作/" title="链表基本操作">
-							链表基本操作
-						</a>
-						<p>
-							 链表基本操作
-首先生成一个结构体，例如struct node{    int data;    node *link;};  
-1、创建单链表123456789101112131415161718192021222324252627...
-						</p>
-					</div>
-
-					<a href="/2019/01/27/链表基本操作/" title="链表基本操作">				
-						<img src="/img/post-cover/1-1.png" class="relateImg" alt="链表基本操作">
 					</a>
 				</li>											
 		
