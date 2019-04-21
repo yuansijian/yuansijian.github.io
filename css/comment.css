@@ -76,5 +76,6 @@
 	word-break: keep-all;
 	text-transform: uppercase;
 	display: inline-block;
-	/*display: inline-block;  fix button ‘回复’ display on Firefox*/
+	/*display: inline-block;*/
+	/*fix button ‘回复’ display on Firefox*/
 }
