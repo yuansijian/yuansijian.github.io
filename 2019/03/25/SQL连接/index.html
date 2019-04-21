@@ -622,13 +622,13 @@ a可以表示成a = kb + r（a，b...
 
 	//Create gitalk
 	var gitalk = new Gitalk({
-		clientID: '7804c452d8a6ef41b38c',
+		clientID: '',
 		clientSecret: '47320bfee029561d9258f1fc1b0917537a21fd36',
 		//id: window.location.pathname,
 		//id: decodeURI(window.location.pathname),
 		//id: (window.location.pathname).split("/").pop().substring(0, 49),
 		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-		repo: 'annie-gitalk',
+		repo: 'yuansijan.github.io',
 		owner: 'yuansijian',
 		admin: 'yuansijian',
 		distractionFreeMode: 'true',
