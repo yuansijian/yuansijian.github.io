@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      数据库 | 守护
+      tp5学习笔记1 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《数据库》
+						当前文章&nbsp;:&nbsp;《tp5学习笔记1》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/03/数据库/" itemprop="url">
-		数据库
+	<a href="/2019/04/25/tp5学习笔记1/" itemprop="url">
+		tp5学习笔记1
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/03/数据库/" itemprop="url">
-		<time datetime="2019-04-03T12:36:38.000Z" itemprop="datePublished">
-	  		2019-04-03
+	<a href="/2019/04/25/tp5学习笔记1/" itemprop="url">
+		<time datetime="2019-04-25T15:51:47.000Z" itemprop="datePublished">
+	  		2019-04-25
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/03/数据库/" itemprop="url">
-		<time datetime="2019-04-03T12:36:38.000Z" itemprop="dateUpdated">
-	  		2019-04-03
+	<a href="/2019/04/25/tp5学习笔记1/" itemprop="url">
+		<time datetime="2019-04-25T15:51:47.000Z" itemprop="dateUpdated">
+	  		2019-04-25
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/牛客网/" class=" ">
-			牛客网
+		<a href="/tags/thinkPhp5/" class=" ">
+			thinkPhp5
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/03/数据库/_visitors" data-url="/2019/04/03/数据库/" data-title="数据库">
+    <span class="leancloud_visitors" id="/2019/04/25/tp5学习笔记1/_visitors" data-url="/2019/04/25/tp5学习笔记1/" data-title="tp5学习笔记1">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/03/数据库/_likes" data-url="/2019/04/03/数据库/" data-title="数据库" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/25/tp5学习笔记1/_likes" data-url="/2019/04/25/tp5学习笔记1/" data-title="tp5学习笔记1" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,60 +335,130 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    牛客网–数据库<br></center>
+		<center><br>    tp5学习笔记1<br></center>
 
-<p>1、数据库系统由数据库(数据)、数据库管理系统(软件)、数据库管理员(人员)、硬件平台(硬件)、软件平台5个部分构成。其中数据库管理系统是数据库系统的核心，它负责数据库中的数据组织、数据操纵、数据维护、控制及保护和数据服务等工作。</p>
-<p>2、使用%进行查询是全表扫描</p>
-<p>3、DBMS提供DML实现对数据的操作。嵌入高级语言中使用的 DML称为交互型。</p>
-<p>4、数据库语言</p>
-<p><strong>1.数据查询语言DQL</strong></p>
-<p>数据查询语言DQL基本结构是由SELECT子句，FROM子句，WHERE子句组成的查询块：</p>
-<p>SELECT &lt;字段名表&gt;</p>
-<p>FROM &lt;表或视图名&gt;</p>
-<p>WHERE &lt;查询条件&gt;</p>
-<p><strong>2 .数据操纵语言DML</strong></p>
-<p>数据操纵语言DML主要有三种形式：</p>
-<p>1) 插入：INSERT</p>
-<p>2) 更新：UPDATE</p>
-<p>3) 删除：DELETE</p>
-<p><strong>3. 数据定义语言DDL（数据库模式描述语言）</strong></p>
-<p>数据定义语言DDL用来创建数据库中的各种对象—–表、视图、</p>
-<p>索引、同义词、聚簇等如：</p>
-<p>CREATE TABLE/VIEW/INDEX/SYN/CLUSTER</p>
-<p>​        表 视图 索引 同义词 簇</p>
-<p>DDL操作是隐性提交的！不能rollback</p>
-<p><strong>4. 数据控制语言DCL</strong></p>
-<p>数据控制语言DCL用来授予或回收访问数据库的某种特权，并控制</p>
-<p>数据库操纵事务发生的时间及效果，对数据库实行监视等。如：</p>
-<p>1) GRANT：授权。</p>
-<p>2) ROLLBACK [WORK] TO [SAVEPOINT]：回退到某一点。</p>
-<p>回滚—ROLLBACK</p>
-<p>回滚命令使数据库状态回到上次最后提交的状态。其格式为：</p>
-<p>SQL&gt;ROLLBACK;</p>
-<p>3) COMMIT [WORK]：提交。</p>
-<p>​    在数据库的插入、删除和修改操作时，只有当事务在提交到数据</p>
-<p>库时才算完成。在事务提交前，只有操作数据库的这个人才能有权看</p>
-<p>到所做的事情，别人只有在最后提交完成后才可以看到。</p>
-<p>提交数据有三种类型：显式提交、隐式提交及自动提交。</p>
-<p>5、<strong>数据库中可能存在不一致的数据，主要有以下三个方面：</strong></p>
-<p><strong>A.数据冗余；</strong></p>
-<p><strong>B.并发控制不当；</strong></p>
-<p><strong>C.故障或者错误</strong></p>
-<p>6、数据库系统与文件系统的主要区别是文件系统不能解决数据冗余和数据独立性问题，而数据库系统可以解决。<br>7、丢失修改：原本两个事务的目的是T1先把A的值加10，A变为58。然后T2把A的值再减2，即A变成56。但是根据题目中的执行顺序，A的值变为48-2=46，即T2的修改覆盖了T1的修改，这种现象叫做丢失修改。</p>
-<p>不可重复读：不可重复读是指事务T1读取数据后，事务T2执行更新操作，使T1无法再现前一次读取结果。</p>
-<p>读”脏”数据：读”脏”数据是指事务T1修改某一数据，并将其写回磁盘，事务T2读取同一数据后，T1由于某种原因被撤消，这时T1已修改过的数据恢复原值，T2读到的数据就与数据库中的数据不一致，则T2读到的数据就为”脏”数据，即不正确的数据。</p>
-<p>8、按照规范的设计方法，一个完整的数据库设计一般分为以下六个阶段：</p>
-<p>⑴需求分析：分析用户的需求，包括数据、功能和性能需求；</p>
-<p>⑵概念结构设计：主要采用E-R模型进行设计，包括画E-R图；</p>
-<p>⑶逻辑结构设计：通过将E-R图转换成表，实现从E-R模型到关系模型的转换；</p>
-<p>⑷数据库物理设计：主要是为所设计的数据库选择合适的存储结构和存取路径；</p>
-<p>⑸数据库的实施：包括编程、测试和试运行；</p>
-<p>⑹数据库运行与维护：系统的运行与数据库的日常维护。</p>
-<p>9、规范化过程主要为克服数据库逻辑结构中的插入异常、删除异常以及冗余度大的缺陷。</p>
-	
+<p>1、TP架构的概述    </p>
+<pre><code>ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型（M）、视图（V）、控制器（C），它们各自处理自己的任务。
+</code></pre><p>2、URL解析</p>
+<pre><code>http://   localhost  /index.php    /Index   /Index    /index
+协议        域名       入口文件      模块     控制器    方法
+</code></pre><p>3、入口文件<br>    1、文件地址<br>        /var/www/tp5/public/index.php</p>
+<pre><code>2、作用：
+    负责整个TP的请求
+</code></pre><p>4、应用</p>
+<pre><code>1、应用地址
+    /var/www/tp5/application
+
+2、作用:
+    一个应用代表一个网站
+</code></pre><p>5、模块(以前台为例)<br>    1、模块地址<br>        /var/www/tp5/application/index</p>
+<pre><code>2、作用：
+    网站所有的前台相关都与其有关
+
+3、新建后台模块
+
+    a、在应用目录下(/var/www/tp5/application)新建admin目录
+
+
+    b、在admin目录下新建model、view和controller
+
+
+    c、在Controller目中新建Index控制器(Index.php)
+
+    d、在Index.php 中书写代码
+        // 声明命名空间
+        namespace app/admin/controller;
+        // 声明控制器
+        class Index{
+            public function index(){
+                return &quot;我是后台的控制器&quot;;
+            }
+        }
+
+    e、通过地址栏访问
+        http://localhost/index.php/Admin/Index/index
+</code></pre><p>6、控制器<br>    1、控制器目录<br>        /var/www/tp5/application/index/controller</p>
+<pre><code>2、作用：
+    书写业务逻辑
+
+3、新建控制器(以前台为例)
+
+    a、正前台控制器目录(/var/www/tp5/application/index/controller) 下新建User.php
+
+    b、在控制器中能书写代码
+        &lt;?php 
+        // 声明命名空间
+        namespace app/index/controller;
+        // 声明控制器
+        class User{
+            // index 方法
+            public function index(){
+                return &quot;我是前台User控制器中的index方法&quot;;
+            }
+        }
+    c、地址栏访问    
+        http://localhost/index.php/Index/user/index
+
+    d、注意：
+        1、控制器的文件名必须首字母大写
+
+        2、控制中必须声明命名空间
+
+        3、控制器中类名必须和文件名一致
+</code></pre><p>7、操作(方法)<br>    1、操作地址<br>        操作一般都在控制器的文件中</p>
+<pre><code>2、新建一个操作(以前台index控制器为例)
+
+    1、打开前台index控制器(/var/www/tp5/application/index/controller/Index.php)
+
+    2、在控制器新建test方法
+        public function test(){
+
+            return &quot;我是用户自己创建的方法&quot;;
+        }
+
+    3、地址栏访问
+        http://localhost/index.php/Index/Index/test
+</code></pre><p>8、模型(数据模型)</p>
+<pre><code>1、数据模型地址
+    /var/www/tp5/application/index/model
+
+2、作用:
+    负责数据库相关的处理
+</code></pre><p>9、视图(页面)</p>
+<pre><code>1、视图地址
+    /var/www/tp5/application/index/view
+
+2、作用:
+    其实就是网站页面
+</code></pre><p>10、命名空间<br>    与目录有关(以前台index控制器命名空间为例)    </p>
+<pre><code>/var/www/tp5/application/index/controller
+
+namespace app/index/controller;
+</code></pre><p>11、跨控制器调用</p>
+<pre><code>1、使用命名空间
+
+    $model=new /app/admin/controller/Index;
+
+    echo $model-&gt;index();
+
+
+2、使用use
+
+    use /app/admin/controller/Index as AdminIndex;
+    $model=new AdminIndex();
+
+    echo $model-&gt;index();
+
+3、系统方法
+    # 系统方法一般在(/var/www/tp5/thinkphp/helper.php)
+
+    $model=controller(&apos;admin/Index&apos;);
+
+    echo $model-&gt;index();
+</code></pre>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/19.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/24.png"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -402,12 +472,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法" rel="next">
+			<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -422,25 +488,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1">
-							tp5学习笔记1
-						</a>
-						<p>
-							    tp5学习笔记1
-
-1、TP架构的概述    
-ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型（M）、视图（V）、控制器（C），它们各自处理自己的任务...
-						</p>
-					</div>
-
-					<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1">				
-						<img src="/img/post-cover/24.png" class="relateImg" alt="tp5学习笔记1">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -513,6 +560,24 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 
 					<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">				
 						<img src="/img/post-cover/20.jpg" class="relateImg" alt="念奴娇·赤壁怀古">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/03/数据库/" title="数据库">
+							数据库
+						</a>
+						<p>
+							    牛客网–数据库
+
+1、数据库系统由数据库(数据)、数据库管理系统(软件)、数据库管理员(人员)、硬件平台(硬件)、软件平台5个部分构成。其中数据库管理系统是数据库系统的核心，它负责数据库中的数据组织、数据操纵、数据维护、控制及...
+						</p>
+					</div>
+
+					<a href="/2019/04/03/数据库/" title="数据库">				
+						<img src="/img/post-cover/19.jpg" class="relateImg" alt="数据库">
 					</a>
 				</li>											
 		
