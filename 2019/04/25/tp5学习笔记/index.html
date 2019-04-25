@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      SQL连接 | 守护
+      tp5学习笔记 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《SQL连接》
+						当前文章&nbsp;:&nbsp;《tp5学习笔记》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/03/25/SQL连接/" itemprop="url">
-		SQL连接
+	<a href="/2019/04/25/tp5学习笔记/" itemprop="url">
+		tp5学习笔记
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/03/25/SQL连接/" itemprop="url">
-		<time datetime="2019-03-25T15:27:49.000Z" itemprop="datePublished">
-	  		2019-03-25
+	<a href="/2019/04/25/tp5学习笔记/" itemprop="url">
+		<time datetime="2019-04-25T07:39:47.000Z" itemprop="datePublished">
+	  		2019-04-25
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/03/25/SQL连接/" itemprop="url">
-		<time datetime="2019-03-25T15:27:49.000Z" itemprop="dateUpdated">
-	  		2019-03-25
+	<a href="/2019/04/25/tp5学习笔记/" itemprop="url">
+		<time datetime="2019-04-25T07:39:47.000Z" itemprop="dateUpdated">
+	  		2019-04-25
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/Mysql/" class=" ">
-			Mysql
+		<a href="/tags/thinkPhp5/" class=" ">
+			thinkPhp5
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/03/25/SQL连接/_visitors" data-url="/2019/03/25/SQL连接/" data-title="SQL连接">
+    <span class="leancloud_visitors" id="/2019/04/25/tp5学习笔记/_visitors" data-url="/2019/04/25/tp5学习笔记/" data-title="tp5学习笔记">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/03/25/SQL连接/_likes" data-url="/2019/03/25/SQL连接/" data-title="SQL连接" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/25/tp5学习笔记/_likes" data-url="/2019/04/25/tp5学习笔记/" data-title="tp5学习笔记" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,24 +335,83 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center> sql连接操作<br></center>
+		<center><br>    tp5学习笔记<br></center>
 
-<p>left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录<br>right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录<br>inner join(等值连接) 只返回两个表中联结字段相等的行</p>
-<p>举例如下：<br>-——————————————-<br>表A记录如下：<br>aID　　　　　aNum<br>1　　　　　a20050111<br>2　　　　　a20050112<br>3　　　　　a20050113<br>4　　　　　a20050114<br>5　　　　　a20050115</p>
-<p>表B记录如下:<br>bID　　　　　bName<br>1　　　　　2006032401<br>2　　　　　2006032402<br>3　　　　　2006032403<br>4　　　　　2006032404<br>8　　　　　2006032408</p>
-<p>-——————————————-<br>1.left join<br>sql语句如下:<br>select * from A<br>left join B<br>on A.aID = B.bID</p>
-<p>结果如下:<br>aID　　　　　aNum　　　　　bID　　　　　bName<br>1　　　　　a20050111　　　　1　　　　　2006032401<br>2　　　　　a20050112　　　　2　　　　　2006032402<br>3　　　　　a20050113　　　　3　　　　　2006032403<br>4　　　　　a20050114　　　　4　　　　　2006032404<br>5　　　　　a20050115　　　　NULL　　　　　NULL</p>
-<p>（所影响的行数为 5 行）<br>结果说明:<br>left join是以A表的记录为基础的,A可以看成左表,B可以看成右表,left join是以左表为准的.<br>换句话说,左表(A)的记录将会全部表示出来,而右表(B)只会显示符合搜索条件的记录(例子中为: A.aID = B.bID).<br>B表记录不足的地方均为NULL.<br>-——————————————-<br>2.right join<br>sql语句如下:<br>select * from A<br>right join B<br>on A.aID = B.bID</p>
-<p>结果如下:<br>aID　　　　　aNum　　　　　bID　　　　　bName<br>1　　　　　a20050111　　　　1　　　　　2006032401<br>2　　　　　a20050112　　　　2　　　　　2006032402<br>3　　　　　a20050113　　　　3　　　　　2006032403<br>4　　　　　a20050114　　　　4　　　　　2006032404<br>NULL　　　　　NULL　　　　　8　　　　　2006032408</p>
-<p>（所影响的行数为 5 行）<br>结果说明:<br>仔细观察一下,就会发现,和left join的结果刚好相反,这次是以右表(B)为基础的,A表不足的地方用NULL填充.<br>-——————————————-<br>3.inner join<br>sql语句如下:<br>select * from A<br>innerjoin B<br>on A.aID = B.bID</p>
-<p>结果如下:<br>aID　　　　　aNum　　　　　bID　　　　　bName<br>1　　　　　a20050111　　　　1　　　　　2006032401<br>2　　　　　a20050112　　　　2　　　　　2006032402<br>3　　　　　a20050113　　　　3　　　　　2006032403<br>4　　　　　a20050114　　　　4　　　　　2006032404</p>
-<p>结果说明:<br>很明显,这里只显示出了 A.aID = B.bID的记录.这说明inner join并不以谁为基础,它只显示符合条件的记录.<br>-——————————————-<br>注:<br>LEFT JOIN操作用于在任何的 FROM 子句中，组合来源表的记录。使用 LEFT JOIN 运算来创建一个左边外部联接。左边外部联接将包含了从第一个（左边）开始的两个表中的全部记录，即使在第二个（右边）表中并没有相符值的记录。</p>
-<p>语法：FROM table1 LEFT JOIN table2 ON table1.field1 compopr table2.field2</p>
-<p>说明：table1, table2参数用于指定要将记录组合的表的名称。<br>field1, field2参数指定被联接的字段的名称。且这些字段必须有相同的数据类型及包含相同类型的数据，但它们不需要有相同的名称。<br>compopr参数指定关系比较运算符：”=”， “&lt;”， “&gt;”， “&lt;=”， “&gt;=” 或 “&lt;&gt;”。<br>如果在INNER JOIN操作中要联接包含Memo 数据类型或 OLE Object 数据类型数据的字段，将会发生错误. </p>
-	
+<p>1、目录结构<br>    |-application 应用目录 是整个网站的核心<br>    |—|—index 前台目录<br>    |—|—–|—controller 控制器<br>    |—|—–|—model 数据模型<br>    |—|—–|—view 页面<br>    |—|—admin 后台目录<br>    |-extend 扩展类库目录<br>    |-public 静态资源和入口文件<br>    |—|—static 存放静态资源 css、js、img<br>    |—|—index.php 入口文件<br>    |-runtime 网站运行临时目录<br>    |-tests 测试目录<br>    |-thinkphp TP框架的核心文件<br>    |—|—lang 语言包<br>    |—|—library TP核心文件<br>    |—|—tpl 模板页面<br>    |-vendor 第三方扩展目录</p>
+<p>2、URL地址了解</p>
+<pre><code>localhost    index.php   /Index   /Index    /index
+    域名        入口文件    前台    控制器     方法
+</code></pre><p>3、了解TP开发模式<br>    0、开始调试模式(C:/AppServ/www/tp5/application/config.php)<br>        ‘app_debug’              =&gt; true,</p>
+<pre><code>1、链接数据库(/var/www/tp5/application/database.php)
+
+    // 数据库类型
+    &apos;type&apos;            =&gt; &apos;mysql&apos;,
+    // 服务器地址
+    &apos;hostname&apos;        =&gt; &apos;127.0.0.1&apos;,
+    // 数据库名
+    &apos;database&apos;        =&gt; &apos;yzm&apos;,
+    // 用户名
+    &apos;username&apos;        =&gt; &apos;root&apos;,
+    // 密码
+    &apos;password&apos;        =&gt; &apos;123456789&apos;,
+
+2、控制器中书写代码(/var/www/tp5/application/index/controller/Index.php)
+    &lt;?php
+    namespace app/index/controller;
+    // 引入系统数据类
+    use think/Db;
+    // 引入系统控制器类
+    use think/Controller;
+    class Index extends Controller
+    {
+        public function index()
+        {
+
+            // 从数据库中读取数据
+            $data=Db::table(&apos;user&apos;)-&gt;select();
+            // 分配数据给页面
+            $this-&gt;assign(&apos;data&apos;,$data);
+            // 加载页面
+            return view();
+        }
+    }
+
+3、页面中(/var/www/tp5/application/index/view/index/index.html)
+    {volist name=&quot;data&quot; id=&quot;value&quot;}
+        &lt;tr&gt;
+            &lt;td&gt;{$value.id}&lt;/td&gt;
+            &lt;td&gt;{$value.name}&lt;/td&gt;
+            &lt;td&gt;{$value.pass}&lt;/td&gt;
+        &lt;/tr&gt;
+    {/volist}
+</code></pre><p>4、MVC模式</p>
+<pre><code>m model 模型
+v view 视图
+c controller 控制器
+</code></pre><p>5、MVC在TP中如何体现</p>
+<pre><code>1、M model 模型
+    #/var/www/tp5/application/index/model
+
+    作用: 执行数据库相关处理
+
+2、V view 视图
+    #/var/AppServ/www/tp5/application/index/view
+
+    作用：其实就是页面
+
+3、C Controller 控制器
+    #/var/AppServ/www/tp5/application/index/controller
+
+    作用：主要负责整个逻辑运转
+</code></pre><p><img src="/img/article-picture/23-1.png" alt="avatar"></p>
+<p>6、MVC的变形<br>    1、MC 模型和控制器</p>
+<p>​        主要用户借口开发</p>
+<pre><code>2、VC 视图和控制器
+    # 主要作用: 单页面的网站
+</code></pre>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/16.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/23.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -366,12 +425,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/03/27/gcd算法/" title="gcd算法" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/03/25/hello-world/" title="Hello World" rel="next">
+			<a href="/2019/04/22/关于完善hexo主题/" title="关于完善hexo主题" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -386,41 +441,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">
-							mysql执行顺序
-						</a>
-						<p>
-							 mysql执行顺序  
-(1)from(3) join(2) on(4) where(5)group by(开始使用select中的别名，后面的语句中都可以使用)(6)avg,sum….(7)having(8) select(9) ...
-						</p>
-					</div>
-
-					<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">				
-						<img src="/img/post-cover/15.jpg" class="relateImg" alt="mysql执行顺序">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">
-							tp5学习笔记
-						</a>
-						<p>
-							    tp5学习笔记
-
-1、目录结构    |-application 应用目录 是整个网站的核心    |—|—index 前台目录    |—|—–|—controller 控制器    |—|—–|—model 数据模型   ...
-						</p>
-					</div>
-
-					<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">				
-						<img src="/img/post-cover/23.jpg" class="relateImg" alt="tp5学习笔记">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -539,6 +559,24 @@ a可以表示成a = kb + r（a，b...
 		
 				<li>
 					<div>
+						<a href="/2019/03/25/SQL连接/" title="SQL连接">
+							SQL连接
+						</a>
+						<p>
+							 sql连接操作
+
+left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
+						</p>
+					</div>
+
+					<a href="/2019/03/25/SQL连接/" title="SQL连接">				
+						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/03/25/hello-world/" title="Hello World">
 							Hello World
 						</a>
@@ -549,6 +587,23 @@ a可以表示成a = kb + r（a，b...
 
 					<a href="/2019/03/25/hello-world/" title="Hello World">				
 						<img src="/img/cart_cover.png" class="relateImg" alt="Hello World">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">
+							mysql执行顺序
+						</a>
+						<p>
+							 mysql执行顺序  
+(1)from(3) join(2) on(4) where(5)group by(开始使用select中的别名，后面的语句中都可以使用)(6)avg,sum….(7)having(8) select(9) ...
+						</p>
+					</div>
+
+					<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">				
+						<img src="/img/post-cover/15.jpg" class="relateImg" alt="mysql执行顺序">
 					</a>
 				</li>											
 		
