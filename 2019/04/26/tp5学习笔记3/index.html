@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      thinkPhp目录 | 守护
+      tp5学习笔记3 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《thinkPhp目录》
+						当前文章&nbsp;:&nbsp;《tp5学习笔记3》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/20/thinkPhp目录/" itemprop="url">
-		thinkPhp目录
+	<a href="/2019/04/26/tp5学习笔记3/" itemprop="url">
+		tp5学习笔记3
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/20/thinkPhp目录/" itemprop="url">
-		<time datetime="2019-04-20T09:47:39.000Z" itemprop="datePublished">
-	  		2019-04-20
+	<a href="/2019/04/26/tp5学习笔记3/" itemprop="url">
+		<time datetime="2019-04-26T12:44:06.000Z" itemprop="datePublished">
+	  		2019-04-26
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/20/thinkPhp目录/" itemprop="url">
-		<time datetime="2019-04-20T09:47:39.000Z" itemprop="dateUpdated">
-	  		2019-04-20
+	<a href="/2019/04/26/tp5学习笔记3/" itemprop="url">
+		<time datetime="2019-04-26T12:44:06.000Z" itemprop="dateUpdated">
+	  		2019-04-26
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/thinkPhp/" class=" ">
-			thinkPhp
+		<a href="/tags/thinkPhp5/" class=" ">
+			thinkPhp5
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/20/thinkPhp目录/_visitors" data-url="/2019/04/20/thinkPhp目录/" data-title="thinkPhp目录">
+    <span class="leancloud_visitors" id="/2019/04/26/tp5学习笔记3/_visitors" data-url="/2019/04/26/tp5学习笔记3/" data-title="tp5学习笔记3">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/20/thinkPhp目录/_likes" data-url="/2019/04/20/thinkPhp目录/" data-title="thinkPhp目录" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/26/tp5学习笔记3/_likes" data-url="/2019/04/26/tp5学习笔记3/" data-title="tp5学习笔记3" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,12 +335,257 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    thinkPhp目录结构<br></center>
+		<center><br>    tp5学习笔记3<br></center>
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">project  应用部署目录  </span><br><span class="line">├─application           应用目录（可设置）</span><br><span class="line">│  ├─common             公共模块目录（可更改）</span><br><span class="line">│  ├─index              模块目录(可更改)</span><br><span class="line">│  │  ├─config.php      模块配置文件</span><br><span class="line">│  │  ├─common.php      模块函数文件</span><br><span class="line">│  │  ├─controller      控制器目录</span><br><span class="line">│  │  ├─model           模型目录</span><br><span class="line">│  │  ├─view            视图目录</span><br><span class="line">│  │  └─ ...            更多类库目录</span><br><span class="line">│  ├─command.php        命令行工具配置文件</span><br><span class="line">│  ├─common.php         应用公共（函数）文件</span><br><span class="line">│  ├─config.php         应用（公共）配置文件</span><br><span class="line">│  ├─database.php       数据库配置文件</span><br><span class="line">│  ├─tags.php           应用行为扩展定义文件</span><br><span class="line">│  └─route.php          路由配置文件</span><br><span class="line">├─extend                扩展类库目录（可定义）</span><br><span class="line">├─<span class="keyword">public</span>                WEB 部署目录（对外访问目录）</span><br><span class="line">│  ├─<span class="keyword">static</span>             静态资源存放目录(css,js,image)</span><br><span class="line">│  ├─index.php          应用入口文件</span><br><span class="line">│  ├─router.php         快速测试文件</span><br><span class="line">│  └─.htaccess          用于 apache 的重写</span><br><span class="line">├─runtime               应用的运行时目录（可写，可设置,可读）</span><br><span class="line">├─vendor                第三方类库目录（Composer）</span><br><span class="line">├─thinkphp              框架系统目录</span><br><span class="line">│  ├─lang               语言包目录</span><br><span class="line">│  ├─library            框架核心类库目录</span><br><span class="line">│  │  ├─think           Think 类库包目录</span><br><span class="line">│  │  └─traits          系统 Traits 目录</span><br><span class="line">│  ├─tpl                系统模板目录</span><br><span class="line">│  ├─.htaccess          用于 apache 的重写</span><br><span class="line">│  ├─.travis.yml        CI 定义文件</span><br><span class="line">│  ├─base.php           基础定义文件</span><br><span class="line">│  ├─composer.json      composer 定义文件</span><br><span class="line">│  ├─console.php        控制台入口文件</span><br><span class="line">│  ├─convention.php     惯例配置文件</span><br><span class="line">│  ├─helper.php         助手函数文件（可选）</span><br><span class="line">│  ├─LICENSE.txt        授权说明文件</span><br><span class="line">│  ├─phpunit.xml        单元测试配置文件</span><br><span class="line">│  ├─README.md          README 文件</span><br><span class="line">│  └─start.php          框架引导文件</span><br><span class="line">├─build.php             自动生成定义文件（参考）</span><br><span class="line">├─composer.json         composer 定义文件</span><br><span class="line">├─LICENSE.txt           授权说明文件</span><br><span class="line">├─README.md             README 文件</span><br><span class="line">├─think                 命令行入口文件</span><br></pre></td></tr></table></figure>	
+<p>1、路由作用:<br>    1、简化URL地址，方便大家记忆</p>
+<pre><code>2、有利于搜索引擎优化
+</code></pre><p>2、入口文件:</p>
+<pre><code>1、前后台分离
+
+    a、在网站public目录下(/var/www/tp5/public) 新建admin.php
+
+    b、打开admin.php
+        &lt;?php
+        // 定义应用目录
+        define(&apos;APP_PATH&apos;, __DIR__ . &apos;/../application/&apos;);
+        // 加载框架引导文件
+        require __DIR__ . &apos;/../thinkphp/start.php&apos;;
+
+2、绑定模块
+    1、实现功能
+        index.php 这个入口文件 只能去前台模块
+        admin.php 这个入口文件 只能去后台模块 #建议后台的入口文件稍微复杂一些
+
+    2、如何实现
+        在入口文件中
+
+        define(&quot;BIND_MODULE&quot;,&apos;index&apos;); # 绑定前台模块
+        define(&quot;BIND_MODULE&quot;,&apos;admin&apos;); # 绑定后台模块
+
+    3、URL地址发生改变
+        1、入口绑定之前
+            http://localhost/admin.php/模块/控制器/方法
+        2、入口绑定之后
+            http://localhost/admin.php/控制器/方法
+
+3、隐藏入口文件
+    nginx放入location/{}里面
+        if (!-e $request_filename) {
+           rewrite  ^(.*)$  /index.php?s=/$1  last;
+           break;
+        }
+
+    重启服务
+
+    5、url地址变化
+        1、隐藏之前
+            http://localhost/index.php/Index/test
+        2、隐藏之后
+            http://localhost/Index/test
+</code></pre><p>3、Tp5.0路由学习注意:<br>    1、支持三种方式的URL解析规则<br>    2、路由只针对应用，不针对模块，因此路由的设置也是针对应用下面的所有模块。<br>    3、关闭后台模块,在后台入口文件(/var/www/tp5/public)</p>
+<pre><code>// 定义应用目录
+define(&apos;APP_PATH&apos;, __DIR__ . &apos;/../application/&apos;);
+// 绑定后台
+define(&apos;BIND_MODULE&apos;,&apos;admin&apos;);
+// 加载框架引导文件
+require __DIR__ . &apos;/../thinkphp/start.php&apos;;
+// 关闭admin模块的路由
+// 必须写到 加载框架引导文件 之后否则报错
+\think\App::route(false);
+</code></pre><p>4、路由模式</p>
+<pre><code>1、普通模式
+    a、定义
+        关闭路由，完全使用默认的 PATH_INFO 方式URL：
+
+    b、形式
+        http://localhost/admin.php/index/index
+
+    c、如何设置
+        // 是否开启路由
+        &apos;url_route_on&apos;           =&gt; false,
+        // 是否强制使用路由
+        &apos;url_route_must&apos;         =&gt; false,
+
+2、混合模式
+    a、定义:
+        开启路由，并使用路由定义+默认 PATH_INFO 方式的混合
+
+    b、如何设置
+        // 是否开启路由
+        &apos;url_route_on&apos;           =&gt; true,
+        // 是否强制使用路由
+        &apos;url_route_must&apos;         =&gt; false,
+
+3、强制模式
+    1、定义:
+        开启路由，并设置必须定义路由才能访问
+
+    2、如何设置
+        // 是否开启路由
+        &apos;url_route_on&apos;           =&gt; true,
+        // 是否强制使用路由
+        &apos;url_route_must&apos;         =&gt; true,
+</code></pre><p>5、设置路由-动态单个注册<br>    0、设置路由格式<br>        Route::rule(‘路由表达式’,’路由地址’,’请求类型’,’路由参数（数组）’,’变量规则（数组）’)<br>    1、设置路由文件<br>        /var/www/tp5/application/route.php</p>
+<pre><code>2、如何设置
+
+    // 引入系统类
+    use think\Route;
+    // 定义路由规则
+    // 设置路由之后，就不能使用pathinfo访问了
+    // 注册路由 访问到Index模块index控制器index方法
+    Route::rule(&apos;/&apos;,&apos;index/index/index&apos;);
+    // 注册路由test 访问到Index模块index控制器test方法
+    Route::rule(&apos;test&apos;,&apos;index/index/test&apos;);
+
+3、路由的形式
+    1、静态地址路由
+        // 注册路由test 访问到Index模块index控制器test方法
+        Route::rule(&apos;test&apos;,&apos;index/index/test&apos;);
+
+    2、路由带参数
+        // 注册带参数路由
+        // http://localhost/couser/1
+        // http://localhost/index/index/index/id/1
+        Route::rule(&apos;course/:id&apos;,&apos;index/index/course&apos;);
+        // 如果路由设置两个参数，不许带两个参数
+        Route::rule(&apos;time/:year/:month&apos;,&apos;index/index/shijian&apos;);
+
+    3、可选参数路由
+        // http://localhost/time/2017
+        // http://localhost/time/2017/8
+        Route::rule(&apos;time/:year/[:month]&apos;,&apos;index/index/shijian&apos;);
+
+    4、全动态路由(不建议大家使用)
+        Route::rule(&apos;:a/:b&apos;,&apos;index/index/dongtai&apos;);
+
+    5、完全匹配路由
+        // http://localhost/test1 #可以成功访问
+        // http://localhost/test1/1 #不能访问
+        Route::rule(&apos;test1$&apos;,&apos;Index/index/test1&apos;);
+
+    6、路由额外带参数
+        Route::rule(&apos;test2&apos;,&apos;Index/index/test2?id=10&amp;name=zhangsan&apos;);
+
+4、设置请求类型
+    1、TP中请求类型
+        get、post、put、delete
+
+    2、Route::rule() 默认支持所有请求类型
+
+    3、设置各种请求
+        // 支持get请求
+            Route::rule(&apos;type&apos;,&apos;Index/index/type&apos;,&apos;get&apos;);
+            // Route::get(&apos;type&apos;,&apos;Index/index/type&apos;);
+
+        // 支持post请求
+            // Route::rule(&apos;type&apos;,&apos;Index/index/type&apos;,&apos;post&apos;);
+            // Route::post(&apos;type&apos;,&apos;Index/index/type&apos;);
+
+        // 同时支持get和post
+            // Route::rule(&apos;type&apos;,&apos;Index/index/type&apos;,&apos;get|post&apos;);
+
+        // 支持所有路由
+            // Route::rule(&apos;type&apos;,&apos;Index/index/type&apos;,&apos;*&apos;);
+            // Route::any(&apos;type&apos;,&apos;Index/index/type&apos;);
+
+        // 支持put请求
+            Route::rule(&apos;type&apos;,&apos;Index/index/type&apos;,&apos;put&apos;);
+            Route::put(&apos;type&apos;,&apos;Index/index/type&apos;);
+
+        // 支持delete请求
+            Route::rule(&apos;type&apos;,&apos;Index/index/type&apos;,&apos;delete&apos;);
+            Route::delete(&apos;type&apos;,&apos;Index/index/type&apos;);
+
+    4、如何模拟put和delete请求
+        &lt;form action=&quot;type&quot; method=&quot;post&quot;&gt;**
+            &lt;p&gt;
+                &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot;&gt;**
+                &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;&quot;&gt;
+            &lt;/p&gt;
+            &lt;p&gt;
+                &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+            &lt;/p&gt;
+        &lt;/form&gt;
+</code></pre><p>6、设置路由-动态批量注册<br>    1、基本格式<br>        Route::rule([<br>        ‘路由规则1’=&gt;’路由地址和参数’,<br>        ‘路由规则2’=&gt;[‘路由地址和参数’,’匹配参数（数组）’,’变量规则（数组）’]<br>        ],’’,’请求类型’,’匹配参数（数组）’,’变量规则’);</p>
+<pre><code>2、使用
+    Route::rule([
+        &quot;test&quot;=&gt;&quot;index/index/test&quot;,
+        &quot;course/:id&quot;=&gt;&quot;index/index/course&quot;
+    ],&apos;&apos;,&apos;get&apos;);
+
+    Route::get([
+        &quot;test&quot;=&gt;&quot;index/index/test&quot;,
+        &quot;course/:id&quot;=&gt;&quot;index/index/course&quot;
+    ]);
+</code></pre><p>7、设置路由-配置文件批量注册<br>    return [<br>        “test”=&gt;”index/index/test”,<br>        “course/:id”=&gt;”index/index/course”<br>    ];</p>
+<p>8、变量规则<br>    // Route::rule(‘路由表达式’,’路由地址’,’请求类型’,’路由参数（数组）’,’变量规则（数组）’);</p>
+<pre><code>// 设置路由参数id必须是数字，必须1-3位
+Route::rule(&quot;course/:id&quot;,&quot;index/index/course&quot;,&apos;get&apos;,[],[&apos;id&apos;=&gt;&apos;\d{1,3}&apos;]);
+</code></pre><p>9、路由参数<br>    // Route::rule(‘路由表达式’,’路由地址’,’请求类型’,’路由参数（数组）’,’变量规则（数组）’);<br>    Route::rule(“course/:id”,”index/index/course”,’get’,[‘method’=&gt;’get’,’ext’=&gt;’html’],[‘id’=&gt;’\d{1,3}’]);<br>    // 路由参数method 请求方式必须是get<br>    // 路由参数ext 主要设置路由的后缀</p>
+<p>10、资源路由<br>    1、声明<br>        Route::resource(‘blog’,’index/blog’);</p>
+<pre><code>2、会自动注册七个路由规则
+    get     blog                  index   # 后台展示
+    get     blog/create      create  # 添加页面
+    post    blog               save    # 增加操作
+    get     blog/:id         read    
+    get     blog/:id/edit    edit    # 修改页面
+    put     blog/:id         update  # 更新操作
+    delete  blog/:id         delete  # 删除操作
+</code></pre><p>11、设置快捷路由</p>
+<pre><code>1、声明
+    Route::Controller(&apos;blog&apos;,&apos;index/blog&apos;);
+
+
+2、控制器中
+    namespace app\index\controller;
+
+    class Blog{
+        public function  getindex(){
+            echo &quot;我是bolg控制器index方法&quot;;
+        }
+
+        public function geta(){
+            echo &quot;AAAAAAAA&quot;;
+        }
+    }
+
+3、URL访问
+    http://localhost/blog/a
+    http://localhost/blog/index
+</code></pre><p>12、生成url地址<br>    1、系统类</p>
+<pre><code>    dump(Url::build(&apos;index/index/index&apos;));
+
+2、系统方法
+
+    dump(url(&apos;index/index/index&apos;));
+
+3、使用
+    // 普通url地址
+        dump(Url::build(&apos;index/index/index&apos;));
+        dump(url(&apos;index/index/index&apos;));
+
+    // 带参数url
+        dump(url(&apos;index/index/abc&apos;,[&apos;id&apos;=&gt;10,&apos;name&apos;=&gt;&quot;张三&quot;]));
+        dump(url(&apos;index/index/abc&apos;,&apos;id=10&amp;name=100&apos;));
+        // string(45) &quot;/index/abc/id/10/name/%E5%BC%A0%E4%B8%89.html&quot;
+        // string(30) &quot;/index/abc/id/10/name/100.html&quot;
+
+    // 带锚点
+        dump(url(&apos;index/index/abc#name&apos;,[&apos;id&apos;=&gt;10,&apos;name&apos;=&gt;&quot;100&quot;]));
+        // string(35) &quot;/index/abc/id/10/name/100.html#name&quot;
+
+    // 带域名
+        dump(url(&apos;index/index/abc#name@blog&apos;,[&apos;id&apos;=&gt;10,&apos;name&apos;=&gt;&quot;100&quot;]));
+        // string(53) &quot;http://blog.tp.com/index/abc/id/10/name/100.html#name&quot;
+
+    // 加入口文件
+        Url::root(&apos;/index.php&apos;);
+        dump(url(&apos;index/index/abc#name@blog&apos;,[&apos;id&apos;=&gt;10,&apos;name&apos;=&gt;&quot;100&quot;]));
+        // string(63) &quot;http://blog.tp.com/index.php/index/abc/id/10/name/100.html#name&quot;
+</code></pre>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/21.png"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/26.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -354,12 +599,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/22/关于完善hexo主题/" title="关于完善hexo主题" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古" rel="next">
+			<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -374,29 +615,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">
-							tp5学习笔记3
-						</a>
-						<p>
-							    tp5学习笔记3
-
-1、路由作用:    1、简化URL地址，方便大家记忆
-2、有利于搜索引擎优化
-2、入口文件:
-1、前后台分离
-
-    a、在网站public目录下(/var/www/tp5/public) 新建admi...
-						</p>
-					</div>
-
-					<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">				
-						<img src="/img/post-cover/26.jpg" class="relateImg" alt="tp5学习笔记3">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -471,6 +689,24 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 
 					<a href="/2019/04/22/关于完善hexo主题/" title="关于完善hexo主题">				
 						<img src="/img/post-cover/22.jpg" class="relateImg" alt="关于完善hexo主题">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">
+							thinkPhp目录
+						</a>
+						<p>
+							    thinkPhp目录结构
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546project  应用部署目录 ...
+						</p>
+					</div>
+
+					<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">				
+						<img src="/img/post-cover/21.png" class="relateImg" alt="thinkPhp目录">
 					</a>
 				</li>											
 		
