@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      春江花月夜 | 守护
+      tp5学习笔记2 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《春江花月夜》
+						当前文章&nbsp;:&nbsp;《tp5学习笔记2》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/01/29/春江花月夜/" itemprop="url">
-		春江花月夜
+	<a href="/2019/04/26/tp5学习笔记2/" itemprop="url">
+		tp5学习笔记2
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/01/29/春江花月夜/" itemprop="url">
-		<time datetime="2019-01-29T11:44:15.000Z" itemprop="datePublished">
-	  		2019-01-29
+	<a href="/2019/04/26/tp5学习笔记2/" itemprop="url">
+		<time datetime="2019-04-26T03:54:08.000Z" itemprop="datePublished">
+	  		2019-04-26
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/01/29/春江花月夜/" itemprop="url">
-		<time datetime="2019-01-29T11:44:15.000Z" itemprop="dateUpdated">
-	  		2019-01-29
+	<a href="/2019/04/26/tp5学习笔记2/" itemprop="url">
+		<time datetime="2019-04-26T03:54:08.000Z" itemprop="dateUpdated">
+	  		2019-04-26
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/诗词/" class=" ">
-			诗词
+		<a href="/tags/thinkPhp5/" class=" ">
+			thinkPhp5
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/01/29/春江花月夜/_visitors" data-url="/2019/01/29/春江花月夜/" data-title="春江花月夜">
+    <span class="leancloud_visitors" id="/2019/04/26/tp5学习笔记2/_visitors" data-url="/2019/04/26/tp5学习笔记2/" data-title="tp5学习笔记2">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/01/29/春江花月夜/_likes" data-url="/2019/01/29/春江花月夜/" data-title="春江花月夜" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/26/tp5学习笔记2/_likes" data-url="/2019/04/26/tp5学习笔记2/" data-title="tp5学习笔记2" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,11 +335,202 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><center> 春江花月夜<br>张若虚<br>春江潮水连海平，海上明月共潮生。<br>滟滟随波千万里，何处春江无月明。<br>江流宛转绕芳甸，月照花林皆似霰。<br>空里流霜不觉飞，汀上白沙看不见。<br>江天一色无纤尘，皎皎空中孤月轮。<br>江畔何人初见月？江月何年初照人？<br>人生代代无穷已，江月年年望相似。<br>不知江月待何人，但见长江送流水。<br>白云一片去悠悠，青枫浦上不胜愁。<br>谁家今夜扁舟子？何处相思明月楼？<br>可怜楼上月徘徊，应照离人妆镜台。<br>玉户帘中卷不去，捣衣砧上拂还来。<br>此时相望不相闻，愿逐月华流照君。<br>鸿雁长飞光不度，鱼龙潜跃水成文。<br>昨夜闲潭梦落花，可怜春半不还家。<br>江水流春去欲尽，江潭落月复西斜。<br>斜月沉沉藏海雾，碣石潇湘无限路。<br>不知乘月几人归，落月摇情满江树。</center></p>
-	
+		<center><br>    tp5学习笔记2<br></center>
+
+<p>1、配置文件格式<br>    a) ThinkPHP支持多种格式的配置格式，但最终都是解析为PHP数组的方式。</p>
+<pre><code>b) 我们主要的学习形式就是数组
+    return [
+        &apos;name&apos;=&gt;&apos;&apos;,
+        &apos;age&apos;=&gt;&apos;&apos;,
+    ];
+</code></pre><p>2、配置的形式<br>    1、惯例配置</p>
+<pre><code>    a、惯例配置目录
+        /var/www/tp5/thinkphp/convention.php
+
+    b、注意:
+        一般不要修改惯例配置
+
+2、应用配置
+
+    a、应用配置目录
+        /var/www/tp5/application/config.php
+
+3、扩展配置
+    a、扩展配置
+        其实就是对配置文件进行分目录的管理
+
+    b、扩展配置目录
+        # /var/www/tp5/application/database.php
+
+        # /var/www/tp5/application/extra/用户可以自定义配置文件
+
+    c、读取database扩展配置    
+
+        # 读取databse中的扩展项
+        dump(config(&apos;扩展文件名.password&apos;));
+        dump(config(&apos;database.password&apos;));
+
+        # 读取所有的database扩展
+        dump(config(&apos;database&apos;));
+
+    d、自定义扩展配置
+
+        1、在 扩展目录(/var/www/tp5/application/extra)下 新建user.php
+
+        2、打开文件    
+            &lt;?php 
+            return [
+                &quot;name&quot;=&gt;&quot;小郭&quot;,
+                &quot;love&quot;=&gt;&quot;作家&quot;,
+                &quot;wai&quot;=&gt;&quot;小四&quot;
+
+            ];
+
+        3、读取自定义扩展配置
+            dump(config(&apos;user&apos;));
+            dump(config(&apos;user.wai&apos;)
+
+4、场景配置
+    a、解决问题
+
+        开发过程可能不同环境下进行开发
+
+    b、如何使用
+
+        1、修改应用配置(/var/www/tp5/application/config.php)
+            &apos;app_status&apos;             =&gt; &apos;home&apos;,
+
+        2、在应用目录下新建(/var/www/tp5/application) 新建对应home.php
+
+        3、在home.php 中书写相关配置
+
+5、模块配置
+
+    a、解决问题
+
+        每一个模块，都有自己特有的配置
+
+    b、如何使用(以前台模块为例)
+
+        1、在前台模块下(/var/www/tp5/application/index)新建 config.php
+
+        2、打开配置文件书写
+            &lt;?php 
+            return [
+                &quot;index&quot;=第3章 TP5.0 配置&gt;&quot;我是前台配置&quot;
+            ];
+
+6、动态配置
+
+    1、系统方法
+        // config(参数1,参数2);
+        config(&apos;name&apos;,&apos;PHP开发&apos;);
+
+    2、系统类
+
+        \think\Config::set(&apos;name&apos;,&apos;WEB前端&apos;);
+
+        use \think\Config;
+        Config::set(&apos;name&apos;,&apos;小程序开发&apos;);
+</code></pre><p>3、读取配置</p>
+<pre><code>1、通过系统类 
+    # 如果配置项存在 直接输出 不存在返回NULL
+    1、打印配置信息
+
+        echo \think\Config::get(&apos;name&apos;);
+
+    2、打印数组配置信息
+        echo \think\Config::get(&apos;teacher&apos;);
+        echo \think\Config::get(&apos;teacher.name&apos;);
+
+2、通过系统方法
+    1、打印配置信息
+        echo config(&apos;name&apos;);
+
+    2、打印数组配置信息
+        dump(config(&apos;teacher&apos;));
+        dump(config(&apos;teacher.name&apos;));
+
+    3、读取所有配置
+        dump(config());
+
+3、使用use
+    1、打印配置信息
+
+        use \think\Config;
+        echo Config::get(&apos;kouhao&apos;);
+    2、打印数组配置信息
+        use \think\Config;
+        echo Config::get(&apos;teacher&apos;);
+        echo Config::get(&apos;teacher.name&apos;);
+</code></pre><p>4、系统类(/var/www/tp5/thinkphp\library\think)</p>
+<pre><code>Config 设置和获取配置文件
+</code></pre><p>5、系统方法(/var/www/tp5/thinkphp\helper.php)</p>
+<pre><code>Controller  实例化控制器
+action      调用模块的操作方法
+config      设置和获取配置
+dump        浏览器友好的变量输出
+</code></pre><p>6、配置文件之间的加载顺序<br>    1、优先级<br>        动态配置&gt;模块配置&gt;场景配置&gt;扩展配置&gt;应用配置&gt;惯例配置</p>
+<pre><code>2、加载顺序
+    惯例配置-&gt;应用配置-&gt;扩展配置-&gt;场景配置-&gt;模块配置-&gt;动态配置
+
+3、配置文件实现原理
+    $data=array(
+        &quot;name&quot;=&gt;&quot;惯例配置&quot;,
+        &apos;a&apos;=&gt;&apos;a&apos;
+        );
+
+    $data1=array(
+        &quot;name&quot;=&gt;&apos;应用配置&apos;,
+        &quot;b&quot;=&gt;&apos;b&apos;
+        );
+    # 后面加载的配置，把前面加载匹配同名覆盖
+    dump(array_merge($data,$data1));
+</code></pre><p>7、环境变量配置<br>    1、TP5.0 支持环境变量配置</p>
+<pre><code>2、设置环境变量配置
+
+    a、打开网站根目录(/var/www/tp5) 新建.env
+
+    b、书写环境配置
+        name=haoge
+        age=18
+
+        [database]
+        type=mysql
+        root=root
+        pass=123qweaasd
+    c、注意配置环境变量不能使用中文
+
+3、读取环境配置
+    a、命名空间
+        dump(\think\Env::get(&apos;name&apos;));
+        dump(\think\Env::get(&apos;abc&apos;,&apos;不存在&apos;));
+        # 读取数组配置
+        # 不能读取整个数组
+        dump(\think\Env::get(&apos;database.type&apos;));
+
+    b、use 导入系统类
+        use \think\Env;
+        dump(Env::get(&apos;name&apos;));
+        # 读取数组配置
+        # 不能读取整个数组
+            dump(Env::get(&apos;database.type&apos;));
+
+4、如何使用
+
+    打开配置文件    
+        use \think\Env;
+        return [
+
+            // 应用调试模式
+            &apos;app_debug&apos;              =&gt; Env::get(&apos;app_debug&apos;,false),
+            // 应用模式状态
+            &apos;app_status&apos;             =&gt; Env::get(&apos;app_status&apos;,&apos;&apos;),
+        ];
+</code></pre>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/4.png"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/25.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -353,12 +544,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/02/17/选择排序/" title="选择排序" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/01/29/堆排序/" title="堆排序" rel="next">
+			<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -373,64 +560,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">
-							念奴娇·赤壁怀古
-						</a>
-						<p>
-							    念奴娇·赤壁怀古
-
-    苏轼
-
-    大江东去，浪淘尽，千古风流人物。故垒西边，人道是，三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。遥想公瑾当年，小乔初嫁了，雄姿英发。羽扇纶巾，谈笑间，樯橹灰飞...
-						</p>
-					</div>
-
-					<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">				
-						<img src="/img/post-cover/20.jpg" class="relateImg" alt="念奴娇·赤壁怀古">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/01/27/如梦令·昨夜雨疏风骤/" title="如梦令·昨夜雨疏风骤">
-							如梦令·昨夜雨疏风骤
-						</a>
-						<p>
-							如梦令·昨夜雨疏风骤[宋] 李清照昨夜雨疏风骤，浓睡不消残酒，试问卷帘人，却道海棠依旧。知否，知否?应是绿肥红瘦。
-
-						</p>
-					</div>
-
-					<a href="/2019/01/27/如梦令·昨夜雨疏风骤/" title="如梦令·昨夜雨疏风骤">				
-						<img src="/img/post-cover/2.png" class="relateImg" alt="如梦令·昨夜雨疏风骤">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">
-							tp5学习笔记2
-						</a>
-						<p>
-							    tp5学习笔记2
-
-1、配置文件格式    a) ThinkPHP支持多种格式的配置格式，但最终都是解析为PHP数组的方式。
-b) 我们主要的学习形式就是数组
-    return [
-        &apos;name&a...
-						</p>
-					</div>
-
-					<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">				
-						<img src="/img/post-cover/25.jpg" class="relateImg" alt="tp5学习笔记2">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -508,6 +637,26 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 		
 				<li>
 					<div>
+						<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">
+							念奴娇·赤壁怀古
+						</a>
+						<p>
+							    念奴娇·赤壁怀古
+
+    苏轼
+
+    大江东去，浪淘尽，千古风流人物。故垒西边，人道是，三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。遥想公瑾当年，小乔初嫁了，雄姿英发。羽扇纶巾，谈笑间，樯橹灰飞...
+						</p>
+					</div>
+
+					<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">				
+						<img src="/img/post-cover/20.jpg" class="relateImg" alt="念奴娇·赤壁怀古">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/04/03/数据库/" title="数据库">
 							数据库
 						</a>
@@ -560,6 +709,40 @@ a可以表示成a = kb + r（a，b...
 
 					<a href="/2019/03/27/gcd算法/" title="gcd算法">				
 						<img src="/img/post-cover/17.jpg" class="relateImg" alt="gcd算法">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/25/SQL连接/" title="SQL连接">
+							SQL连接
+						</a>
+						<p>
+							 sql连接操作
+
+left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
+						</p>
+					</div>
+
+					<a href="/2019/03/25/SQL连接/" title="SQL连接">				
+						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/25/hello-world/" title="Hello World">
+							Hello World
+						</a>
+						<p>
+							Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
+						</p>
+					</div>
+
+					<a href="/2019/03/25/hello-world/" title="Hello World">				
+						<img src="/img/cart_cover.png" class="relateImg" alt="Hello World">
 					</a>
 				</li>											
 		
