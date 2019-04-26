@@ -297,7 +297,7 @@
 	更新于
 	<a href="/2019/04/25/tp5学习笔记1/" itemprop="url">
 		<time datetime="2019-04-25T15:51:47.000Z" itemprop="dateUpdated">
-	  		2019-04-25
+	  		2019-04-26
 	  </time>
 	</a> 	
 
@@ -388,7 +388,7 @@
     b、在控制器中能书写代码
         &lt;?php 
         // 声明命名空间
-        namespace app/index/controller;
+        namespace app\index\controller;
         // 声明控制器
         class User{
             // index 方法
@@ -433,18 +433,18 @@
 </code></pre><p>10、命名空间<br>    与目录有关(以前台index控制器命名空间为例)    </p>
 <pre><code>/var/www/tp5/application/index/controller
 
-namespace app/index/controller;
+namespace app\index\controller;
 </code></pre><p>11、跨控制器调用</p>
 <pre><code>1、使用命名空间
 
-    $model=new /app/admin/controller/Index;
+    $model=new \app\admin\controller\Index;
 
     echo $model-&gt;index();
 
 
 2、使用use
 
-    use /app/admin/controller/Index as AdminIndex;
+    use \app\admin\controller\Index as AdminIndex;
     $model=new AdminIndex();
 
     echo $model-&gt;index();
@@ -455,6 +455,77 @@ namespace app/index/controller;
     $model=controller(&apos;admin/Index&apos;);
 
     echo $model-&gt;index();
+</code></pre><p>12、调用方法<br>    1、调用当前控制器的test方法</p>
+<pre><code>    1、使用面向对象的技术
+        echo $this-&gt;test();
+        echo self::test();
+        echo Index::test();
+
+    2、使用系统方法
+        echo action(&apos;test&apos;);
+
+2、调用User控制器下的index方法
+    1、命名空间
+        $model=new \app\index\controller\User;
+
+        echo $model-&gt;index();
+
+    2、使用系统方法
+        echo action(&apos;User/index&apos;);
+
+3、调用后台模块下Index控制器index方法
+    1、命名空间
+        $model=new \app\admin\controller\Index;
+        echo $model-&gt;index();
+
+    2、使用系统方法
+        echo action(&apos;admin/Index/index&apos;);
+</code></pre><p>13、主要分析TP执行流程<br>    1、入口文件(C:\AppServ\www\tp5\public\index.php)<br>        作用:<br>            1)定义目录常量</p>
+<pre><code>        2)加载框架引导目录
+2、加载框架的引导文件(/var/www/tp5/thinkphp/start.php)
+    作用:
+        1) 引导基础文件
+
+        2) 对应用进行运转
+
+3、加载框架的基础引导文件(/var/www/tp5/thinkphp/base.php);
+    作用:
+        1) 加载系统常量
+
+        2) 引入loader类 (/var/www/tp5/thinkphp/library/think/loader.php)
+
+
+        3) 引入环境变量
+
+        4) 注册自动记载机制
+
+        5) 注册异常处理机制(/var/www/tp5/thinkphp/library/think/Error.php)
+
+        6) 记载惯例配置(/var/www/tp5/thinkphp/convention.php)
+
+4、运行应用(/var/www/tp5/thinkphplibrary/think/App.php) 下的run方法;
+
+    1、第一步: 加载当前控制器中 initCommon() 方法
+
+
+    2、第二步: 加载当前控制器中 init() 方法
+        1、加载各种配置文件
+        2、加载公共文件
+        3、加载语言包
+
+    3、第三步: 设置时区
+
+    4、第四步: 加载当前控制器 routeCheck() 方法 路由检测
+
+    5、第五步: 调用控制器中exec方法
+        根据用户请求进行分发处理
+
+    6、第六步: 根据不同请求类型记载对应文件 module方法
+
+        加载到对应的控制器和对应方法
+
+5、响应输出
+    用户看到的所有界面就加载出来了
 </code></pre>	
 	</div>
 	
