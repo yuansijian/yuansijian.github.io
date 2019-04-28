@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      SPFA | 守护
+      tp5学习笔记5 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《SPFA》
+						当前文章&nbsp;:&nbsp;《tp5学习笔记5》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/02/23/SPFA/" itemprop="url">
-		SPFA
+	<a href="/2019/04/28/tp5学习笔记5/" itemprop="url">
+		tp5学习笔记5
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/02/23/SPFA/" itemprop="url">
-		<time datetime="2019-02-23T12:09:29.000Z" itemprop="datePublished">
-	  		2019-02-23
+	<a href="/2019/04/28/tp5学习笔记5/" itemprop="url">
+		<time datetime="2019-04-28T07:28:08.000Z" itemprop="datePublished">
+	  		2019-04-28
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/02/23/SPFA/" itemprop="url">
-		<time datetime="2019-02-23T12:09:29.000Z" itemprop="dateUpdated">
-	  		2019-02-23
+	<a href="/2019/04/28/tp5学习笔记5/" itemprop="url">
+		<time datetime="2019-04-28T07:28:08.000Z" itemprop="dateUpdated">
+	  		2019-04-28
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/蓝桥杯/" class=" ">
-			蓝桥杯
+		<a href="/tags/thinkPhp5/" class=" ">
+			thinkPhp5
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/02/23/SPFA/_visitors" data-url="/2019/02/23/SPFA/" data-title="SPFA">
+    <span class="leancloud_visitors" id="/2019/04/28/tp5学习笔记5/_visitors" data-url="/2019/04/28/tp5学习笔记5/" data-title="tp5学习笔记5">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/02/23/SPFA/_likes" data-url="/2019/02/23/SPFA/" data-title="SPFA" rel="unlike">
+    <span class="leancloud_likes" id="/2019/04/28/tp5学习笔记5/_likes" data-url="/2019/04/28/tp5学习笔记5/" data-title="tp5学习笔记5" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,17 +335,224 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><center> 算法训练-最短路径  </center></p>
-<p>适用范围：给定的图存在负权边，这时类似Dijkstra等算法便没有了用武之地，而Bellman-Ford算法的复杂度又过高，SPFA算法便派上用场了。 我们约定有向加权图G不存在负权回路，即最短路径一定存在。当然，我们可以在执行该算法前做一次拓扑排序，以判断是否存在负权回路，但这不是我们讨论的重点。   </p>
-<p>算法思想：我们用数组d记录每个结点的最短路径估计值，用邻接表来存储图G。我们采取的方法是动态逼近法：设立一个先进先出的队列用来保存待优化的结点，优化时每次取出队首结点u，并且用u点当前的最短路径估计值对离开u点所指向的结点v进行松弛操作，如果v点的最短路径估计值有所调整，且v点不在当前的队列中，就将v点放入队尾。这样不断从队列中取出结点来进行松弛操作，直至队列空为止   </p>
-<p>期望的时间复杂度O(ke)， 其中k为所有顶点进队的平均次数，可以证明k一般小于等于2。   </p>
-<p>实现方法：<br>　　建立一个队列，初始时队列里只有起始点，再建立一个表格记录起始点到所有点的最短路径（该表格的初始值要赋为极大值，该点到他本身的路径赋为0）。然后执行松弛操作，用队列里有的点作为起始点去刷新到所有点的最短路，如果刷新成功且被刷新点不在队列中则把该点加入到队列最后。重复执行直到队列为空。</p>
-<p>判断有无负环：<br>　　如果某个点进入队列的次数超过N次则存在负环（SPFA无法处理带负环的图）  </p>
-<p>实现代码及注释：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define MAX 200001</span><br><span class="line">#define INF 99999999    //表示无穷大</span><br><span class="line">typedef struct XNode</span><br><span class="line">&#123;</span><br><span class="line">    int pow;</span><br><span class="line">    int adjvex;</span><br><span class="line">    struct XNode *next;</span><br><span class="line">&#125;Node;</span><br><span class="line">Node *head[MAX];</span><br><span class="line">int visit[MAX], dis[MAX];</span><br><span class="line">//邻接表存储图</span><br><span class="line">void add(int u, int v, int w)</span><br><span class="line">&#123;</span><br><span class="line">    Node *p;</span><br><span class="line">    p = (Node*)malloc(sizeof(Node));</span><br><span class="line">    p-&gt;pow = w;</span><br><span class="line">    p-&gt;adjvex = v;</span><br><span class="line">    p-&gt;next = head[u];</span><br><span class="line">    head[u] = p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//SPFA算法</span><br><span class="line">void SPFA(int n)</span><br><span class="line">&#123;</span><br><span class="line">    int u, v, w;</span><br><span class="line">    queue&lt;int&gt; Q;</span><br><span class="line">    Node *p;</span><br><span class="line">    for(int i=1; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        visit[i] = 0;       //初始化，未进队列的标记为0</span><br><span class="line">        dis[i] = INF;       //初始化为无穷大</span><br><span class="line">    &#125;</span><br><span class="line">    Q.push(1);      //起点入队列</span><br><span class="line">    dis[1] = 0;</span><br><span class="line">    visit[1] = 1;</span><br><span class="line">    while(!Q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        u = Q.front();      //取head</span><br><span class="line">        Q.pop();        //head出队列</span><br><span class="line">        for(p=head[u]; p!=NULL; p=p-&gt;next)      //找到与u相连的点</span><br><span class="line">        &#123;</span><br><span class="line">            v = p-&gt;adjvex;      </span><br><span class="line">            w = p-&gt;pow;</span><br><span class="line">            //松弛操作</span><br><span class="line">            if(dis[u]+w &lt; dis[v])</span><br><span class="line">            &#123;</span><br><span class="line">                dis[v] = dis[u] + w;</span><br><span class="line">                if(!visit[v])</span><br><span class="line">                &#123;</span><br><span class="line">                    visit[v] = 1;</span><br><span class="line">                    Q.push(v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n, m, v1, v2, w;</span><br><span class="line">    memset(head, NULL, sizeof (head));</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    for(int i=1; i&lt;=m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; v1 &gt;&gt; v2 &gt;&gt; w;</span><br><span class="line">        add(v1, v2, w);</span><br><span class="line">    &#125;</span><br><span class="line">    SPFA(n);</span><br><span class="line">    for(int i=2; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; dis[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-	
+		<center><br>    tp5学习笔记5<br></center>
+
+<p>1、系统类(/var/www/tp5/thinkphp/library/think)    </p>
+<pre><code>Config
+Controller
+Env
+Route
+Url
+View
+Request 
+</code></pre><p>2、系统方法(/var/www/tp5/thinkphp/helper.php)</p>
+<pre><code>dump();  格式化输出
+controller(); 调用控制器
+action(); 调用方法
+config(); 读取和设置配置文件
+url(); 生成URL地址
+view(); 加载页面
+request(); 实例化 Request类
+</code></pre><p>3、如何获取请求类</p>
+<pre><code>1、系统函数
+    $request=request();
+
+2、系统Request类
+
+    use think\Request;
+    // 因为Request类属于单例模式 所以 不能直接new
+    $request=Request::instance();
+
+3、系统Request类
+    use think\Request;
+    // 方法的书写
+    public function index(Request $request)
+    {
+        dump($request);
+    }
+</code></pre><p>4、获取用户请求信息</p>
+<pre><code>1、获取域名
+    dump($request-&gt;domain());
+2、获取URL地址 除域名以外
+    dump($request-&gt;url());
+3、 获取入口文件
+    dump($request-&gt;baseFile());
+4、获取PathInfo路径
+    dump($request-&gt;pathinfo());
+5、获取PATHINFO路径 无后缀
+    dump($request-&gt;path());
+6、url地址伪静态后缀
+    dump($request-&gt;ext());
+
+7、伪静态
+    就是将路径伪装成静态页面，让搜索引擎更好收录网站，防止别人知道网站真实开发语言
+</code></pre><p>5、获取请求模块\控制器\方法</p>
+<pre><code>1、控制器
+
+    $request-&gt;controller();
+
+2、方法
+    $request-&gt;action();
+
+3、模块
+
+    $request-&gt;module();
+</code></pre><p>6、获取请求相关类型</p>
+<pre><code>1、请求类型
+    $request-&gt;method();
+
+2、请求资源类型
+
+    $request-&gt;type();
+
+3、访问地址
+
+    $request-&gt;ip();
+
+4、是否ajax请求
+
+    $request-&gt;isAjax();
+
+
+5、获取所有地址栏参数
+    $request-&gt;param();
+
+6、获取特定字段
+
+    $request-&gt;only([&apos;name&apos;,&apos;id&apos;]);
+
+7、剔除字段
+
+    $request-&gt;except([&apos;name&apos;,&apos;id&apos;]);
+</code></pre><p>7、获取变量</p>
+<pre><code>1、判断是否存在
+    dump($request-&gt;has(&apos;id&apos;,&apos;get&apos;));
+    dump(input(&apos;?get.id&apos;));
+
+2、读取变量
+    dump($request-&gt;get(&apos;id&apos;));
+    dump(input(&apos;get.id&apos;));
+
+    dump($request-&gt;get());
+    dump(input(&apos;get.&apos;));
+
+3、可以读取数据类型
+    get、post、delete、put、session、cookie、server 等
+    $request-&gt;get();
+    $request-&gt;post();
+    $request-&gt;put();
+    $request-&gt;server();
+    $request-&gt;request();
+    $request-&gt;session();
+    $request-&gt;cookie();
+</code></pre><p>8、变量的过滤</p>
+<pre><code>1、作用    
+        防止恶意输入、防止sql注入
+2、使用
+    1、全部的数据进行过滤
+        // 单个方法过滤
+        $request-&gt;filter(&quot;htmlspecialchars&quot;);
+        // 多种方法过滤
+        $request-&gt;filter([&quot;htmlspecialchars&quot;,&quot;strip_tags&quot;]);
+
+    2、针对变量过滤
+        $request-&gt;get(&apos;name&apos;,&apos;&apos;,&apos;htmlspecialchars&apos;);
+
+    3、密码过滤之后加密
+        dump($request-&gt;get(&apos;pass&apos;,&apos;&apos;,&apos;htmlspecialchars,md5&apos;));
+</code></pre><p>9、变量的排除和获取    </p>
+<pre><code>1、获取
+    $request-&gt;only(&apos;name&apos;);
+    $request-&gt;only(&apos;name&apos;,get);
+    $request-&gt;only([&apos;name&apos;,&apos;pass&apos;],get);
+2、排除
+
+    $request-&gt;except([&apos;name&apos;,&apos;pass&apos;],get);
+    $request-&gt;except([&apos;name&apos;,&apos;pass&apos;]);
+    $request-&gt;except(&apos;name&apos;);
+</code></pre><p>10、变量修饰符</p>
+<pre><code>1、修饰变量的类型
+    s 字符串
+    d 整形
+    f 浮点型
+    a 数组
+    b 布尔型
+
+2、使用
+    dump(input(&apos;get.id/d&apos;)); // 强制转换整形
+
+    dump($request-&gt;get(&apos;id/d&apos;));
+</code></pre><p>11、更改变量</p>
+<pre><code>// 地址栏访问 http://www.tp.com/index.php/Index/Index/xiugai?id=10
+    dump($request-&gt;get(&apos;id&apos;));  // 10
+    dump($request-&gt;get([&apos;id&apos;=&gt;20]));  //数组
+dump($request-&gt;get(&apos;id&apos;));  // 20
+</code></pre><p>12、请求类型判断</p>
+<pre><code>1、系统类
+    // 判断是否是get请求
+    dump($request-&gt;isGet());
+    // 判断是否是手机端
+    dump($request-&gt;isMobile());
+
+2、系统函数
+    dump(request()-&gt;isGet());
+    dump(request()-&gt;isMobile());
+</code></pre><p>13、模拟put、delete请求</p>
+<pre><code>1、使用
+    &lt;form action=&quot;{:url(&apos;type&apos;)}&quot; method=&quot;post&quot;&gt;
+        &lt;p&gt;
+            User:
+            &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;&quot;&gt;
+            &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot;&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            Pass:
+            &lt;input type=&quot;password&quot; name=&quot;pass&quot; id=&quot;&quot;&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+        &lt;/p&gt;
+    &lt;/form&gt;
+
+2、注意
+    1、表单的请求类型必须是post
+
+    2、需要设置隐藏域传递模拟请求类型
+</code></pre><p>14、模拟ajax请求和PJAX请求</p>
+<pre><code>1、模拟ajax请求
+        http://www.tp.com/index.php/index/index/type?_ajax=10
+2、模拟pjax请求
+    http://www.tp.com/index.php/index/index/type?_pjax=10
+</code></pre><p>15、伪静态</p>
+<pre><code>1、作用
+        1) URL伪静态通常是为了满足更好的SEO效果
+        2) 为了网站的安全
+2、修改伪静态
+    在配置文件中进行修改
+
+    &apos;url_html_suffix&apos;        =&gt; &apos;shtml&apos;,
+
+3、获取当前的伪静态后缀
+    $request-&gt;ext();
+</code></pre><p>16、参数绑定</p>
+<pre><code>1、使用
+public function banding($id,$name=&quot;admin&quot;){
+     dump($id);
+     dump($name);
+    }
+
+    http://www.tp.com/index.php/index/index/banding/id/1/name/user
+
+2、注意
+    1、参数绑定的个数，少于地址栏参数的个数
+
+    2、参数绑定的名字，必须和地址栏参数名字一一对应
+
+    3、参数绑定可以设置默认值
+</code></pre>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/13.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/28.png"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -359,12 +566,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/03/01/牛客网练习/" title="牛客网练习" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/02/22/最短路径/" title="最短路径" rel="next">
+			<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -382,183 +585,197 @@
 		
 				<li>
 					<div>
-						<a href="/2019/02/22/最短路径/" title="最短路径">
-							最短路径
+						<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">
+							tp5学习笔记4
 						</a>
 						<p>
-							 最短路径   
-建立邻接表（邻接矩阵也可以）12345678struct Node&#123;    int v;          //顶点    int dis;        //权值    Node(int x, int y...
+							    tp5学习笔记4
+
+1、新建控制器(前台模块为例)
+1、在前台控制器目录下(/var/www/tp5/application/index/controller) 新建控制器文件 User.php
+
+2、User.php文件中如...
 						</p>
 					</div>
 
-					<a href="/2019/02/22/最短路径/" title="最短路径">				
-						<img src="/img/post-cover/12.png" class="relateImg" alt="最短路径">
+					<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">				
+						<img src="/img/post-cover/27.png" class="relateImg" alt="tp5学习笔记4">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">
-							算法训练-审美课
+						<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">
+							tp5学习笔记3
 						</a>
 						<p>
-							算法训练-审美课   
-思路：
-统计所有相同字符串的个数寻找和本身字符串数字完全相反的字符串两个字符串个数相乘将所有相乘的和加起来大佬解题思路：用map&lt;string,int&gt;cnt 存   
-注意：map&lt;stri...
+							    tp5学习笔记3
+
+1、路由作用:    1、简化URL地址，方便大家记忆
+2、有利于搜索引擎优化
+2、入口文件:
+1、前后台分离
+
+    a、在网站public目录下(/var/www/tp5/public) 新建admi...
 						</p>
 					</div>
 
-					<a href="/2019/02/19/算法训练-审美课/" title="算法训练-审美课">				
-						<img src="/img/post-cover/11.png" class="relateImg" alt="算法训练-审美课">
+					<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">				
+						<img src="/img/post-cover/26.jpg" class="relateImg" alt="tp5学习笔记3">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs">
-							简单dfs和bfs
+						<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">
+							tp5学习笔记2
 						</a>
 						<p>
-							 简单dfs和bfs
-主要为如何做标记及递归处理
- 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950...
+							    tp5学习笔记2
+
+1、配置文件格式    a) ThinkPHP支持多种格式的配置格式，但最终都是解析为PHP数组的方式。
+b) 我们主要的学习形式就是数组
+    return [
+        &apos;name&a...
 						</p>
 					</div>
 
-					<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs">				
-						<img src="/img/post-cover/10.jpg" class="relateImg" alt="简单dfs和bfs">
+					<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">				
+						<img src="/img/post-cover/25.jpg" class="relateImg" alt="tp5学习笔记2">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/18/快速排序/" title="快速排序">
-							快速排序
+						<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1">
+							tp5学习笔记1
 						</a>
 						<p>
-							快速排序(Quick Sort)  
-主要事如何划分再排序，使用递归方法，即创建两个函数，一个划分，一个排序。划分伪代码：123456789101112i = lowx = A[low]for j=low+1 to high     ...
+							    tp5学习笔记1
+
+1、TP架构的概述    
+ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型（M）、视图（V）、控制器（C），它们各自处理自己的任务...
 						</p>
 					</div>
 
-					<a href="/2019/02/18/快速排序/" title="快速排序">				
-						<img src="/img/post-cover/9.png" class="relateImg" alt="快速排序">
+					<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1">				
+						<img src="/img/post-cover/24.png" class="relateImg" alt="tp5学习笔记1">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/归并排序/" title="归并排序">
-							归并排序
+						<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">
+							tp5学习笔记
 						</a>
 						<p>
-							 归并排序(Merge Sort)  
-是创建在归并操作上的一种有效的排序算法，效率为O(nlog n)（大O符号）。1945年由约翰·冯·诺伊曼首次提出。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用...
+							    tp5学习笔记
+
+1、目录结构    |-application 应用目录 是整个网站的核心    |—|—index 前台目录    |—|—–|—controller 控制器    |—|—–|—model 数据模型   ...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/归并排序/" title="归并排序">				
-						<img src="/img/post-cover/8.png" class="relateImg" alt="归并排序">
+					<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">				
+						<img src="/img/post-cover/23.jpg" class="relateImg" alt="tp5学习笔记">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/插入排序/" title="插入排序">
-							插入排序
+						<a href="/2019/04/22/关于完善hexo主题/" title="关于完善hexo主题">
+							关于完善hexo主题
 						</a>
 						<p>
-							 插入排序(Insert Sort)  
-插入排序（英语：Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采...
+							    完善hexo主题
+
+1.完善评论机制
+​    使用Gitalk评论插件,除了按照https://github.com/Sariay/hexo-theme-Annie这里配置外, 注意除了填写自己的ClientID和Clien...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/插入排序/" title="插入排序">				
-						<img src="/img/post-cover/7.jpg" class="relateImg" alt="插入排序">
+					<a href="/2019/04/22/关于完善hexo主题/" title="关于完善hexo主题">				
+						<img src="/img/post-cover/22.jpg" class="relateImg" alt="关于完善hexo主题">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/冒泡排序/" title="冒泡排序">
-							冒泡排序
+						<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">
+							thinkPhp目录
 						</a>
 						<p>
-							冒泡排序(Bubble Sort)
-是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是...
+							    thinkPhp目录结构
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546project  应用部署目录 ...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/冒泡排序/" title="冒泡排序">				
-						<img src="/img/post-cover/6.jpg" class="relateImg" alt="冒泡排序">
+					<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">				
+						<img src="/img/post-cover/21.png" class="relateImg" alt="thinkPhp目录">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/选择排序/" title="选择排序">
-							选择排序
+						<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">
+							念奴娇·赤壁怀古
 						</a>
 						<p>
-							选择排序  
-选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排...
+							    念奴娇·赤壁怀古
+
+    苏轼
+
+    大江东去，浪淘尽，千古风流人物。故垒西边，人道是，三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。遥想公瑾当年，小乔初嫁了，雄姿英发。羽扇纶巾，谈笑间，樯橹灰飞...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/选择排序/" title="选择排序">				
-						<img src="/img/post-cover/5.png" class="relateImg" alt="选择排序">
+					<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">				
+						<img src="/img/post-cover/20.jpg" class="relateImg" alt="念奴娇·赤壁怀古">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/01/27/链表基本操作/" title="链表基本操作">
-							链表基本操作
+						<a href="/2019/04/03/数据库/" title="数据库">
+							数据库
 						</a>
 						<p>
-							 链表基本操作
-首先生成一个结构体，例如struct node{    int data;    node *link;};  
-1、创建单链表123456789101112131415161718192021222324252627...
+							    牛客网–数据库
+
+1、数据库系统由数据库(数据)、数据库管理系统(软件)、数据库管理员(人员)、硬件平台(硬件)、软件平台5个部分构成。其中数据库管理系统是数据库系统的核心，它负责数据库中的数据组织、数据操纵、数据维护、控制及...
 						</p>
 					</div>
 
-					<a href="/2019/01/27/链表基本操作/" title="链表基本操作">				
-						<img src="/img/post-cover/1-1.png" class="relateImg" alt="链表基本操作">
+					<a href="/2019/04/03/数据库/" title="数据库">				
+						<img src="/img/post-cover/19.jpg" class="relateImg" alt="数据库">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">
-							tp5学习笔记5
+						<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法">
+							扩展欧几里得算法
 						</a>
 						<p>
-							    tp5学习笔记5
+							    扩展欧几里得算法
 
-1、系统类(/var/www/tp5/thinkphp/library/think)    
-Config
-Controller
-Env
-Route
-Url
-View
-Request 
-2、系统方法(/va...
+用于求ax+by=gcd（a, b）；
+代码实现：
+1234567def ext_euclid(a, b):     if b == 0:         return 1, 0, a     else: ...
 						</p>
 					</div>
 
-					<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">				
-						<img src="/img/post-cover/28.png" class="relateImg" alt="tp5学习笔记5">
+					<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法">				
+						<img src="/img/post-cover/18.jpg" class="relateImg" alt="扩展欧几里得算法">
 					</a>
 				</li>											
 		

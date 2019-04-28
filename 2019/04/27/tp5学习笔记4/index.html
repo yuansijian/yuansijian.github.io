@@ -297,7 +297,7 @@
 	更新于
 	<a href="/2019/04/27/tp5学习笔记4/" itemprop="url">
 		<time datetime="2019-04-27T08:57:58.000Z" itemprop="dateUpdated">
-	  		2019-04-27
+	  		2019-04-28
 	  </time>
 	</a> 	
 
@@ -390,14 +390,16 @@
 3、系统函数
 
     return view();
-</code></pre><p>3、数据输出<br>    1、在应用配置文件中可以设置数据返回格式</p>
-<pre><code>    &apos;default_return_type&apos;    =&gt; &apos;json&apos;, #默认是html
+</code></pre><p>3、数据输出</p>
+<pre><code>1、在应用配置文件中可以设置数据返回格式
+    &apos;default_return_type&apos;    =&gt; &apos;json&apos;, #默认是html
 
 2、ajax请求的时候如何返回数据
 
     &apos;default_ajax_return&apos;    =&gt; &apos;json&apos;,
-</code></pre><p>4、控制器的初始化<br>    1、控制器初始化方法必须继承系统控制器</p>
-<pre><code>    // 控制器的初始化方法
+</code></pre><p>4、控制器的初始化</p>
+<pre><code>1、控制器初始化方法必须继承系统控制器
+    // 控制器的初始化方法
     public function _initialize(){
         echo &quot;我是初始化方法&quot;;
     }
@@ -423,8 +425,9 @@
         &apos;three&apos;=&gt;[&apos;only&apos;=&gt;&apos;index&apos;],
     ];
 </code></pre><p>6、页面跳转</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0、页面跳转基于系统控制器类，所以控制器必须继承系统控制器</span><br></pre></td></tr></table></figure>
-<pre><code>1、方法所在路径
+<pre><code>0、页面跳转基于系统控制器类，所以控制器必须继承系统控制器
+
+1、方法所在路径
     /var/www\tp5/thinkphp/library/traits/controlle/Jump.php
 
 2、跳转方式
@@ -478,8 +481,11 @@ b、用户自定义页面跳转模板
 
     $this-&gt;redirect(&apos;index/index&apos;,[&apos;id&apos;=&gt;100,&apos;name&apos;=&gt;&apos;abc&apos;]);
 </code></pre><p>8、空控制器和空操作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、空操作</span><br><span class="line"></span><br><span class="line">	# 主要解决一些用户恶意的地址栏输入，报错影响交互</span><br><span class="line">		public function _empty()&#123;</span><br><span class="line">        	$this-&gt;redirect(&apos;index/index&apos;);</span><br></pre></td></tr></table></figure>
-<pre><code>    }
+<pre><code>1、空操作
+    # 主要解决一些用户恶意的地址栏输入，报错影响交互
+    public function _empty(){
+    $this-&gt;redirect(&apos;index/index&apos;);
+    }
 
 2、空控制器
     // 声明命名空间
@@ -503,8 +509,9 @@ b、用户自定义页面跳转模板
 
     2、不论前台后台都需要写一个空控制器
 </code></pre><p>9、使用命令行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1、切换到网站的根目录下</span><br></pre></td></tr></table></figure>
-<pre><code>2、输入php think
+<pre><code>1、切换到网站的根目录下
+
+2、输入php think
 
 3、使用
     1、创建控制器
@@ -517,9 +524,9 @@ b、用户自定义页面跳转模板
         php think clear
 </code></pre><p>10、资源控制器<br>    1、使用命令行创建控制器<br>        php think make:controller app\index\controller\Goods</p>
 <p>​    2、资源控制器一般配合资源路由使用.<br>11、系统类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Config</span><br><span class="line">Env</span><br><span class="line">Controller</span><br><span class="line">View</span><br><span class="line">Route</span><br><span class="line">URL</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Config</span><br><span class="line">Env</span><br><span class="line">Controller</span><br><span class="line">View</span><br><span class="line">Route</span><br><span class="line">URL</span><br></pre></td></tr></table></figure>
 <p>12、系统方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">config(); </span><br><span class="line">	view();</span><br><span class="line">	controller();</span><br><span class="line">	action();</span><br><span class="line">	url();</span><br><span class="line">	dump();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">config(); </span><br><span class="line">view();</span><br><span class="line">controller();</span><br><span class="line">action();</span><br><span class="line">url();</span><br><span class="line">dump();</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
@@ -537,6 +544,10 @@ b、用户自定义页面跳转模板
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
+			<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5" rel="prev">
+				&laquo;上一篇
+			</a>
+		
 		
 			<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3" rel="next">
 				下一篇&raquo;
@@ -553,6 +564,32 @@ b、用户自定义页面跳转模板
 
 <div class="relate-post">
 	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">
+							tp5学习笔记5
+						</a>
+						<p>
+							    tp5学习笔记5
+
+1、系统类(/var/www/tp5/thinkphp/library/think)    
+Config
+Controller
+Env
+Route
+Url
+View
+Request 
+2、系统方法(/va...
+						</p>
+					</div>
+
+					<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">				
+						<img src="/img/post-cover/28.png" class="relateImg" alt="tp5学习笔记5">
+					</a>
+				</li>											
+		
 		
 				<li>
 					<div>
@@ -726,26 +763,6 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 
 					<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法">				
 						<img src="/img/post-cover/18.jpg" class="relateImg" alt="扩展欧几里得算法">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/27/gcd算法/" title="gcd算法">
-							gcd算法
-						</a>
-						<p>
-							    gcd算法
-
-欧几里德算法又称辗转相除法，是指用于计算两个正整数a，b的正整数。应用领域有数学和计算机两个方面。计算公式gcd(a,b) = gcd(b,a mod b)。  
-证明：
-a可以表示成a = kb + r（a，b...
-						</p>
-					</div>
-
-					<a href="/2019/03/27/gcd算法/" title="gcd算法">				
-						<img src="/img/post-cover/17.jpg" class="relateImg" alt="gcd算法">
 					</a>
 				</li>											
 		
