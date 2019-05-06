@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      tp5学习笔记 | 守护
+      ACID | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《tp5学习笔记》
+						当前文章&nbsp;:&nbsp;《ACID》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/25/tp5学习笔记/" itemprop="url">
-		tp5学习笔记
+	<a href="/2019/05/06/ACID/" itemprop="url">
+		ACID
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/25/tp5学习笔记/" itemprop="url">
-		<time datetime="2019-04-25T07:39:47.000Z" itemprop="datePublished">
-	  		2019-04-25
+	<a href="/2019/05/06/ACID/" itemprop="url">
+		<time datetime="2019-05-06T09:27:23.000Z" itemprop="datePublished">
+	  		2019-05-06
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/25/tp5学习笔记/" itemprop="url">
-		<time datetime="2019-04-25T07:39:47.000Z" itemprop="dateUpdated">
-	  		2019-04-28
+	<a href="/2019/05/06/ACID/" itemprop="url">
+		<time datetime="2019-05-06T09:27:23.000Z" itemprop="dateUpdated">
+	  		2019-05-06
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/thinkPhp5/" class=" ">
-			thinkPhp5
+		<a href="/tags/Mysql/" class=" ">
+			Mysql
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/25/tp5学习笔记/_visitors" data-url="/2019/04/25/tp5学习笔记/" data-title="tp5学习笔记">
+    <span class="leancloud_visitors" id="/2019/05/06/ACID/_visitors" data-url="/2019/05/06/ACID/" data-title="ACID">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/25/tp5学习笔记/_likes" data-url="/2019/04/25/tp5学习笔记/" data-title="tp5学习笔记" rel="unlike">
+    <span class="leancloud_likes" id="/2019/05/06/ACID/_likes" data-url="/2019/05/06/ACID/" data-title="ACID" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,83 +335,18 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    tp5学习笔记<br></center>
+		<center><br>    数据库的ACID性质<br></center>
 
-<p>1、目录结构<br>    |-application 应用目录 是整个网站的核心<br>    |—|—index 前台目录<br>    |—|—–|—controller 控制器<br>    |—|—–|—model 数据模型<br>    |—|—–|—view 页面<br>    |—|—admin 后台目录<br>    |-extend 扩展类库目录<br>    |-public 静态资源和入口文件<br>    |—|—static 存放静态资源 css、js、img<br>    |—|—index.php 入口文件<br>    |-runtime 网站运行临时目录<br>    |-tests 测试目录<br>    |-thinkphp TP框架的核心文件<br>    |—|—lang 语言包<br>    |—|—library TP核心文件<br>    |—|—tpl 模板页面<br>    |-vendor 第三方扩展目录</p>
-<p>2、URL地址了解</p>
-<pre><code>localhost    index.php   /Index   /Index    /index
-    域名        入口文件    前台    控制器     方法
-</code></pre><p>3、了解TP开发模式<br>    0、开始调试模式(C:/AppServ/www/tp5/application/config.php)<br>        ‘app_debug’              =&gt; true,</p>
-<pre><code>1、链接数据库(/var/www/tp5/application/database.php)
-
-    // 数据库类型
-    &apos;type&apos;            =&gt; &apos;mysql&apos;,
-    // 服务器地址
-    &apos;hostname&apos;        =&gt; &apos;127.0.0.1&apos;,
-    // 数据库名
-    &apos;database&apos;        =&gt; &apos;yzm&apos;,
-    // 用户名
-    &apos;username&apos;        =&gt; &apos;root&apos;,
-    // 密码
-    &apos;password&apos;        =&gt; &apos;123456789&apos;,
-
-2、控制器中书写代码(/var/www/tp5/application/index/controller/Index.php)
-    &lt;?php
-    namespace app/index/controller;
-    // 引入系统数据类
-    use think/Db;
-    // 引入系统控制器类
-    use think/Controller;
-    class Index extends Controller
-    {
-        public function index()
-        {
-
-            // 从数据库中读取数据
-            $data=Db::table(&apos;user&apos;)-&gt;select();
-            // 分配数据给页面
-            $this-&gt;assign(&apos;data&apos;,$data);
-            // 加载页面
-            return view();
-        }
-    }
-
-3、页面中(/var/www/tp5/application/index/view/index/index.html)
-    {volist name=&quot;data&quot; id=&quot;value&quot;}
-        &lt;tr&gt;
-            &lt;td&gt;{$value.id}&lt;/td&gt;
-            &lt;td&gt;{$value.name}&lt;/td&gt;
-            &lt;td&gt;{$value.pass}&lt;/td&gt;
-        &lt;/tr&gt;
-    {/volist}
-</code></pre><p>4、MVC模式</p>
-<pre><code>m model 模型
-v view 视图
-c controller 控制器
-</code></pre><p>5、MVC在TP中如何体现</p>
-<pre><code>1、M model 模型
-    #/var/www/tp5/application/index/model
-
-    作用: 执行数据库相关处理
-
-2、V view 视图
-    #/var/AppServ/www/tp5/application/index/view
-
-    作用：其实就是页面
-
-3、C Controller 控制器
-    #/var/AppServ/www/tp5/application/index/controller
-
-    作用：主要负责整个逻辑运转
-</code></pre><p><img src="/img/article-picture/23-1.png" alt="avatar"></p>
-<p>6、MVC的变形<br>    1、MC 模型和控制器</p>
-<p>​        主要用户借口开发</p>
-<pre><code>2、VC 视图和控制器
-    # 主要作用: 单页面的网站
-</code></pre>	
+<p>原子性:指整个数据库事务是不可分割的工作单位。只有使据库中所有的操作执行成功，才算整个事务成功；事务中任何一个SQL语句执行失败，那么已经执行成功的SQL语句也必须撤销，数据库状态应该退回到执行事务前的状态。即要么执行,要么不执行.  </p>
+<p>一致性:指数据库事务不能破坏关系数据的完整性以及业务逻辑上的一致性。例如银行转账业务,前后都要一致.   </p>
+<p>持久性:指的是只要事务成功结束，它对数据库所做的更新就必须永久保存下来。即使发生系统崩溃，重新启动数据库系统后，数据库还能恢复到事务成功结束时的状态。</p>
+<p>隔离性:指的是在并发环境中，当不同的事务同时操纵相同的数据时，每个事务都有各自的完整数据空间。由并发事务所做的修改必须与任何其他并发事务所做的修改隔离。事务查看数据更新时，数据所处的状态要么是另一事务修改它之前的状态，要么是另一事务修改它之后的状态，事务不会查看到中间状态的数据。</p>
+<p>事务的（ACID）特性是由关系数据库管理系统（RDBMS，数据库系统）来实现的。数据库管理系统采<strong>用日志来保证事务的原子性、一致性和持久性</strong>。日志记录了事务对数据库所做的更新，如果某个事务在执行过程中发生错误，就可以根据日志，撤销事务对数据库已做的更新，使数据库退回到执行事务前的初始状态。</p>
+<p>　　数据库管理系统<strong>采用锁机制来实现事务的隔离性</strong>。当多个事务同时更新数据库中相同的数据时，只允许持有锁的事务能更新该数据，其他事务必须等待，直到前一个事务释放了锁，其他事务才有机会更新该数据。</p>
+	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/23.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/29.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -425,12 +360,12 @@ c controller 控制器
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1" rel="prev">
+			<a href="/2019/05/06/数据库的锁/" title="数据库的锁" rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="/2019/04/22/关于完善hexo主题/" title="关于完善hexo主题" rel="next">
+			<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -445,6 +380,61 @@ c controller 控制器
 
 <div class="relate-post">
 	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
+							数据库的锁
+						</a>
+						<p>
+							    数据库的锁
+
+
+概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
+乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
+						</p>
+					</div>
+
+					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
+						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/25/SQL连接/" title="SQL连接">
+							SQL连接
+						</a>
+						<p>
+							 sql连接操作
+
+left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
+						</p>
+					</div>
+
+					<a href="/2019/03/25/SQL连接/" title="SQL连接">				
+						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">
+							mysql执行顺序
+						</a>
+						<p>
+							 mysql执行顺序  
+(1)from(3) join(2) on(4) where(5)group by(开始使用select中的别名，后面的语句中都可以使用)(6)avg,sum….(7)having(8) select(9) ...
+						</p>
+					</div>
+
+					<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">				
+						<img src="/img/post-cover/15.jpg" class="relateImg" alt="mysql执行顺序">
+					</a>
+				</li>											
+		
 		
 				<li>
 					<div>
@@ -558,56 +548,18 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 		
 				<li>
 					<div>
-						<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">
-							thinkPhp目录
+						<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">
+							tp5学习笔记
 						</a>
 						<p>
-							    thinkPhp目录结构
+							    tp5学习笔记
 
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546project  应用部署目录 ...
+1、目录结构    |-application 应用目录 是整个网站的核心    |—|—index 前台目录    |—|—–|—controller 控制器    |—|—–|—model 数据模型   ...
 						</p>
 					</div>
 
-					<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">				
-						<img src="/img/post-cover/21.png" class="relateImg" alt="thinkPhp目录">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
-							数据库的锁
-						</a>
-						<p>
-							    数据库的锁
-
-
-概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
-乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
-						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/ACID/" title="ACID">
-							ACID
-						</a>
-						<p>
-							    数据库的ACID性质
-
-原子性:指整个数据库事务是不可分割的工作单位。只有使据库中所有的操作执行成功，才算整个事务成功；事务中任何一个SQL语句执行失败，那么已经执行成功的SQL语句也必须撤销，数据库状态应该退回到执行事务前的...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/ACID/" title="ACID">				
-						<img src="/img/post-cover/29.jpg" class="relateImg" alt="ACID">
+					<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">				
+						<img src="/img/post-cover/23.jpg" class="relateImg" alt="tp5学习笔记">
 					</a>
 				</li>											
 		
@@ -627,26 +579,6 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 
 					<a href="/2019/04/22/关于完善hexo主题/" title="关于完善hexo主题">				
 						<img src="/img/post-cover/22.jpg" class="relateImg" alt="关于完善hexo主题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">
-							念奴娇·赤壁怀古
-						</a>
-						<p>
-							    念奴娇·赤壁怀古
-
-    苏轼
-
-    大江东去，浪淘尽，千古风流人物。故垒西边，人道是，三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。遥想公瑾当年，小乔初嫁了，雄姿英发。羽扇纶巾，谈笑间，樯橹灰飞...
-						</p>
-					</div>
-
-					<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古">				
-						<img src="/img/post-cover/20.jpg" class="relateImg" alt="念奴娇·赤壁怀古">
 					</a>
 				</li>											
 		
