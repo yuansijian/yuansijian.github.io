@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      牛客网练习 | 守护
+      tp5学习笔记7 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《牛客网练习》
+						当前文章&nbsp;:&nbsp;《tp5学习笔记7》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/03/01/牛客网练习/" itemprop="url">
-		牛客网练习
+	<a href="/2019/05/09/tp5学习笔记7/" itemprop="url">
+		tp5学习笔记7
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/03/01/牛客网练习/" itemprop="url">
-		<time datetime="2019-03-01T12:10:49.000Z" itemprop="datePublished">
-	  		2019-03-01
+	<a href="/2019/05/09/tp5学习笔记7/" itemprop="url">
+		<time datetime="2019-05-09T12:03:51.000Z" itemprop="datePublished">
+	  		2019-05-09
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/03/01/牛客网练习/" itemprop="url">
-		<time datetime="2019-03-01T12:10:49.000Z" itemprop="dateUpdated">
-	  		2019-03-03
+	<a href="/2019/05/09/tp5学习笔记7/" itemprop="url">
+		<time datetime="2019-05-09T12:03:51.000Z" itemprop="dateUpdated">
+	  		2019-05-09
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/linux/" class=" ">
-			linux
+		<a href="/tags/thinkPhp5/" class=" ">
+			thinkPhp5
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/03/01/牛客网练习/_visitors" data-url="/2019/03/01/牛客网练习/" data-title="牛客网练习">
+    <span class="leancloud_visitors" id="/2019/05/09/tp5学习笔记7/_visitors" data-url="/2019/05/09/tp5学习笔记7/" data-title="tp5学习笔记7">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/03/01/牛客网练习/_likes" data-url="/2019/03/01/牛客网练习/" data-title="牛客网练习" rel="unlike">
+    <span class="leancloud_likes" id="/2019/05/09/tp5学习笔记7/_likes" data-url="/2019/05/09/tp5学习笔记7/" data-title="tp5学习笔记7" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,12 +335,430 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><center> 牛客网练习–linux  </center></p>
-<p>1、Vi编辑器中，s/AAA/yyy/g将字符AAA全部替换成yyy<br>2、计划让系统自动在每个月的第一天早上4点钟执行一个维护工作，00 4 1 1-12 * /maintenance.pl（计划任务内容格式：分 时 日 月 周  命令/脚本）<br>3、linux中用使用tar命令tar -cf bak.tar  aaa将文件aaa打包为bak.tar<br>4、linux权限：<br>  （1）Linux下文件的权限类型一般包括读，写，执行。对应字母为 r、w、x。<br>  （2）Linux下权限的粒度有 拥有者 、群组 、其它组（每个粒度对应都有r、w、x） 三种。每个文件都可以针对三个粒度，设置不同的rwx(读写执行)权限。通常情况下，一个文件只能归属于一个用户和组， 如果其它的用户想有这个文件的权限，则可以将该用户加入具备权限的群组，一个用户可以同时归属于多个组。<br>  （3）文字设定法：u 表示“用户（user）”，即文件或目录的所有者，g 表示“同组（group）用户”，即与文件属主有相同组ID的所有用户， o 表示“其他（others）用户”， a 表示“所有（all）用户”，它是系统默认值。可+、-表示添加或删除某个权限。例chmod a+x,g+w exer1<br>  （4）Linux上通常使用chmod命令对文件的权限进行设置和更改。<br>5、Linux系统进程类型：<br>  （1）交互进程——由一个shell启动的进程。交互进程既可以在前台运行，也可以在后台运行。<br>  （2）批处理进程——这种进程和终端没有联系，是一个进程序列。<br>  （3）监控进程（也称守护进程）——Linux系统启动时启动的进程，并在后台运行。<br>6、查看file1文件的第300-500行的内容：<br>  （1）tail -n K是输出最后K行的内容。先输出前500行，然后输出其中从第300行开始的内容。cat file1| head -n 500 | tail -n + 300<br>  （2）直接通过sed -n命令获取指定范围的内容，其中p ：列印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行。sed -n ‘300,500p’ file1<br>7、last命令可以查看曾经登录到此系统的用户清单<br>8、Unix系统中，可以用于进程间的通讯：（1）socket （2）共享内存 （3）消息队列 （4）信号量<br>9、Linux系统上，/etc/passwd（存放用户的UID name 密码过期时间 修改时间等等）、/etc/shadow（存放用户的密码密文）、/etc/group（ 存放用户的所属组情况）与用户管理相关的配置文件<br>10、Linux下查看服务程序占用的端口命令是netstat –apn<br>11、tar -zcvf 目标文件 源文件。其中z表示gzip压缩，j表示bizp2压缩，c表示压缩，x表示解压缩<br>12、在Linux 系统中，在运行一个程序时，程序中未初始化的全局变量会被加载到BSS（Block Started by Symbol）中<br>13、挂载设备使用mount，卸载设备使用umount，有三种方式，通过设备名，挂载点或者设备名和挂载点：<br>  （1）umount /dev/hdc<br>  （2）umount /mnt/cdrom<br>  （3）umount /mnt/cdrom /dev/hdc<br>14、linux下侦测主机到目的主机之前所经过的路由的命令traceroute。<br>15、当前目录下有a和b两个文件，执行命令“ls&gt;c”，请问文件c里面的内容是abc<br>16、tar是操作.tar的命令，gzip是压缩.gz压缩包的命令，compress：压缩.Z文件，uncompress：解压缩.Z文件。<br>17、在Linux上，对于多进程，子进程继承了父进程的共享内存、信号掩码、已打开的文件描述符。<br>18、apache目录访问控制的参数有authname（验证窗口的名称）、authtype（验证的类型，这里定义的是Basic）、authuserfile（验证所使用的帐号密码配置文件）、Require（指定可以登录网页的用户）<br>19、Linux命令行下find /usr/local -name ‘mrtg’查找列出/usr/local这个目录下所有包含字符mrtg的文件<br>20、linux下mysqldump备份命令及参数描述：mysqldump -h ip -uroot -p DBNAME &gt;bck.sql，-h表示主机名或IP地址，-P表示数据库连接的TCP/IP端口号，-u表示用户名而不是数据库名，-p表示数据库访问密码。<br>21、在linux系统中,有一个文件夹里面有若干文件,通常用du -sh可以获取这个文件夹的大小<br>22、网络操作系统：<br>  （1）Unix；<br>  （2）Linux；<br>  （3）WINDOWS NT；<br>  （4）NETWARE 4.11；<br>  （5）LAN MANGER 4.0；<br>23、UNIX套接字、信号量、无名管道、文件锁、共享内存可以用于Linux进程间通讯。<br>24、在Linux中查看ARP缓存记录的命令arp –a。<br>  （1）、-a&lt;主机&gt;：显示arp缓冲区的所有条目；<br>  （2）、-H&lt;地址类型&gt;：指定 吧arp指令使用的地址类型；<br>  （3）、-d&lt;主机&gt;：从arp缓冲区中删除指定主机的arp条目；<br>  （4）、-D：使用指定接口的硬件地址；<br>  （5）、-e：以Linux的显示风格显示arp缓冲区中的条目；<br>  （6）、 -i&lt;接口&gt;：指定要操作arp缓冲区的网络接口；<br>  （7）、 -s&lt;主机&gt;&lt;MAC地址&gt;：设置指定的主机的IP地址与MAC地址的静态映射；<br>  （8）、-n：以数字方式显示arp缓冲区中的条目；<br>  （9）、-v：显示详细的arp缓冲区条目，包括缓冲区条目的统计信息；<br>  （10）、-f&lt;文件&gt;：设置主机的IP地址与MAC地址的静态映射<br>25、建立动态路由需要用到的文件有/etc/gateways<br>26、 linux下查看磁盘使用情况的命令是df。<br>27、makefile描述：<br>  （1）makefile文件保存了编译器和连接器的参数选项；<br>  （2）主要包含了五个东西：显式规则、隐晦规则、变量定义、文件指示和注释；<br>  （3）默认的情况下，make命令会在当前目录下按顺序找寻文件名为“GNUmakefile”、“makefile”、“Makefile”的文件， 找到了解释这个文件。<br>28、关闭Linux系统可用halt命令，shutdown -r now 现在关机并重启。<br>29、使用pthread库的多线程程序编译时需要加-lpthread连接参数  f若fp已定义为指向某文件的指针,且没有读到该文件的末尾,C语言函数feof( fp)的函数返回值是0。<br>30、查看当前Linux系统的状态,如CPU使用,内存使用,负载情况：<br>  （1）可以使用top命令分析CPU使用，内存使用，负载等情况。<br>  （2）可以使用free查看内存整体的使用情况。<br>  （3）可以使用cat /proc/meminfo查看内存更详细的情况。</p>
+		<center><br>    tp5学习笔记7<br></center>
+
+<h3 id="1、模型-model"><a href="#1、模型-model" class="headerlink" title="1、模型(model)"></a>1、模型(model)</h3><pre><code>数据模型
+</code></pre><h3 id="2、新建数据模型"><a href="#2、新建数据模型" class="headerlink" title="2、新建数据模型"></a>2、新建数据模型</h3><p>​    </p>
+<pre><code>1) 手动新建
+
+    在model目录下 新建 User.php
+
+        // 声明命名空间
+        namespace app\index\model;
+
+        // 导入系统的数据模型
+
+        use think\Model;
+
+        // 声明user模型
+
+        class User extends Model{
+
+        }
+    注意
+
+    1、数据模型的名字 建议大家跟数据库名一致
+
+    2、如果数据库名字和模型名不一致 可以设置表名
+
+        protected $table=&quot;&quot;;
+
+    3、如果表名(yzm_user),数据模型名 (YzmUser)
+</code></pre><h3 id="3、模型的实例化"><a href="#3、模型的实例化" class="headerlink" title="3、模型的实例化"></a>3、模型的实例化</h3><p>​    </p>
+<pre><code>1、调用静态方法
+
+    $res=User::get(1);
+    dump($res-&gt;toArray());
+
+2、实例化数据模型
+
+    $user=new User();
+    $res=$user::get(2);
+    dump($res-&gt;toArray());
+
+3、使用loader
+
+    $user=Loader::model(&quot;user&quot;);
+    $res=$user::get(3);
+    dump($res-&gt;toArray());
+
+4、使用助手函数
+
+    $user=model(&quot;user&quot;);
+    $res=$user::get(4);
+    dump($res-&gt;toArray());
+</code></pre><h3 id="4、查询操作"><a href="#4、查询操作" class="headerlink" title="4、查询操作"></a>4、查询操作</h3><p>​    </p>
+<pre><code>1、单条数据
+
+    // get方法
+        // 使用数字
+        $res=User::get(1); // 默认主键
+        // 使用数组
+        $res=User::get([&quot;name&quot;=&gt;&apos;yzmedu3&apos;]);  // 默认查找用户名
+
+        // 使用闭包函数
+        $res=User::get(function($query){
+            $query-&gt;where(&quot;id&quot;,15);
+        });
+    // find方法
+
+        $res=User::where(&quot;id&quot;,13)-&gt;find();
+
+2、查询多条数据
+
+    // all
+        // 所有数据
+        $res=User::all();
+
+        // 字符串
+        $res=User::all(&quot;1,2,3&quot;);
+
+        // 数组
+        $res=User::all([5,6,7]);
+
+        // 数组
+
+        $res=User::all([&apos;pass&apos;=&gt;&apos;123&apos;]);
+
+        // 闭包
+
+        $res=User::all(function($query){
+            $query-&gt;where(&quot;pass&quot;,&quot;123&quot;)
+                -&gt;whereOr(&quot;pass&quot;,&quot;456&quot;)
+                -&gt;order(&quot;id&quot;,&quot;desc&quot;);
+        });
+
+    // select 和 all 基本类似
+
+        $res=User::select();
+        $res=User::limit(2)-&gt;select();
+
+3、获取某个字段和某列值
+
+    // 获取某个值
+    $res=User::where(&quot;id&quot;,5)-&gt;value(&quot;name&quot;);
+
+    // 获取某列值
+
+    $res=User::column(&quot;name&quot;,&quot;id&quot;);
+
+4、动态查询
+    // 查询出匹配到的第一条数据
+    // getBy字段名
+    $res=User::getByAge(&apos;44&apos;);
+    dump($res-&gt;toArray());
+</code></pre><h3 id="5、增加操作"><a href="#5、增加操作" class="headerlink" title="5、增加操作"></a>5、增加操作</h3><pre><code>1、设置属性
+    $user=new User();
+    $user-&gt;name=&quot;yzmedu21&quot;;
+    $user-&gt;pass=&quot;abc&quot;;
+    $user-&gt;age=18;
+    // 返回影响行数
+    $user-&gt;save();
+
+2、通过data方法
+    $user=new User();
+
+    $user-&gt;data([
+        &quot;name&quot;=&gt;&quot;yzmedu22&quot;,
+        &quot;age&quot;=&gt;&quot;22&quot;,
+        &quot;pass&quot;=&gt;&quot;qwe&quot;,
+        ]);
+
+    // 返回影响行数
+    $user-&gt;save();
+
+3、实例化时
+
+    $user=new User([
+        &quot;name&quot;=&gt;&quot;yzmedu23&quot;,
+        &quot;pass&quot;=&gt;&apos;zxc&apos;,
+        &quot;age&quot;=&gt;20
+        ]);
+    // 返回影响行数
+    $user-&gt;save();
+    // allowField 屏蔽掉数据库中不存在的字段
+    $user-&gt;allowField(true)-&gt;save();
+    // 指定插入数据库的字段
+    $user-&gt;allowField([&apos;name&apos;,&apos;age&apos;])-&gt;save();
+
+4、获取自增的ID
+    // 获取插入数据ID
+    echo $user-&gt;id;
+
+5、增加多条数据
+
+    $user=new User();
+
+    $list=[
+        [&apos;name&apos;=&gt;&quot;yzmedu33&quot;,&quot;age&quot;=&gt;33],
+        [&apos;name&apos;=&gt;&quot;yzmedu34&quot;,&quot;age&quot;=&gt;34]
+
+    ];
+
+    $user-&gt;saveAll($list);
+
+6、create方法
+    $user=User::create([
+        &quot;name&quot;=&gt;&quot;yzmedu35&quot;,
+        &quot;age&quot;=&gt;35
+        ]);
+</code></pre><h3 id="6、删除操作"><a href="#6、删除操作" class="headerlink" title="6、删除操作"></a>6、删除操作</h3><pre><code>// $user=User::get(1);
+// 返回影响行数
+// dump($user-&gt;delete());
+
+// 删除主键2
+$user=User::destroy(2);
+
+// 删除主键3,4,5
+$user=User::destroy(&quot;3,4,5&quot;);
+$user=User::destroy([6,7,8]);
+
+// 删除name
+
+$user=User::destroy([&apos;name&apos;=&gt;&quot;yzmedu23&quot;]);
+
+// 删除多个条件
+
+$user=User::destroy([&apos;name&apos;=&gt;&apos;yzmedu33&apos;,&apos;age&apos;=&gt;33]);
+
+// 使用闭包
+
+$user=User::destroy(function($query){
+
+    $query-&gt;where(&quot;id&quot;,&quot;&lt;&quot;,&quot;15&quot;);
+});
+
+// 删除数据
+
+$user=User::where(&quot;id&quot;,&quot;&gt;&quot;,&quot;19&quot;)-&gt;delete();
+
+dump($user);
+</code></pre><h3 id="7、修改操作"><a href="#7、修改操作" class="headerlink" title="7、修改操作"></a>7、修改操作</h3><p>​    </p>
+<pre><code>// 设置字段更新数据
+
+       $user=User::get(15);
+
+       $user-&gt;age=19;
+
+       $res=$user-&gt;save();
+
+// 直接数组修改
+
+    $user=new User;
+
+    $res=$user-&gt;save(
+        [
+            &quot;pass&quot;=&gt;&quot;qweasd&quot;,
+            &quot;age&quot;=&gt;16,
+
+        ],[&quot;id&quot;=&gt;16]);
+
+// 修改数据
+
+    $_POST[&apos;name&apos;]=&quot;yzmedu55&quot;;
+    $_POST[&apos;pass&apos;]=&quot;pass55&quot;;
+    $_POST[&apos;age&apos;]=&quot;55&quot;;
+    $_POST[&apos;sex&apos;]=&quot;nan&quot;;
+    $_POST[&apos;id&apos;]=17;
+
+    $user=new User;
+
+    $res=$user-&gt;allowField([&apos;name&apos;,&apos;pass&apos;,&apos;age&apos;])-&gt;save($_POST,[&apos;id&apos;=&gt;17]);
+
+// 批量更新
+$data=[
+        [&apos;id&apos;=&gt;15,&apos;name&apos;=&gt;&quot;abc&quot;,&apos;pass&apos;=&gt;456],
+        [&apos;id&apos;=&gt;17,&apos;name&apos;=&gt;&quot;abc&quot;,&apos;pass&apos;=&gt;456],
+    ];
+
+    $user=new User;
+
+    $res=$user-&gt;saveAll($data);
+
+    echo User::getLastSql();
+
+// 更新操作
+
+    $user=new User;
+
+    $res=$user-&gt;where(&quot;id&quot;,&apos;&gt;&apos;,&apos;17&apos;)-&gt;update([&apos;age&apos;=&gt;18]);
+
+    $res=User::where(&quot;id&quot;,&quot;&lt;&quot;,&quot;18&quot;)-&gt;update([&apos;pass&apos;=&gt;&apos;zxc&apos;]);
+
+// 闭包更新数据
+
+    $user=new User;
+
+    $res=$user-&gt;save([&apos;name&apos;=&gt;&apos;yunzhimeng&apos;],function($query){
+        $query-&gt;where(&quot;id&quot;,&quot;15&quot;);
+    });
+</code></pre><h3 id="8、聚合"><a href="#8、聚合" class="headerlink" title="8、聚合"></a>8、聚合</h3><pre><code>// 统计数据条数
+$tot=User::count();
+
+dump($tot);
+
+// 条件判断
+$tot=User::where(&quot;age&quot;,&quot;&gt;&quot;,18)-&gt;count();
+dump($tot);
+
+// 统计最大值
+
+$max=User::max(&apos;age&apos;);
+
+dump($max);
+
+// 统计最小值
+
+$min=User::min(&quot;age&quot;);
+
+dump($min);
+
+// 平均值
+$avg=User::avg(&apos;age&apos;);
+
+dump($avg);
+
+// 求和
+$sum=User::sum(&apos;age&apos;);
+dump($sum);
+</code></pre><h3 id="9、获取器"><a href="#9、获取器" class="headerlink" title="9、获取器"></a>9、获取器</h3><pre><code>1、数据模型
+
+    // sex 的获取器
+    public function getSexAttr($val){
+        switch ($val) {
+            case &apos;0&apos;:
+                return &quot;未知&quot;;
+                break;
+            case &quot;1&quot;:
+                return &quot;男&quot;;
+                break;
+            case &quot;2&quot;:
+                return &quot;女&quot;;
+                break;
+        }
+    }
+2、控制器
+
+    // 获取ID为15 的数据
+    $user=User::get(17);
+
+    // 经过获取器的操作
+    dump($user-&gt;toArray()); 
+    dump($user-&gt;sex);
+
+    // 不经过获取器处理
+    dump($user-&gt;getData());
+3、注意
+
+    1、如果字段 user_status 修改器名字getUserStatusAttr
+    2、如果字段 status 修改器名字getStatusAttr
+</code></pre><h3 id="10、修改器"><a href="#10、修改器" class="headerlink" title="10、修改器"></a>10、修改器</h3><pre><code>1、数据模型
+    // 用户密码的修改器
+
+    public function setPassAttr($val){
+
+        return md5($val);
+    }
+2、控制器
+
+    // 修改 ID 为15 的密码
+
+    $user=new User();
+
+    // 密码会实现自动加密
+    $res=$user-&gt;save([&apos;pass&apos;=&gt;&apos;456&apos;],[&apos;id&apos;=&gt;15]);
+
+    dump($res);
+3、注意
+
+    1、修改器的触发条件是 save方法
+</code></pre><h3 id="11、自动完成"><a href="#11、自动完成" class="headerlink" title="11、自动完成"></a>11、自动完成</h3><pre><code>1、修改器和自动完成区别
+
+    修改器:数据赋值的时候自动进行转换处理
+    自动完成:没有手动赋值的情况下进行手动处理
+
+2、自动完成
+
+    // 增加和修改操作都会执行
+    protected $auto=[];
+    // 创建数据执行
+    protected $insert=[&apos;create_time&apos;];
+    // 修改数据执行
+    protected $update=[&apos;update_time&apos;];
+</code></pre><h3 id="12、时间戳"><a href="#12、时间戳" class="headerlink" title="12、时间戳"></a>12、时间戳</h3><pre><code>1、系统支持自动写入创建和更新的时间戳字段
+    1) 在配置文件中设置
+        // 自动写入时间戳字段
+        &apos;auto_timestamp&apos;  =&gt; true,
+
+    2) 在数据模型中设置
+
+        // 设置自动写入时间戳
+        protected $autoWriteTimestamp=true;
+
+2、可以设置字段默认值
+
+    // 增加时间的字段
+    protected $createTime=&apos;create_times&apos;;
+    // 更新时间的字段
+    protected $updateTime=&apos;update_times&apos;;
+
+3、取消更新时间戳设置
+
+    protected $updateTime=false;
+</code></pre><h3 id="13、软删除"><a href="#13、软删除" class="headerlink" title="13、软删除"></a>13、软删除</h3><pre><code>1、作用：
+
+    实现假删除，可以进行恢复
+
+2、实现
+
+    &lt;?php 
+        // 声明命名空间
+        namespace app\index\model;
+        // 导入系统的数据模型
+        use think\Model;
+        // 配合软删除
+        use traits\model\SoftDelete;
+        // 声明user模型
+        class User extends Model{
+            // 使用软删除
+            use SoftDelete;
+            // 设置删除的时间戳
+            protected $deleteTime=&quot;delete_times&quot;;
+
+        }
+
+3、控制器    
+        1、删除数据
+
+        $res=User::destroy(15);
+
+    2、获取数据
+
+        $res=User::get(15);
+        // 软删除 数据库数据存在，但是get获取不到
+
+    3、直接删除数据
+
+           $res=User::destroy(14,true);
+
+           $user=new User();
+
+           $res=$user-&gt;where(&quot;id&quot;,&apos;5&apos;)-&gt;delete();
+
+       4、读取所有数据包含软删除数据
+
+        $res=User::withTrashed()-&gt;find(15);
+        $res=User::withTrashed()-&gt;select();
+
+    5、仅仅读取软删除数据
+
+        $res=User::onlyTrashed()-&gt;select();
+        $res=User::onlyTrashed()-&gt;find(1);
+</code></pre><p>​            </p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/14.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/33.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -354,12 +772,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/02/23/SPFA/" title="SPFA" rel="next">
+			<a href="/2019/05/09/tp5学习笔记6/" title="tp5学习笔记6" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -374,31 +788,6 @@
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/05/09/tp5学习笔记7/" title="tp5学习笔记7">
-							tp5学习笔记7
-						</a>
-						<p>
-							    tp5学习笔记7
-
-1、模型(model)数据模型
-2、新建数据模型​    
-1) 手动新建
-
-    在model目录下 新建 User.php
-
-        // 声明命名空间
-        namespace a...
-						</p>
-					</div>
-
-					<a href="/2019/05/09/tp5学习笔记7/" title="tp5学习笔记7">				
-						<img src="/img/post-cover/33.jpg" class="relateImg" alt="tp5学习笔记7">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -418,64 +807,6 @@
 
 					<a href="/2019/05/09/tp5学习笔记6/" title="tp5学习笔记6">				
 						<img src="/img/post-cover/32.png" class="relateImg" alt="tp5学习笔记6">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/Mysql细节/" title="Mysql细节">
-							Mysql细节
-						</a>
-						<p>
-							    Mysql
-
-Mysql插入语句之value与values区别:
-​    二者可以混着用,不报错,但是value插入多行数据会快一点.
-
-						</p>
-					</div>
-
-					<a href="/2019/05/06/Mysql细节/" title="Mysql细节">				
-						<img src="/img/post-cover/31.png" class="relateImg" alt="Mysql细节">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
-							数据库的锁
-						</a>
-						<p>
-							    数据库的锁
-
-
-概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
-乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
-						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/ACID/" title="ACID">
-							ACID
-						</a>
-						<p>
-							    数据库的ACID性质
-
-原子性:指整个数据库事务是不可分割的工作单位。只有使据库中所有的操作执行成功，才算整个事务成功；事务中任何一个SQL语句执行失败，那么已经执行成功的SQL语句也必须撤销，数据库状态应该退回到执行事务前的...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/ACID/" title="ACID">				
-						<img src="/img/post-cover/29.jpg" class="relateImg" alt="ACID">
 					</a>
 				</li>											
 		
@@ -586,6 +917,82 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 
 					<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1">				
 						<img src="/img/post-cover/24.png" class="relateImg" alt="tp5学习笔记1">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">
+							tp5学习笔记
+						</a>
+						<p>
+							    tp5学习笔记
+
+1、目录结构    |-application 应用目录 是整个网站的核心    |—|—index 前台目录    |—|—–|—controller 控制器    |—|—–|—model 数据模型   ...
+						</p>
+					</div>
+
+					<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">				
+						<img src="/img/post-cover/23.jpg" class="relateImg" alt="tp5学习笔记">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">
+							thinkPhp目录
+						</a>
+						<p>
+							    thinkPhp目录结构
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546project  应用部署目录 ...
+						</p>
+					</div>
+
+					<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">				
+						<img src="/img/post-cover/21.png" class="relateImg" alt="thinkPhp目录">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/Mysql细节/" title="Mysql细节">
+							Mysql细节
+						</a>
+						<p>
+							    Mysql
+
+Mysql插入语句之value与values区别:
+​    二者可以混着用,不报错,但是value插入多行数据会快一点.
+
+						</p>
+					</div>
+
+					<a href="/2019/05/06/Mysql细节/" title="Mysql细节">				
+						<img src="/img/post-cover/31.png" class="relateImg" alt="Mysql细节">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
+							数据库的锁
+						</a>
+						<p>
+							    数据库的锁
+
+
+概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
+乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
+						</p>
+					</div>
+
+					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
+						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
 					</a>
 				</li>											
 		
@@ -745,6 +1152,13 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	
 		</main>
 		
