@@ -1,0 +1,1408 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      tp5学习笔记6 | 守护
+    
+  </title>
+  <meta name="author" content="Estace-Kidd">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/3.jpg">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
+
+					
+						<li class="menu-search">
+							<a href="javascript:;" class="popup-trigger" title="Search">搜索</a>
+						</li>
+					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《tp5学习笔记6》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<!-- <a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a> -->
+				</li>
+				<li>
+					<!-- <a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a> -->
+				</li>
+				<li>
+					<!-- <a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a> -->
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<!-- <style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script> -->
+</div></header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+				<li class="menu-search">
+					<a href="javascript:;" class="popup-trigger" title="Search">搜索</a>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="https://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2019/05/09/tp5学习笔记6/" itemprop="url">
+		tp5学习笔记6
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2019/05/09/tp5学习笔记6/" itemprop="url">
+		<time datetime="2019-05-09T02:10:13.000Z" itemprop="datePublished">
+	  		2019-05-09
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2019/05/09/tp5学习笔记6/" itemprop="url">
+		<time datetime="2019-05-09T02:10:13.000Z" itemprop="dateUpdated">
+	  		2019-05-09
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/thinkPhp5/" class=" ">
+			thinkPhp5
+		</a>
+	
+		
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2019/05/09/tp5学习笔记6/_visitors" data-url="/2019/05/09/tp5学习笔记6/" data-title="tp5学习笔记6">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2019/05/09/tp5学习笔记6/_likes" data-url="/2019/05/09/tp5学习笔记6/" data-title="tp5学习笔记6" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<center><br>    tp5学习笔记6<br></center>
+
+<h3 id="1、TP5-0-支持数据库类型"><a href="#1、TP5-0-支持数据库类型" class="headerlink" title="1、TP5.0 支持数据库类型"></a>1、TP5.0 支持数据库类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mysql、SqlServer、PgSQL、Sqlite等数据库的支持。</span><br></pre></td></tr></table></figure>
+<h3 id="2、如何连接数据库"><a href="#2、如何连接数据库" class="headerlink" title="2、如何连接数据库"></a>2、如何连接数据库</h3><pre><code>1、配置文件定义
+
+    a、配置文件目录
+        /var/www/tp5/application/database.php
+
+    b、如何配置
+        return [
+            // 数据库类型
+            &apos;type&apos;            =&gt; &apos;mysql&apos;,
+            // 服务器地址
+            &apos;hostname&apos;        =&gt; &apos;127.0.0.1&apos;,
+            // 数据库名
+            &apos;database&apos;        =&gt; &apos;yzmedu&apos;,
+            // 用户名
+            &apos;username&apos;        =&gt; &apos;root&apos;,
+            // 密码
+            &apos;password&apos;        =&gt; &apos;123456789&apos;,
+            // 端口
+            &apos;hostport&apos;        =&gt; &apos;3306&apos;,
+        ];
+
+    c、如何使用
+
+        // 实例化系统数据库类
+
+        $DB=new Db;
+
+        // 查询数据
+
+        $data=$DB::table(&quot;user&quot;)-&gt;select();
+
+        // 使用sql语句
+
+        $data=$DB::query(&quot;select * from user&quot;);
+
+2、方法配置
+
+    1、使用数组
+
+        $Db=Db::connect([
+                // 数据库类型
+                &apos;type&apos;            =&gt; &apos;mysql&apos;,
+                // 服务器地址
+                &apos;hostname&apos;        =&gt; &apos;127.0.0.1&apos;,
+                // 数据库名
+                &apos;database&apos;        =&gt; &apos;yzmedu2&apos;,
+                // 用户名
+                &apos;username&apos;        =&gt; &apos;root&apos;,
+                // 密码
+                &apos;password&apos;        =&gt; &apos;123456789&apos;,
+                // 端口
+                &apos;hostport&apos;        =&gt; &apos;3306&apos;,
+
+            ]);
+
+    2、使用字符串
+        $Db=Db::connect(&quot;mysql://root:123456789@127.0.0.1:3306/yzmedu#utf8&quot;);
+        // 数据库类型://用户名:密码@数据库地址:数据库端口/数据库名#字符集
+    3、如何使用
+
+        $data=$Db-&gt;table(&quot;user&quot;)-&gt;select();
+
+3、模型类定义
+
+    1、创建数据模型
+
+        a、手动创建
+
+            1、打开数据模型目录
+
+                /var/www/tp5/application/index/model
+
+            2、在目录下新建 文件 User.php
+
+            3、在文件中书写代码
+
+                namespace app\index\model;
+
+                use think\Model;
+
+                class User extends Model
+                {
+                    //
+                }
+
+    2、如何设置
+
+        class User extends Model
+        {
+            // 使用数组配置链接数据库
+
+            protected $connection=[
+
+                // 数据库类型
+                &apos;type&apos;            =&gt; &apos;mysql&apos;,
+                // 服务器地址
+                &apos;hostname&apos;        =&gt; &apos;127.0.0.1&apos;,
+                // 数据库名
+                &apos;database&apos;        =&gt; &apos;yzmedu&apos;,
+                // 用户名
+                &apos;username&apos;        =&gt; &apos;root&apos;,
+                // 密码
+                &apos;password&apos;        =&gt; &apos;123456789&apos;,
+                // 端口
+                &apos;hostport&apos;        =&gt; &apos;3306&apos;,
+
+            ];
+
+            // 使用字符串配置链接数据库
+
+            protected $connection=&quot;mysql://root:123456789@127.0.0.1:3306/yzmedu#utf8&quot;;
+
+        }
+
+    3、如何控制器中使用
+
+        $user=new \app\index\model\User();
+
+        // 查询所有的数据
+        dump($user::all());
+</code></pre><h3 id="3、查询数据"><a href="#3、查询数据" class="headerlink" title="3、查询数据"></a>3、查询数据</h3><pre><code>1、tp方法    
+    // 实例化系统数据库类
+
+    $DB=new Db;
+
+    // 查询数据
+
+    $data=$DB::table(&quot;user&quot;)-&gt;select();
+
+2、使用sql语句
+
+    // 实例化系统数据库类
+
+    $DB=new Db;
+
+    // 使用sql语句
+
+    $data=$DB::query(&quot;select * from user&quot;);
+</code></pre><h3 id="4、数据库的基本使用"><a href="#4、数据库的基本使用" class="headerlink" title="4、数据库的基本使用"></a>4、数据库的基本使用</h3><p>​    </p>
+<pre><code>1、增加
+    # 返回值 影响行数
+    $data=Db::execute(&quot;insert into user value(null,&apos;user1&apos;,&apos;123&apos;,&apos;18&apos;)&quot;);
+    $data=Db::execute(&quot;insert into user value(null,?,?,?)&quot;,[&apos;user2&apos;,&apos;456&apos;,&apos;20&apos;]);
+    $data=Db::execute(&quot;insert into user value(null,:name,:pass,:age)&quot;,[&apos;name&apos;=&gt;&quot;user3&quot;,&quot;pass&quot;=&gt;&apos;678&apos;,&apos;age&apos;=&gt;25]);
+
+2、修改
+    #返回值 影响行数
+    $data=Db::execute(&quot;update user set age=&apos;20&apos; where id=9&quot;);
+
+3、删除
+    #返回值 影响行数
+    $data=Db::execute(&quot;delete from user where id=10&quot;);
+    $data=Db::execute(&quot;delete from user where id&gt;?&quot;,[15]);
+    $data=Db::execute(&quot;delete from user where id&gt;:id&quot;,[&quot;id&quot;=&gt;10]);
+
+4、查看
+
+    $data=Db::query(&quot;select * from user&quot;);
+    $data=Db::query(&quot;select * from user where  id &gt;=? and id&lt;=?&quot;,[5,8]);
+
+5、获取指定sql语句
+
+    Db::getLastSql();
+    6、用户模块
+
+    1、命令行 找到项目目录 新建控制器
+        php think make:controller app\index\controller\Users
+
+    2、写资源路由
+
+        [详见 代码]
+</code></pre><h3 id="5、TP数据库处理"><a href="#5、TP数据库处理" class="headerlink" title="5、TP数据库处理"></a>5、TP数据库处理</h3><p>​    </p>
+<pre><code>1、查询操作
+
+    1、table方法查询数据
+
+        // 查询所有数据
+        // SELECT * FROM `user`
+        $data=Db::table(&quot;user&quot;)-&gt;select();
+
+        // 查询一条数据
+        // SELECT * FROM `user` LIMIT 1
+        $data=Db::table(&quot;user&quot;)-&gt;find();
+
+    2、name方法查询数据
+        // 与配置文件有关
+        // name 会自动添加配置文件中的表前缀
+        $data=Db::name(&quot;user&quot;)-&gt;select();
+        $data=Db::name(&quot;user&quot;)-&gt;find();
+
+    3、助手函数
+
+        # SELECT * FROM `user`
+        $data=db(&quot;user&quot;)-&gt;select();
+
+        # SELECT * FROM `user` LIMIT 1
+        $data=db(&quot;user&quot;)-&gt;find();
+
+    4、where条件匹配
+
+        // SELECT * FROM `user` WHERE `id` &gt; 25
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,&quot;&gt;&quot;,25)-&gt;select();
+
+        // SELECT * FROM `user` WHERE ( `id` &gt; 25 AND `id` &lt; 28 )
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,&quot;&gt;&quot;,25)-&gt;where(&quot;id&quot;,&quot;&lt;&quot;,28)-&gt;select();
+
+        // SELECT * FROM `user` WHERE `name` LIKE &apos;%user1%&apos;
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;name&quot;,&quot;like&quot;,&quot;%user1%&quot;)-&gt;select();
+
+        // SELECT * FROM `user` WHERE `name` = &apos;user3&apos; AND `pass` = &apos;qwe&apos;
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;name&quot;,&quot;user3&quot;)-&gt;where(&quot;pass&quot;,&apos;qwe&apos;)-&gt;select();
+
+        // SELECT * FROM `user` WHERE ( id &gt; 25 and id &lt;28 )
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;id &gt; 25 and id &lt;28&quot;)-&gt;select();
+
+        // SELECT * FROM `user` WHERE `id` &gt; 25 AND `name` = &apos;user10&apos;
+        $data=Db::table(&quot;user&quot;)-&gt;where([&quot;id&quot;=&gt;[&quot;&gt;&quot;,25],&quot;name&quot;=&gt;&apos;user10&apos;])-&gt;select();
+
+        // SELECT * FROM `user` WHERE ( `id` &gt; 25 AND `id` &lt; 28 )
+        $data=Db::table(&quot;user&quot;)-&gt;where([&quot;id&quot;=&gt;[&quot;&gt;&quot;,25]])-&gt;where([&apos;id&apos;=&gt;[&quot;&lt;&quot;,28]])-&gt;select();
+
+    5、whereOr 或者匹配
+
+        // SELECT * FROM `user` WHERE `id` &lt;= 23 OR `id` &gt;= 28
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,&quot;&lt;=&quot;,23)-&gt;whereOr(&quot;id&quot;,&quot;&gt;=&quot;,28)-&gt;select();
+
+        // SELECT * FROM `user` WHERE `name` LIKE &apos;%user1%&apos; OR `name` LIKE &apos;%user2%&apos;
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;name&quot;,&quot;like&quot;,&quot;%user1%&quot;)-&gt;whereOr(&quot;name&quot;,&quot;like&quot;,&quot;%user2%&quot;)-&gt;select();
+
+    6、limit 截取数据
+
+        // SELECT * FROM `user` LIMIT 5
+        $data=Db::table(&quot;user&quot;)-&gt;limit(5)-&gt;select();
+
+        // SELECT * FROM `user` LIMIT 5,5
+        $data=Db::table(&quot;user&quot;)-&gt;limit(5,5)-&gt;select();
+
+    7、Order 排序
+        // SELECT * FROM `user` ORDER BY `id`
+        $data=Db::table(&quot;user&quot;)-&gt;order(&quot;id&quot;)-&gt;select();
+
+        // SELECT * FROM `user` ORDER BY `id` desc
+        $data=Db::table(&quot;user&quot;)-&gt;order(&quot;id&quot;,&quot;desc&quot;)-&gt;select();
+
+    8、field 设置查询字段
+
+        // 设置查询字段
+        // SELECT `name`,`pass` FROM `user`
+        $data=Db::table(&quot;user&quot;)-&gt;field(&quot;name,pass&quot;)-&gt;select();
+        $data=Db::table(&quot;user&quot;)-&gt;field([&apos;name&apos;,&apos;pass&apos;])-&gt;select();
+
+        // 起别名
+        // SELECT name uname,`pass` FROM `user`
+        $data=Db::table(&quot;user&quot;)-&gt;field(&quot;name uname,pass&quot;)-&gt;select();
+        $data=Db::table(&quot;user&quot;)-&gt;field([&apos;name&apos;=&gt;&quot;uname&quot;,&apos;pass&apos;])-&gt;select();
+
+        // sql 的系统函数
+        // SELECT count(*) as tot FROM `user`
+        $data=Db::table(&quot;user&quot;)-&gt;field(&quot;count(*) as tot&quot;)-&gt;select();
+        $data=Db::table(&quot;user&quot;)-&gt;field([&apos;count(*)&apos;=&gt;&quot;tot&quot;])-&gt;select();
+
+        // 排除字段
+        // SELECT `id`,`age` FROM `user`
+        $data=Db::table(&quot;user&quot;)-&gt;field(&quot;name,pass&quot;,true)-&gt;select();
+        $data=Db::table(&quot;user&quot;)-&gt;field([&quot;name&quot;,&apos;pass&apos;],true)-&gt;select();
+
+    9、Page 实现分页效果
+
+        // SELECT * FROM `user` LIMIT 5,5
+        $data=Db::table(&quot;user&quot;)-&gt;page(&quot;1,5&quot;)-&gt;select();
+
+    10、Group分组聚合
+
+        // SELECT `pass`,count(*) tot FROM `user` GROUP BY pass
+
+        $data=Db::table(&quot;user&quot;)-&gt;field(&quot;pass,count(*) tot&quot;)-&gt;group(&quot;pass&quot;)-&gt;select();
+
+    11、having 过滤
+        // 只能结合分组使用
+        // SELECT `pass`,count(*) tot FROM `user` GROUP BY pass HAVING tot &gt;=2
+
+        $data=Db::table(&quot;user&quot;)-&gt;field(&quot;pass,count(*) tot&quot;)-&gt;having(&quot;tot &gt;=2&quot;)-&gt;group(&quot;pass&quot;)-&gt;select();
+        12、多表查询
+
+        // select goods.*,type.name tname from type,goods where goods.cid=type.id
+        $data=Db::query(&quot;select goods.*,type.name tname from type,goods where goods.cid=type.id&quot;);
+
+        // 内联实现数据库链接
+        // SELECT `goods`.*,type.name tname FROM `goods` INNER JOIN `type` `type` ON `goods`.`cid`=`type`.`id`
+        $data=Db::table(&quot;goods&quot;)-&gt;field(&quot;goods.*,type.name tname&quot;)-&gt;join(&quot;type&quot;,&quot;goods.cid=type.id&quot;)-&gt;select();
+
+        // 右链接
+        // SELECT `goods`.*,type.name tname FROM `goods` RIGHT JOIN `type` `type` ON `goods`.`cid`=`type`.`id`
+        $data=Db::table(&quot;goods&quot;)-&gt;field(&quot;goods.*,type.name tname&quot;)-&gt;join(&quot;type&quot;,&quot;goods.cid=type.id&quot;,&apos;right&apos;)-&gt;select();
+
+        // 左链接
+        $data=Db::table(&quot;goods&quot;)-&gt;field(&quot;goods.*,type.name tname&quot;)-&gt;join(&quot;type&quot;,&quot;goods.cid=type.id&quot;,&apos;left&apos;)-&gt;select();
+
+    13、别名使用-给表起别名
+
+        // SELECT `g`.*,t.name tname FROM `goods` `g` LEFT JOIN `type` `t` ON `g`.`cid`=`t`.`id`
+        $data=Db::table(&quot;goods&quot;)-&gt;alias(&quot;g&quot;)-&gt;field(&quot;g.*,t.name tname&quot;)-&gt;join(&quot;type t&quot;,&quot;g.cid=t.id&quot;,&apos;left&apos;)-&gt;select();
+    14、union集合
+
+        // SELECT `name` FROM `user` UNION select name from goods
+        $data=Db::field(&quot;name&quot;)-&gt;table(&quot;user&quot;)-&gt;union(&quot;select name from goods&quot;)-&gt;select();
+
+    15、参数绑定(bind) 为了防止sql注入
+
+        # DELETE FROM `user` WHERE `id` = 25
+        $id=input(&quot;id&quot;);
+        $data=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,&quot;:id&quot;)-&gt;bind([&quot;id&quot;=&gt;[$id,\PDO::PARAM_INT]])-&gt;delete();
+
+    16、数据统计
+
+        // SELECT MAX(age) AS tp_max FROM `user` LIMIT 1
+        $data=Db::table(&quot;user&quot;)-&gt;max(&quot;age&quot;);
+
+        // SELECT MIN(age) AS tp_min FROM `user` LIMIT 1
+        $data=Db::table(&quot;user&quot;)-&gt;min(&quot;age&quot;);
+
+        // SELECT AVG(age) AS tp_avg FROM `user` LIMIT 1
+        $data=Db::table(&quot;user&quot;)-&gt;avg(&quot;age&quot;);
+
+        // SELECT SUM(age) AS tp_sum FROM `user` LIMIT 1
+        $data=Db::table(&quot;user&quot;)-&gt;sum(&quot;age&quot;);
+
+        // SELECT COUNT(age) AS tp_count FROM `user` LIMIT 1
+        $data=Db::table(&quot;user&quot;)-&gt;count(&quot;age&quot;);
+    17、视图查询
+    $data=Db::view(&quot;goods&quot;,&quot;id,name,price&quot;)
+                -&gt;view(&quot;type&quot;,&apos;name tname&apos;,&quot;type.id=goods.cid&quot;)
+                -&gt;select();
+        // SELECT `goods`.`id`,`goods`.`name`,`goods`.`price`,type.name tname FROM `goods` `goods` INNER JOIN `type` `type` ON `type`.`id`=`goods`.`cid`
+
+        $data=Db::view(&quot;goods&quot;,&quot;id,name,price&quot;)
+                -&gt;view(&quot;type&quot;,&apos;name tname&apos;,&quot;type.id=goods.cid&quot;,&quot;left&quot;)
+                -&gt;select();
+        // SELECT `goods`.`id`,`goods`.`name`,`goods`.`price`,type.name tname FROM `goods` `goods` LEFT JOIN `type` `type` ON `type`.`id`=`goods`.`cid`
+
+2、增加操作
+    1、插入单条数据
+
+        // 数组中的字段名 必须和数据库中的字段名一致
+
+        $data=[&quot;name&quot;=&gt;&quot;张三&quot;,&quot;pass&quot;=&gt;&quot;123&quot;,&quot;age&quot;=&gt;18,];
+
+        $code=Db::table(&quot;user&quot;)-&gt;insert($data);
+
+        $code=db(&quot;user&quot;)-&gt;insert($data);
+        // INSERT INTO `user` (`name` , `pass` , `age`) VALUES (&apos;张三&apos; , &apos;123&apos; , 18)
+        // 返回值 影响行数
+
+    2、插入多条数据
+
+        $data=[
+            [&quot;name&quot;=&gt;&quot;张三1&quot;,&quot;pass&quot;=&gt;&quot;123&quot;,&quot;age&quot;=&gt;15,],
+            [&quot;name&quot;=&gt;&quot;张三2&quot;,&quot;pass&quot;=&gt;&quot;123&quot;,&quot;age&quot;=&gt;19,],
+        ];
+
+        $code=Db::table(&quot;user&quot;)-&gt;insertAll($data);
+        $code=db(&quot;user&quot;)-&gt;insertAll($data);
+        // 返回值 影响行数
+
+    3、获取最后一次插入ID
+
+        $data=[&quot;name&quot;=&gt;&quot;张三&quot;,&quot;pass&quot;=&gt;&quot;123&quot;,&quot;age&quot;=&gt;18,];
+        $code=Db::table(&quot;user&quot;)-&gt;insertGetId($data);
+        $code=db(&quot;user&quot;)-&gt;inserGetId($data);
+
+        // 返回值最后插入的id
+
+3、更新数据
+
+    1、修改数据
+
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,&quot;&gt;&quot;,&apos;60&apos;)-&gt;update([&quot;pass&quot;=&gt;&quot;qwe&quot;,&quot;age&quot;=&gt;2]);
+        // UPDATE `user` SET `pass`=&apos;qwe&apos;,`age`=2 WHERE `id` &gt; 60
+        // 返回值 影响行数 
+
+        $code=Db::table(&quot;user&quot;)-&gt;update([&apos;age&apos;=&gt;52,&quot;id&quot;=&gt;62]);
+        // UPDATE `user` SET `age`=52 WHERE `id` = 62
+
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,73)-&gt;setField(&quot;pass&quot;,&apos;abc&apos;);
+        // UPDATE `user` SET `pass`=&apos;abc&apos; WHERE `id` = 73
+
+    2、设置自增
+
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,63)-&gt;setInc(&quot;age&quot;);
+        // UPDATE `user` SET `age`=age+1 WHERE `id` = 63
+
+        $code=db(&quot;user&quot;)-&gt;where(&quot;id&quot;,66)-&gt;setInc(&quot;age&quot;);
+        // UPDATE `user` SET `age`=age+1 WHERE `id` = 66
+
+    3、设置自减
+        // UPDATE `user` SET `age`=age-1 WHERE `id` = 62
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,62)-&gt;setDec(&quot;age&quot;);
+
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,62)-&gt;setDec(&quot;age&quot;,3);
+        // UPDATE `user` SET `age`=age-3 WHERE `id` = 62
+
+        $code=db(&quot;user&quot;)-&gt;where(&quot;id&quot;,63)-&gt;setDec(&quot;age&quot;,3);
+        // UPDATE `user` SET `age`=age-3 WHERE `id` = 63
+
+4、删除数据
+
+    1、删除一条数据
+
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id&quot;,&quot;71&quot;)-&gt;delete();
+
+        $code=Db::table(&quot;user&quot;)-&gt;delete(70);
+
+    2、删除多条数据
+
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id in(51,54,55)&quot;)-&gt;delete();
+
+        $code=Db::table(&quot;user&quot;)-&gt;delete([62,63,66]);
+
+    3、删除区间数据
+
+        $code=Db::table(&quot;user&quot;)-&gt;where(&quot;id&gt;40 and id&lt;45&quot;)-&gt;delete();
+        // DELETE FROM `user` WHERE ( id&gt;40 and id&lt;45 )
+</code></pre><h3 id="6、事务机制"><a href="#6、事务机制" class="headerlink" title="6、事务机制"></a>6、事务机制</h3><p>​    </p>
+<pre><code>1、事务
+
+    张三 银行卡 1000， 李四 银行卡 500, 张三给李四转账200
+
+    1) 银行 先扣除 张三的200
+
+    2) 银行 将200 给了李四
+
+2、mysql事务
+
+    mysql事务 要求 数据库的引擎必须 InnoDB
+
+3、使用
+
+    1、自动控制事务
+
+        Db::transaction(function(){
+
+            // 删除一条数据
+
+            Db::table(&quot;user&quot;)-&gt;delete(40);
+
+            // 删除数据
+
+            Db::table(&quot;user&quot;)-&gt;deletes();
+        });
+
+    2、手动控制事务 (***)
+
+        // 开启事务
+
+        Db::startTrans();
+
+        // 事务
+
+        try{
+            // 删除数据id 31
+            $a=Db::table(&quot;user&quot;)-&gt;delete(31);
+            // 判断是否删除成功
+            if (!$a) {
+                throw new \Exception(&quot;删除id 31 数据没有成功&quot;);
+            }
+            // 删除不存在的数据 id 32
+            $b=Db::table(&quot;user&quot;)-&gt;delete(32);
+            // 判断是否删除成功
+            if (!$b) {
+                throw new \Exception(&quot;删除id 32 数据没有成功&quot;);
+            }
+            // 执行提交操作
+            Db::commit();
+        }catch(\Exception $e){
+            // 回滚事务
+            Db::rollback();
+            // 获取提示信息
+            dump($e-&gt;getMessage());
+        }
+
+    // ==================================================================
+
+        // 开启事务
+        Db::startTrans();
+
+        // 删除数据 33
+        $a=Db::table(&quot;user&quot;)-&gt;delete(33);
+        // 删除数据 34
+        $b=Db::table(&quot;user&quot;)-&gt;delete(34);
+
+        // 判断条件
+        if ($a &amp;&amp; $b) {
+            // 提交事务
+            Db::commit();
+        }else{
+            // 回滚事务
+            Db::rollback();
+        }
+</code></pre>	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/post-cover/32.png"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+		
+			<a href="/2019/05/06/Mysql细节/" title="Mysql细节" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">
+							tp5学习笔记5
+						</a>
+						<p>
+							    tp5学习笔记5
+
+1、系统类(/var/www/tp5/thinkphp/library/think)    
+Config
+Controller
+Env
+Route
+Url
+View
+Request 
+2、系统方法(/va...
+						</p>
+					</div>
+
+					<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">				
+						<img src="/img/post-cover/28.png" class="relateImg" alt="tp5学习笔记5">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">
+							tp5学习笔记4
+						</a>
+						<p>
+							    tp5学习笔记4
+
+1、新建控制器(前台模块为例)
+1、在前台控制器目录下(/var/www/tp5/application/index/controller) 新建控制器文件 User.php
+
+2、User.php文件中如...
+						</p>
+					</div>
+
+					<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">				
+						<img src="/img/post-cover/27.png" class="relateImg" alt="tp5学习笔记4">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">
+							tp5学习笔记3
+						</a>
+						<p>
+							    tp5学习笔记3
+
+1、路由作用:    1、简化URL地址，方便大家记忆
+2、有利于搜索引擎优化
+2、入口文件:
+1、前后台分离
+
+    a、在网站public目录下(/var/www/tp5/public) 新建admi...
+						</p>
+					</div>
+
+					<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">				
+						<img src="/img/post-cover/26.jpg" class="relateImg" alt="tp5学习笔记3">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">
+							tp5学习笔记2
+						</a>
+						<p>
+							    tp5学习笔记2
+
+1、配置文件格式    a) ThinkPHP支持多种格式的配置格式，但最终都是解析为PHP数组的方式。
+b) 我们主要的学习形式就是数组
+    return [
+        &apos;name&a...
+						</p>
+					</div>
+
+					<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">				
+						<img src="/img/post-cover/25.jpg" class="relateImg" alt="tp5学习笔记2">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1">
+							tp5学习笔记1
+						</a>
+						<p>
+							    tp5学习笔记1
+
+1、TP架构的概述    
+ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型（M）、视图（V）、控制器（C），它们各自处理自己的任务...
+						</p>
+					</div>
+
+					<a href="/2019/04/25/tp5学习笔记1/" title="tp5学习笔记1">				
+						<img src="/img/post-cover/24.png" class="relateImg" alt="tp5学习笔记1">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">
+							tp5学习笔记
+						</a>
+						<p>
+							    tp5学习笔记
+
+1、目录结构    |-application 应用目录 是整个网站的核心    |—|—index 前台目录    |—|—–|—controller 控制器    |—|—–|—model 数据模型   ...
+						</p>
+					</div>
+
+					<a href="/2019/04/25/tp5学习笔记/" title="tp5学习笔记">				
+						<img src="/img/post-cover/23.jpg" class="relateImg" alt="tp5学习笔记">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">
+							thinkPhp目录
+						</a>
+						<p>
+							    thinkPhp目录结构
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546project  应用部署目录 ...
+						</p>
+					</div>
+
+					<a href="/2019/04/20/thinkPhp目录/" title="thinkPhp目录">				
+						<img src="/img/post-cover/21.png" class="relateImg" alt="thinkPhp目录">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/Mysql细节/" title="Mysql细节">
+							Mysql细节
+						</a>
+						<p>
+							    Mysql
+
+Mysql插入语句之value与values区别:
+​    二者可以混着用,不报错,但是value插入多行数据会快一点.
+
+						</p>
+					</div>
+
+					<a href="/2019/05/06/Mysql细节/" title="Mysql细节">				
+						<img src="/img/post-cover/31.png" class="relateImg" alt="Mysql细节">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
+							数据库的锁
+						</a>
+						<p>
+							    数据库的锁
+
+
+概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
+乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
+						</p>
+					</div>
+
+					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
+						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/ACID/" title="ACID">
+							ACID
+						</a>
+						<p>
+							    数据库的ACID性质
+
+原子性:指整个数据库事务是不可分割的工作单位。只有使据库中所有的操作执行成功，才算整个事务成功；事务中任何一个SQL语句执行失败，那么已经执行成功的SQL语句也必须撤销，数据库状态应该退回到执行事务前的...
+						</p>
+					</div>
+
+					<a href="/2019/05/06/ACID/" title="ACID">				
+						<img src="/img/post-cover/29.jpg" class="relateImg" alt="ACID">
+					</a>
+				</li>											
+		
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- comment gitalk -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: '7804c452d8a6ef41b38c',
+		clientSecret: '47320bfee029561d9258f1fc1b0917537a21fd36',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'Blog_Comment_Repo',
+		owner: 'yuansijian',
+		admin: 'yuansijian',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+		
+		
+	
+
+</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'bY0zCnrsY68XAgtOIKtjsOC2-gzGzoHsz',
+            appkey = 'YqU8sg6hWf3OPGkNkCekDPew';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="https://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by Estace-Kidd. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
+</footer>
+		
+    <!-- set '1' to show motto in all pages! -->
+<!---->
+	<!--<script src="/js/motto.js"></script>-->
+	<!--<script type="text/javascript">-->
+		<!--$(".motto").html( getMingYanContent() );-->
+	<!--</script>	-->
+<!---->
+
+
+
+    <!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup">
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      ESC
+   </span>
+		<div class="local-search-header">
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			
+
+   
+	<div id="topN"></div>
+	
+    <script>
+        var appid = 'bY0zCnrsY68XAgtOIKtjsOC2-gzGzoHsz',
+            appkey = 'YqU8sg6hWf3OPGkNkCekDPew',
+            limitCount = 10;
+        if( $('#topN').length ){
+            AV.initialize(appid, appkey);
+            var Counter = AV.Object.extend("Counter");  
+            topNPost(Counter, limitCount);
+        }
+    </script>
+   
+
+		</div>
+	</div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>
