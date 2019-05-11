@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      tp5学习笔记8 | 守护
+      tp5学习笔记9 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《tp5学习笔记8》
+						当前文章&nbsp;:&nbsp;《tp5学习笔记9》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/05/11/tp5学习笔记8/" itemprop="url">
-		tp5学习笔记8
+	<a href="/2019/05/11/tp5学习笔记9/" itemprop="url">
+		tp5学习笔记9
 	</a>
 
 	</div>
@@ -287,16 +287,16 @@
 		<span>
 			
 	发布于
-	<a href="/2019/05/11/tp5学习笔记8/" itemprop="url">
-		<time datetime="2019-05-11T00:52:00.000Z" itemprop="datePublished">
+	<a href="/2019/05/11/tp5学习笔记9/" itemprop="url">
+		<time datetime="2019-05-11T06:34:21.000Z" itemprop="datePublished">
 	  		2019-05-11
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/05/11/tp5学习笔记8/" itemprop="url">
-		<time datetime="2019-05-11T00:52:00.000Z" itemprop="dateUpdated">
+	<a href="/2019/05/11/tp5学习笔记9/" itemprop="url">
+		<time datetime="2019-05-11T06:34:21.000Z" itemprop="dateUpdated">
 	  		2019-05-11
 	  </time>
 	</a> 	
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/05/11/tp5学习笔记8/_visitors" data-url="/2019/05/11/tp5学习笔记8/" data-title="tp5学习笔记8">
+    <span class="leancloud_visitors" id="/2019/05/11/tp5学习笔记9/_visitors" data-url="/2019/05/11/tp5学习笔记9/" data-title="tp5学习笔记9">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/05/11/tp5学习笔记8/_likes" data-url="/2019/05/11/tp5学习笔记8/" data-title="tp5学习笔记8" rel="unlike">
+    <span class="leancloud_likes" id="/2019/05/11/tp5学习笔记9/_likes" data-url="/2019/05/11/tp5学习笔记9/" data-title="tp5学习笔记9" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,351 +335,332 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    tp5学习笔记8<br></center>    
+		<center><br>    tp5学习笔记9<br></center>
 
-<h3 id="1、视图"><a href="#1、视图" class="headerlink" title="1、视图"></a>1、视图</h3><pre><code>a) 加载页面
+<h3 id="1、验证器"><a href="#1、验证器" class="headerlink" title="1、验证器"></a>1、验证器</h3><pre><code>1) 控制器中使用验证器
 
-    1、继承系统控制器类
+        // 实例化验证器类
 
-        return $this-&gt;fetch(参数1,参数2,参数3,参数4);
+        $validate=new Validate(
+            [
+                &quot;username&quot;=&gt;&quot;require|length:6,12&quot;,
+                &quot;password&quot;=&gt;&quot;require|confirm:repassword&quot;
+            ],
+            [
+                &quot;username.require&quot;=&gt;&apos;用户名不存在&apos;,
+                &quot;username.length&quot;=&gt;&apos;用户名长度不满足&apos;,
+                &quot;password.require&quot;=&gt;&apos;密码不存在&apos;,
+                &quot;password.confirm&quot;=&gt;&apos;两次密码不一致&apos;,
+            ]
+        );
 
-        参数1(字符串): 模板渲染
-        参数2(数组): 模板赋值
-        参数3(数组): 模板替换
-        参数4(数组):
+        // 接收用户提交的数据
+        $data=input(&quot;post.&quot;);
 
-    2、使用助手函数
+        // 进行验证
+        if ($validate-&gt;check($data)) {
 
-        // return view();
-        # view的参数与fetch相同
+        }else{
+            dump($validate-&gt;getError());
+        }
+</code></pre><h3 id="1、缓存"><a href="#1、缓存" class="headerlink" title="1、缓存"></a>1、缓存</h3><pre><code>a) 缓存的作用：
 
-    3、使用view类 (不建议)
+    减少数据库压力
+    用户交互比较
 
-        $view=new View();
+b) TP对缓存的支持
 
-        return $view-&gt;fetch();
+    支持的缓存类型包括file、memcache、wincache、sqlite、redis和xcache。
 
-b) 模板赋值
+c) 缓存设置(C:\AppServ\www\tp5\application\config.php)
 
-    1、控制器类中的assign方法
+    &apos;cache&apos;                  =&gt; [
+        // 驱动方式
+        &apos;type&apos;   =&gt; &apos;File&apos;,
+        // 缓存保存目录
+        &apos;path&apos;   =&gt; CACHE_PATH,
+        // 缓存前缀
+        &apos;prefix&apos; =&gt; &apos;&apos;,
+        // 缓存有效期 0表示永久缓存
+        &apos;expire&apos; =&gt; 0,
+    ],
 
-        // $this-&gt;assign(&apos;name&apos;,$name);
-        // $this-&gt;assign(&apos;city&apos;,$city);
+d) 使用
 
-        // 加载页面
-        // return view();
+    1、设置缓存
 
-    2、通过fetch方法
+        Cache::set(名字,值,时间);
+        cache(名字,值,时间);
 
-        // return $this-&gt;fetch(&apos;&apos;,[&apos;name&apos;=&gt;$name,&apos;city&apos;=&gt;$city]);
+        # 返回值 如果设置成功 true
+        # 如果设置失败 false
+    2、读取缓存
 
-    3、助手函数
+        Cache::get(名字);
+        cache(名字);
 
-        // return view(&apos;&apos;,[&apos;name&apos;=&gt;$name,&apos;city&apos;=&gt;&apos;西安&apos;]);
+        # 返回值 如果获取成功 获取到的数据
+        # 如果获取失败 false
 
-    4、对象赋值
-        $this-&gt;view-&gt;name=&quot;浩哥&quot;;
-        $this-&gt;view-&gt;city=&quot;临汾&quot;;
+    3、删除缓存
 
-        return view();
+        Cache::rm(&apos;UserData&apos;);
+        cache(&apos;UserData&apos;,NULL);
 
-c) 模板替换    
+        # 返回值 删除成功 true
+        # 删除失败 false
 
-    1、配置文件更改(全局替换)
+    4、清空缓存
 
-        // 视图输出字符串内容替换
-        &apos;view_replace_str&apos;       =&gt; [
+        Cache::clear();
 
-            &apos;__HOMES__&apos;=&gt;&apos;/static/home/public&apos;,
-            &apos;__ADMINS__&apos;=&gt;&apos;/static/admin/public&apos;,
+        # 返回值 清空缓存成功 true 否则 false
+    5、使用缓存
 
-        ],
+        // 从缓存中获取数据
 
-    2、部分替换
+        if ($data=cache(&apos;UserData&apos;)) {
 
-        1、fetch 方法
-            return $this-&gt;fetch(&apos;&apos;,[],[&apos;__HOMES__&apos;=&gt;&apos;/static/home/public&apos;]);
+            // 如果数据存在
 
-        2、view 函数
-            return view(&apos;&apos;,[],[&apos;__HOMES__&apos;=&gt;&apos;/static/home/public&apos;]);
+        }else{
+            // 如果缓存中没有数据
+            $data=Db::table(&apos;User&apos;)-&gt;select();
 
-d) 模板渲染
+            cache(&apos;UserData&apos;,$data,20);
+        }
+</code></pre><h3 id="2、Session"><a href="#2、Session" class="headerlink" title="2、Session"></a>2、Session</h3><pre><code>1、设置session
 
-    1、默认加载当前模块 当前控制器 当前方法对应的页面
-        // return $this-&gt;fetch();
+    Session::set(&apos;name&apos;,&apos;云知梦&apos;);
 
-    2、加载当前模块 当前控制器下的 用户定义页面
-        // return $this-&gt;fetch(&apos;jiazai&apos;);
+    session(&apos;name&apos;,&apos;100&apos;);
 
-    3、加载当前模块 User控制器 jiazai页面
-        return $this-&gt;fetch(&apos;User/jiazai&apos;);
-</code></pre><h3 id="2、模板"><a href="#2、模板" class="headerlink" title="2、模板"></a>2、模板</h3><pre><code>1、模板标签
+2、获取session
 
-    1、普通标签
-        // 模板引擎普通标签开始标记
-        &apos;tpl_begin&apos;    =&gt; &apos;&lt;{&apos;,
-        // 模板引擎普通标签结束标记
-        &apos;tpl_end&apos;      =&gt; &apos;}&gt;&apos;,
+    Session::get(&apos;name&apos;);
+    session(&apos;name&apos;);
 
-        &lt;h2&gt;{$str}&lt;/h2&gt;
+    # 返回值 如果获取成功 返回获取到的值 如果失败 NULL
 
-    2、标签库标签
+3、判断是否设置
 
-        // 标签库标签开始标记
-        &apos;taglib_begin&apos; =&gt; &apos;{&apos;,
-        // 标签库标签结束标记
-        &apos;taglib_end&apos;   =&gt; &apos;}&apos;,
+    Session::has(&apos;name1&apos;);
+    session(&quot;?name&quot;); 
 
-        {for start=&quot;1&quot; end=&quot;10&quot;}
-            {$i}
-        {/for}
+    # 返回值 如果存在返回True 如果不存在 false
 
-2、输出变量
+4、删除session
 
-    1、字符串
-        $this-&gt;assign(&quot;str&quot;,&quot;TP5.0 非常简单非常适合初学者&quot;);
+    Session::delete(&apos;data&apos;);
+    session(&apos;name&apos;,null);
 
-        &lt;h2&gt;{$str}&lt;/h2&gt;
+    # 删除session 无返回值
 
-    2、数组
-        $data=[
-            &apos;name&apos;=&gt;&apos;张三&apos;,
-            &apos;age&apos;=&gt;18,
-            &apos;sex&apos;=&gt;&apos;妖&apos;
-        ];
-        $this-&gt;assign(&quot;data&quot;,$data);
-        &lt;h2&gt;{$data[&apos;name&apos;]}&lt;/h2&gt;
-        &lt;h2&gt;{$data.age}&lt;/h2&gt;
+5、清空session
 
-3、使用函数
+    Session::clear();
+    session(null);
+</code></pre><h3 id="3、Cookie"><a href="#3、Cookie" class="headerlink" title="3、Cookie"></a>3、Cookie</h3><pre><code>1、设置Cookie
 
-    1、竖线
-        &lt;h2&gt;{$pass|md5}&lt;/h2&gt;
-        &lt;!-- &lt;h2&gt;&lt;?php echo md5($pass); ?&gt;&lt;/h2&gt; --&gt;
+    Cookie::set(&apos;name&apos;,&apos;云知梦&apos;);
+    Cookie::set(&apos;info&apos;,&apos;云知梦只为有梦想的人&apos;,50);
 
-        &lt;h2&gt;{$time|date=&quot;Y-m-d H:i:s&quot;,###}&lt;/h2&gt;
-        &lt;!-- &lt;?php echo date(&quot;Y-m-d H:i:s&quot;,$time);?&gt; --&gt;
+    cookie(&apos;time&apos;,&apos;2017-10-25&apos;);
+    cookie(&apos;age&apos;,5,50);
 
-        &lt;h2&gt;{$pass|md5|strtoupper|substr=0,10}&lt;/h2&gt;
-        &lt;!-- &lt;h2&gt;&lt;?php echo substr(strtoupper(md5($pass)),0,10); ?&gt;&lt;/h2&gt; --&gt;
+2、获取Cookie
 
-    2、冒号开始
+    Cookie::get(&apos;name&apos;);
+    cookie(&apos;time&apos;);
 
-        &lt;h2&gt;{:md5($pass)}&lt;/h2&gt;
-        &lt;h2&gt;{:date(&apos;Y-m-d H:i:s&apos;,$time)}&lt;/h2&gt;
+    # 获取Cookie 如果成功 返回获取值，如果失败返回NULL
 
-4、默认值
+3、判断Cookie
 
-    &lt;h2&gt;{$name|default=&quot;小云&quot;}&lt;/h2&gt;
-    &lt;h2&gt;&lt;?php echo (isset($name) &amp;&amp; ($name !== &apos;&apos;)?$name:&quot;小云&quot;); ?&gt;&lt;/h2&gt;
+    Cookie::has(&apos;name&apos;);
+    cookie(&quot;?name&quot;);
 
-5、三元运算符
+    # 判断cookie是否设置，如果设置返回true，如果没有设置返回false
 
-    &lt;h2&gt;{$status?&apos;正常&apos;:&apos;错误&apos;}&lt;/h2&gt;
+4、删除Cookie
 
-    &lt;h2&gt;{$status&gt;2?&apos;正常&apos;:&apos;错误&apos;}&lt;/h2&gt;
-    &lt;h2&gt;&lt;?php echo !empty($status) &amp;&amp; $status&gt;2?&apos;正常&apos;:&apos;错误&apos;; ?&gt;&lt;/h2&gt;
-
-6、运算符
-
-    &lt;h2&gt;{$a}+{$b}={$a+$b}&lt;/h2&gt;
-    &lt;h2&gt;{$a}-{$b}={$a-$b}&lt;/h2&gt;
-    &lt;h2&gt;{$a}*{$b}={$a*$b}&lt;/h2&gt;
-    &lt;h2&gt;{$a}/{$b}={$a/$b}&lt;/h2&gt;
-    &lt;h2&gt;{$a}%{$b}={$a%$b}&lt;/h2&gt;
-    &lt;h2&gt;{$a++}&lt;/h2&gt;
-    &lt;h2&gt;{$b--}&lt;/h2&gt;
-
-7、原样输出
-
-    {literal}
-        &lt;h2&gt;hello {$name}&lt;/h2&gt;
-    {/literal}
-
-8、系统变量
-
-    1、系统变量
-        支持输出  $_SERVER 、 $_ENV 、$_POST 、$_GET 、$_REQUEST 、 $_SESSION 和$_COOKIE变量。
-
-        &lt;h1&gt;{$_GET[&apos;id&apos;]}&lt;/h1&gt;
-        &lt;h1&gt;{$Think.get.id}&lt;/h1&gt;
-        &lt;h1&gt;{$_SERVER[&apos;HTTP_HOST&apos;]}&lt;/h1&gt;
-        &lt;h1&gt;{$Think.SERVER.http_host}&lt;/h1&gt;
-
-    2、常量输出
-        # 常量详见附录
-
-        &lt;h1&gt;{$Think.const.app_path}&lt;/h1&gt;
-        &lt;h1&gt;{$Think.app_path}&lt;/h1&gt;
-        &lt;h1&gt;{$Think.ds}&lt;/h1&gt;
-        &lt;h1&gt;{$Think.think_path}&lt;/h1&gt;
-        &lt;h1&gt;{$Think.IS_WIN}&lt;/h1&gt;
-        &lt;h1&gt;{$Think.THINK_VERSION}&lt;/h1&gt;
-
-    3、配置文件输出
-        # 常看配置文件
-
-        &lt;h2&gt;{$Think.config.app_namespace}&lt;/h2&gt;
-        &lt;h2&gt;{$Think.config.default_lang}&lt;/h2&gt;
-
-9、模板注释
-
-    &lt;h1&gt;{//$_GET[&apos;id&apos;]}&lt;/h1&gt;
-    &lt;h1&gt;{/*$Think.get.id*/}&lt;/h1&gt;
-
-10、包含文件
-
-    {include file=&quot;Public/header&quot;}
-    {include file=&quot;Public/footer,Public/footer&quot;}
-11、模板布局
-
-    1、在视图目录下新建文件 layout.html
-        (C:\AppServ\www\tp5\application\admin\view)
-
-    2、在layout.html页面中
-
-        将所有的公共页面保留，非公共页面使用{__CONTENT__}替代
-
-        # {__CONTENT__} 只能存在一个
-
-    3、页面中如何书写
-        # 引入模板布局
-        {layout name=&quot;layout&quot;/}
-        # 非公共区域内容
-        &lt;!-- 内容 --&gt;
-        &lt;div class=&quot;col-md-10&quot;&gt;
-            &lt;div class=&quot;jumbotron&quot;&gt;
-                 &lt;img src=&quot;__ADMINS__/img/4.jpg&quot;height=&quot;310px&quot; width=&quot;100%&quot; alt=&quot;&quot;&gt;
-                 &lt;h2&gt;联想 后台管理系统&lt;/h2&gt;
-                 &lt;p&gt;开发者 ： 赵丰泰&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-12、模板继承
-
-    1、在视图目录下新建base.html
-
-    2、在base.html中对页面进行分割
-
-        &lt;div class=&quot;container&quot;&gt;
-            {block name=&quot;nav&quot;}{/block}
-
-            &lt;div class=&quot;row body&quot;&gt;
-
-                {block name=&quot;menu&quot;}{/block}
-                {block name=&quot;main&quot;}{/block}
-
-            &lt;/div&gt;
-        &lt;/div&gt;
-
-    3、使用继承
-
-        {extend name=&quot;base&quot; /}
-
-        {block name=&quot;nav&quot;}
-            {include file=&quot;public/nav&quot; /}
-        {/block}
-        {block name=&quot;main&quot;}
-            &lt;div class=&quot;jumbotron&quot;&gt;
-                 &lt;h2&gt;联想 后台管理系统&lt;/h2&gt;
-                 &lt;p&gt;开发者 ： 赵丰泰&lt;/p&gt;
-            &lt;/div&gt;
-        {/block}
-
-13、内置标签
-
-    1、volist循环
-
-        name          需要遍历的数据
-        id            类似于foreach中 value
-        offset      截取数据起始位置
-        length      截取数据的个数
-        mod         奇偶数
-        empty       数据为空的使用
-        key            编号
-    2、foreach循环
-
-        name      需要遍历的数据
-        item    类似于foreach中的value
-        key        类似于foreach中的key
-
-        {foreach name=&quot;data&quot; item=&quot;val&quot; key=&quot;abc&quot;}
-            &lt;p&gt; {$abc} {$val.id} {$val.name}&lt;/p&gt;
-        {/foreach}
-    3、for循环
-
-        start         开始值
-        end         结束值
-        comparison  比较条件
-        step         步数
-        name         循环变量名 默认 i
-
-        {for start=&quot;0&quot; end=&quot;10&quot; comparison=&quot;elt&quot; step=&quot;2&quot; name=&quot;abc&quot;}
-            &lt;p&gt;{$abc}&lt;/p&gt;
-        {/for}
-
-        {for start=&quot;10&quot; end=&quot;0&quot; comparison=&quot;gt&quot; step=&quot;-1&quot;}
-            &lt;p&gt;{$i}&lt;/p&gt;
-        {/for}
-    4、比较标签
-
-        {eq name=&quot;a&quot; value=&quot;11&quot;}正确{/eq}
-        {neq name=&quot;a&quot; value=&quot;11&quot;}正确{/neq}
-        {lt name=&quot;a&quot; value=&quot;11&quot;}正确{/lt}
-        {gt name=&quot;a&quot; value=&quot;11&quot;}正确{/gt}
-        {egt name=&quot;a&quot; value=&quot;11&quot;}正确{/egt}
-        {elt name=&quot;a&quot; value=&quot;11&quot;}正确{/elt}
-        {heq name=&quot;a&quot; value=&quot;11&quot;}正确{/heq}
-        {nheq name=&quot;a&quot; value=&quot;11&quot;}正确{/nheq}
-
-    5、if
-
-        {if condition=&quot;$a eq $b&quot;}
-
-            &lt;p&gt;a和b数值相等&lt;/p&gt;
-        {else /}
-
-            &lt;p&gt;a和b数值不相等&lt;/p&gt;
-
-        {/if}
-    6、switch
-
-        {switch name=&quot;week&quot;}
-            {case value=&apos;1&apos;}周一{/case}
-            {case value=&apos;2&apos;}周二{/case}
-            {default /} 周日
-        {/switch}
-
-    7、in 和notin比较类似
-
-        {in name=&quot;week&quot; value=&quot;0,1,2,3,4,5,6&quot;}
-            合法的数据
-        {else /}
-            不合法数据
-        {/in}
-
-    8、between 和 notbetween
-
-        {between name=&quot;week&quot; value=&quot;0,6&quot;}
-            合法数据
-        {else/}
-            非法数据
-        {/between}
-
-    9、原生PHP
-        {php}
-            echo &quot;123&quot;;
-        {/php}
-
-        &lt;?php 
-            echo &quot;456&quot;;
-         ?&gt;
-    10、嵌套使用
-</code></pre><p>​            </p>
-	
+    Cookie::delete(&apos;name&apos;);
+    cookie(&apos;name&apos;,null);
+
+5、清空Cookie
+
+    Cookie::clear();
+    cookie(null);
+</code></pre><h3 id="4、分页"><a href="#4、分页" class="headerlink" title="4、分页"></a>4、分页</h3><pre><code>1、控制器中如何书写
+
+    // 查询数据
+    // 分页效果
+    $data=Db::table(&apos;user&apos;)-&gt;paginate(3);
+    // 简化的分页效果
+    $data=Db::table(&apos;user&apos;)-&gt;paginate(3,true);
+
+    // 分配数据
+    $this-&gt;assign(&apos;data&apos;,$data);
+
+    // 加载页面
+    return $this-&gt;fetch();
+
+2、页面中如何书写
+    {volist name=&quot;data&quot; id=&quot;val&quot;}
+        &lt;tr&gt;
+            &lt;td&gt;{$val.id}&lt;/td&gt;
+            &lt;td&gt;{$val.name}&lt;/td&gt;
+            &lt;td&gt;{$val.pass}&lt;/td&gt;
+        &lt;/tr&gt;
+
+    {/volist}
+
+    {$data-&gt;render()}
+</code></pre><h3 id="5、文件上传"><a href="#5、文件上传" class="headerlink" title="5、文件上传"></a>5、文件上传</h3><pre><code>1、页面
+    &lt;form action=&quot;{:url(&apos;upload&apos;)}&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+        &lt;p&gt;
+            File:
+            &lt;input type=&quot;file&quot; name=&quot;file&quot; id=&quot;&quot;&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+        &lt;/p&gt;
+    &lt;/form&gt;
+
+2、控制器
+
+    public function upload(Request $request){
+
+        // 接收数据
+        $file=$request-&gt;file(&apos;file&apos;);
+
+        // 进行文件上传
+        if ($info=$file-&gt;move(&apos;./upload/&apos;)) {
+            dump($info-&gt;getsaveName());
+        }else{
+            dump($info-&gt;getError());
+        }
+    }
+</code></pre><p>6、验证码</p>
+<pre><code>1、首先判断系统是否支持验证码
+
+2、使用
+
+    1) 页面中
+
+        &lt;form action=&quot;{:url(&apos;check&apos;)}&quot; method=&quot;post&quot;&gt;
+            &lt;!-- {:captcha_img()} --&gt;
+            &lt;img src=&quot;{:captcha_src()}&quot; alt=&quot;&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;code&quot; id=&quot;&quot;&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
+        &lt;/form&gt;
+    2) 判断验证码
+        $code=input(&apos;post.code&apos;);
+
+        // 判断验证码是否正确
+        if (captcha_check($code)) {
+            echo &quot;okokok&quot;;
+        }else{
+            echo &quot;error&quot;;
+        }
+3、验证码相关设置
+    &apos;captcha&apos;=&gt;[
+
+        &apos;codeSet&apos;  =&gt; &apos;2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY&apos;,
+        // 验证码字符集合
+        &apos;expire&apos;   =&gt; 1800,
+        // 验证码过期时间（s）
+        &apos;useZh&apos;    =&gt; false,
+        // 使用中文验证码
+        &apos;zhSet&apos;    =&gt; &apos;们以我&apos;,
+        // 中文验证码字符串
+        &apos;useImgBg&apos; =&gt; false,
+        // 使用背景图片
+        &apos;fontSize&apos; =&gt; 25,
+        // 验证码字体大小(px)
+        &apos;useCurve&apos; =&gt; true,
+        // 是否画混淆曲线
+        &apos;useNoise&apos; =&gt; true,
+        // 是否添加杂点
+        &apos;imageH&apos;   =&gt; 0,
+        // 验证码图片高度
+        &apos;imageW&apos;   =&gt; 0,
+        // 验证码图片宽度
+        &apos;length&apos;   =&gt; 5,
+        // 验证码位数
+        &apos;fontttf&apos;  =&gt; &apos;&apos;,
+        // 验证码字体，不设置随机获取
+        &apos;bg&apos;       =&gt; [243, 251, 254],
+        // 背景颜色
+        &apos;reset&apos;    =&gt; true,
+        // 验证成功后是否重置
+
+    ]
+</code></pre><h3 id="7、图片处理"><a href="#7、图片处理" class="headerlink" title="7、图片处理"></a>7、图片处理</h3><pre><code>1、读取图片
+
+    $images=Image::open(&quot;./img/c.jpg&quot;);
+
+2、获取基本信息
+    // 宽度
+    dump($images-&gt;width());
+    // 高度
+    dump($images-&gt;height());
+    // 类型
+    dump($images-&gt;type());
+    // 宽和高
+    dump($images-&gt;size());
+    // mime
+    dump($images-&gt;mime());
+
+3、图片裁剪
+
+    crop(100,200,300,350);
+    // 从(300,350)的位置开始裁剪,裁剪100,200 大小，默认从(0,0)位置开始裁剪
+
+    // 裁剪默认从顶点开始裁剪
+        $images-&gt;crop(300,300)-&gt;save(&quot;./img/cai.jpg&quot;);
+    // 设置裁剪位置
+        $images-&gt;crop(300,300,100,100)-&gt;save(&apos;./img/cai1.jpg&apos;);
+
+4、图片缩放
+
+    // 图片缩放 默认是等比例缩放，可以进行设置
+
+    // //常量，标识缩略图等比例缩放类型
+    // constTHUMB_SCALING???=?1
+    // //常量，标识缩略图缩放后填充类型
+    // constTHUMB_FILLED????=?2;
+    // //常量，标识缩略图居中裁剪类型
+    // constTHUMB_CENTER????=?3;
+    // //常量，标识缩略图左上角裁剪类型
+    // constTHUMB_NORTHWEST?=?4;
+    // //常量，标识缩略图右下角裁剪类型
+    // constTHUMB_SOUTHEAST?=?5;
+    // //常量，标识缩略图固定尺寸缩放类型
+    // constTHUMB_FIXED?????=?6;
+
+    $images-&gt;thumb(300,300,2)-&gt;save(&apos;./img/th.jpg&apos;);
+
+5、图片翻转
+
+    $images-&gt;flip()-&gt;save(&quot;./img/fan.jpg&quot;);
+
+6、图片旋转
+
+    $images-&gt;rotate(180)-&gt;save(&quot;./img/xuan.jpg&quot;);
+
+7、水印
+
+    // 图片水印
+        $images-&gt;water(&quot;./img/logo.png&quot;,5,50)-&gt;save(&quot;./img/water.jpg&quot;);
+
+    // 文字水印
+
+        $images-&gt;text(&apos;123&apos;,&quot;msyh.ttf&quot;,20,&quot;#ff0000&quot;)-&gt;save(&apos;./img/text.jpg&apos;);
+</code></pre>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/34.png"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/35.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -693,12 +674,8 @@ d) 模板渲染
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/05/09/tp5学习笔记7/" title="tp5学习笔记7" rel="next">
+			<a href="/2019/05/11/tp5学习笔记8/" title="tp5学习笔记8" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -716,24 +693,24 @@ d) 模板渲染
 		
 				<li>
 					<div>
-						<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9">
-							tp5学习笔记9
+						<a href="/2019/05/11/tp5学习笔记8/" title="tp5学习笔记8">
+							tp5学习笔记8
 						</a>
 						<p>
-							    tp5学习笔记9
+							    tp5学习笔记8    
 
-1、验证器1) 控制器中使用验证器
+1、视图a) 加载页面
 
-        // 实例化验证器类
+    1、继承系统控制器类
 
-        $validate=new Validate(
-            [
-                &q...
+        return $this-&gt;fetch(参数1,参数2,参数3,参数4);
+
+        参数1(字符串): 模板...
 						</p>
 					</div>
 
-					<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9">				
-						<img src="/img/post-cover/35.jpg" class="relateImg" alt="tp5学习笔记9">
+					<a href="/2019/05/11/tp5学习笔记8/" title="tp5学习笔记8">				
+						<img src="/img/post-cover/34.png" class="relateImg" alt="tp5学习笔记8">
 					</a>
 				</li>											
 		
