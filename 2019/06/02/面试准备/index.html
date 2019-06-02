@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      tp5学习笔记4 | 守护
+      面试准备 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《tp5学习笔记4》
+						当前文章&nbsp;:&nbsp;《面试准备》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/27/tp5学习笔记4/" itemprop="url">
-		tp5学习笔记4
+	<a href="/2019/06/02/面试准备/" itemprop="url">
+		面试准备
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/27/tp5学习笔记4/" itemprop="url">
-		<time datetime="2019-04-27T08:57:58.000Z" itemprop="datePublished">
-	  		2019-04-27
+	<a href="/2019/06/02/面试准备/" itemprop="url">
+		<time datetime="2019-06-02T08:24:22.000Z" itemprop="datePublished">
+	  		2019-06-02
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/27/tp5学习笔记4/" itemprop="url">
-		<time datetime="2019-04-27T08:57:58.000Z" itemprop="dateUpdated">
-	  		2019-04-28
+	<a href="/2019/06/02/面试准备/" itemprop="url">
+		<time datetime="2019-06-02T08:24:22.000Z" itemprop="dateUpdated">
+	  		2019-06-02
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/thinkPhp5/" class=" ">
-			thinkPhp5
+		<a href="/tags/面试题目/" class=" ">
+			面试题目
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/27/tp5学习笔记4/_visitors" data-url="/2019/04/27/tp5学习笔记4/" data-title="tp5学习笔记4">
+    <span class="leancloud_visitors" id="/2019/06/02/面试准备/_visitors" data-url="/2019/06/02/面试准备/" data-title="面试准备">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/27/tp5学习笔记4/_likes" data-url="/2019/04/27/tp5学习笔记4/" data-title="tp5学习笔记4" rel="unlike">
+    <span class="leancloud_likes" id="/2019/06/02/面试准备/_likes" data-url="/2019/06/02/面试准备/" data-title="面试准备" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,202 +335,55 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    tp5学习笔记4<br></center>
+		<center><br>    PHP面试题目<br></center>
 
-<p>1、新建控制器(前台模块为例)</p>
-<pre><code>1、在前台控制器目录下(/var/www/tp5/application/index/controller) 新建控制器文件 User.php
-
-2、User.php文件中如何书写
-    &lt;?php 
-    // 声明命名空间
-    namespace app\index\controller;
-    // 声明控制器
-    class User{
-        // 声明方法
-        public function index(){
-            return &quot;我是User控制器下的index方法&quot;;
-        }
-    }
-
-3、地址栏访问
-    http://localhost/index.php/Index/user/index
-
-4、注意:
-    1、控制器文件名必须首字母大写,文件名采用驼峰命名。
-
-    2、控制器名必须跟文件名一一对应
-
-    3、命名空间必须和文件名对应
-        namespace app\index\controller;
-        /var/www/tp5/application/index/controller
-
-    4、如果控制器名字采用驼峰命名 UserInfo.php
-
-        http://localhost/index.php/Index/user_info/index
-</code></pre><p>2、控制器如何加载页面</p>
-<pre><code>1、系统View类
-
-    $view=new \think\View;
-    return $view-&gt;fetch();
-
-    use think\View;
-    $view=new View();
-    return $view-&gt;fetch();
-
-2、系统Controller类
-    1、需要继承系统控制器类
-
-        use think\Controller;
-        // 声明控制器
-        class User extends Controller
-
-    2、直接使用系统控制器类的方法
-        return $this-&gt;fetch();
-
-3、系统函数
-
-    return view();
-</code></pre><p>3、数据输出</p>
-<pre><code>1、在应用配置文件中可以设置数据返回格式
-    &apos;default_return_type&apos;    =&gt; &apos;json&apos;, #默认是html
-
-2、ajax请求的时候如何返回数据
-
-    &apos;default_ajax_return&apos;    =&gt; &apos;json&apos;,
-</code></pre><p>4、控制器的初始化</p>
-<pre><code>1、控制器初始化方法必须继承系统控制器
-    // 控制器的初始化方法
-    public function _initialize(){
-        echo &quot;我是初始化方法&quot;;
-    }
-
-2、只要调用控制器下的任意方法，都会先找初始化方法
-
-3、控制器初始化方法的使用
-    1、可以用来提取控制器下公共的代码
-
-    2、后台权限把控
-</code></pre><p>5、前置操作</p>
-<pre><code>0、前置方法 把一些公共的设置提取成方法进行调用
-
-1、前置方法必须结合系统控制器
-
-2、核心设置
-    // 前置方法属性
-    protected $beforeActionList=[
-        &apos;one&apos;,
-        // 不想让谁使用前置方法two
-        &apos;two&apos;=&gt;[&apos;except&apos;=&gt;&quot;index&quot;],
-        // 仅仅可以让谁使用前置方法three
-        &apos;three&apos;=&gt;[&apos;only&apos;=&gt;&apos;index&apos;],
-    ];
-</code></pre><p>6、页面跳转</p>
-<pre><code>0、页面跳转基于系统控制器类，所以控制器必须继承系统控制器
-
-1、方法所在路径
-    /var/www\tp5/thinkphp/library/traits/controlle/Jump.php
-
-2、跳转方式
-    a、成功跳转
-        // $this-&gt;success(提示信息,跳转地址,用户自定义数据,跳转跳转,header信息);
-        // 跳转地址未设置时 默认返回上一个页面
-        $this-&gt;success(&apos;跳转成功&apos;,url(&apos;index/index&apos;));
-    b、失败跳转
-
-        $this-&gt;error(&apos;登录失败&apos;);
-
-3、跳转方法给模板页面的数据
-
-    1、$code 返回的状态码 成功 1 失败 0
-
-    2、$msg 页面的提示信息
-
-    3、$wait 等待时间
-
-    4、$url 制定跳转页面 默认返回上一个页面
-
-    5、$data 用户返回的数据
-
-4、相关配置文件
-    // 默认跳转页面对应的模板文件
-    &apos;dispatch_success_tmpl&apos;  =&gt; THINK_PATH . &apos;tpl&apos; . DS . &apos;dispatch_jump.tpl&apos;,
-    &apos;dispatch_error_tmpl&apos;    =&gt; THINK_PATH . &apos;tpl&apos; . DS . &apos;dispatch_jump.tpl&apos;,
-</code></pre><p>4、修改成功和失败的模板页面</p>
-<pre><code>a、修改默认文件
-    1、默认文件位置
-        /var/www/tp5/thinkphp/tpl/dispatch_jump.php
-
-    2、根据原有代码进行修改            
-        在成功失败模板页面进行修改
-
-b、用户自定义页面跳转模板
-    1、修改配置文件
-        &apos;dispatch_success_tmpl&apos;  =&gt; THINK_PATH . &apos;tpl&apos; . DS . &apos;success.tpl&apos;,
-        &apos;dispatch_error_tmpl&apos;    =&gt; THINK_PATH . &apos;tpl&apos; . DS . &apos;error.tpl&apos;,
-
-    2、在系统模板目录下 (/var/www/tp5/thinkphp/tpl) 新建 success.php 和error.php
-
-    3、自定义书写跳转页面
-</code></pre><p>7、重定向</p>
-<pre><code>1、作用：
-    重定向(Redirect)就是通过各种方法将各种网络请求重新定个方向转到其它位置
-
-2、使用:
-
-    redirect(&apos;跳转地址&apos;,&apos;其他参数&apos;,code,&apos;隐士参数&apos;);
-
-    $this-&gt;redirect(&apos;index/index&apos;,[&apos;id&apos;=&gt;100,&apos;name&apos;=&gt;&apos;abc&apos;]);
-</code></pre><p>8、空控制器和空操作</p>
-<pre><code>1、空操作
-    # 主要解决一些用户恶意的地址栏输入，报错影响交互
-    public function _empty(){
-    $this-&gt;redirect(&apos;index/index&apos;);
-    }
-
-2、空控制器
-    // 声明命名空间
-    namespace app\index\controller;
-    use think\Controller;
-    // 声明控制器
-    class Error extends Controller{
-        // index
-        public function index(){
-            $this-&gt;redirect(&apos;index/index&apos;);
-        }
-        // 空操作
-        public function _empty(){
-            $this-&gt;redirect(&apos;index/index&apos;);
-
-        }
-    }
-
-3、注意:
-    1、网站上线的时候每一个控制器都必须添加空操作
-
-    2、不论前台后台都需要写一个空控制器
-</code></pre><p>9、使用命令行</p>
-<pre><code>1、切换到网站的根目录下
-
-2、输入php think
-
-3、使用
-    1、创建控制器
-        php think make:controller app\index\controller\Goods
-
-    2、创建数据模型
-        php think make:model app\index\model\Goods
-
-    3、清空runtime 临时文件
-        php think clear
-</code></pre><p>10、资源控制器<br>    1、使用命令行创建控制器<br>        php think make:controller app\index\controller\Goods</p>
-<p>​    2、资源控制器一般配合资源路由使用.<br>11、系统类</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Config</span><br><span class="line">Env</span><br><span class="line">Controller</span><br><span class="line">View</span><br><span class="line">Route</span><br><span class="line">URL</span><br></pre></td></tr></table></figure>
-<p>12、系统方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">config(); </span><br><span class="line">view();</span><br><span class="line">controller();</span><br><span class="line">action();</span><br><span class="line">url();</span><br><span class="line">dump();</span><br></pre></td></tr></table></figure>
+<p>1、阿里PHP面试</p>
+<p>​    <a href="https://blog.csdn.net/qishouzhang/article/details/47007177" target="_blank" rel="noopener">https://blog.csdn.net/qishouzhang/article/details/47007177</a></p>
+<p>1、get与post的区别</p>
+<p>​    最直观的区别就是GET把参数包含在URL中，POST通过request body传递参数。</p>
+<p>​    GET在浏览器回退时是无害的，而POST会再次提交请求    </p>
+<p>​    GET产生的URL地址可以被Bookmark，而POST不可以。</p>
+<p>​    GET请求只能进行url编码，而POST支持多种编码方式。</p>
+<p>​    GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</p>
+<p>​    GET请求在URL中传送的参数是有长度限制的（不同浏览器不同，chrome为8182），而POST没有。</p>
+<p>​    对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</p>
+<p>​    GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</p>
+<p>​    GET产生一个TCP数据包；POST产生两个TCP数据包。</p>
+<p>2、cookie和session的区别</p>
+<p>​    cookie数据保存在客户端，session数据保存在服务器端。</p>
+<p>3、MySQL中myisam和innodb的区别</p>
+<p>​    MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持以及外部键等高级数据库功能。</p>
+<p>​    两种类型最主要的差别就是Innodb 支持事务处理与外键和行级锁。</p>
+<p>4、如何定位sql慢查询以及优化处理流程</p>
+<p>查询是否开启了慢查询日志</p>
+<p>​    mysql&gt; show variables like ‘%slow%’;<br>​    如果slow_query_log 为 off，则<br>​    mysql&gt; set global slow_query_log=1;</p>
+<p>在mysql的my.ini中，查找datadir<br>    在data目录下，会生成一个log日志，里面即可定位慢查询的sql语句！</p>
+<p>优化</p>
+<p>​    1. 打开慢日志查询，确定是否有SQL语句占用了过多资源，如果是，在不改变业务原意的前提下，对insert、group by、order by、join等语句进行优化。</p>
+<ol start="2">
+<li><p>考虑调整MySQL的系统参数： innodb_buffer_pool_size、innodb_log_file_size、table_cache等。</p>
+</li>
+<li><p>确定是否是因为高并发引起行锁的超时问题</p>
+</li>
+</ol>
+<p>5、获取服务器ip和客户端ip的方法</p>
+<p>​    客户端</p>
+<p>​    <em>$_SERVER[“REMOTE_ADDR”]</em> ，客户用代理器的话不能访问正确的地址，若代理想获得真实的    $_SERVER[“HTTP_X_FORWARDED_FOR”]</p>
+<p>​    服务端</p>
+<p>​    a. $_SERVER[“SERVER_NAME”]，需要使用函数gethostbyname()获得。这个变量无论在服务器端还是客户端均能正确显示。</p>
+<p>​    b. $_SERVER[“SERVER_ADDR”]，在服务器端测试：127.0.0.1（这个与httpd.conf中BindAddress的设置值相关）。在客户端测试结果正确。</p>
+<p>7、二分法、快速排序、递归思想、时间复杂度、PHP实现栈和队列封装成类</p>
+<p>8、linux基本命令，独立搭建lamp</p>
+<p>9、strstr和stristr、explode和implode、include和require的区别</p>
+<p>​    strstr是大小写敏感的。 stristr是大小写不敏感的。</p>
+<p>​    implode 把数组输出为字符串 ，explode 把字符串分割为数组</p>
+<p>​    require()语句的性能与include()相类似，都是包括并运行指定文件。不同之处在于：对include()语句来说，在执行文件时每次都要进行读取和评估；而对于require()来说，文件只处理一次（实际上，文件内容替换require()语句）。这就意味着如果可能执行多次的代码，则使用require()效率比较高。另外一方面，如果每次执行代码时是读取不同的文件，或者有通过一组文件迭代的循环，就使用include()语句。</p>
+<hr>
+<p>​    </p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/27.png"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/36.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -544,12 +397,8 @@ b、用户自定义页面跳转模板
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3" rel="next">
+			<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -564,27 +413,6 @@ b、用户自定义页面跳转模板
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/06/02/面试准备/" title="面试准备">
-							面试准备
-						</a>
-						<p>
-							    PHP面试题目
-
-1、阿里PHP面试
-​    https://blog.csdn.net/qishouzhang/article/details/47007177
-1、get与post的区别
-​    最直观的区别就是GET...
-						</p>
-					</div>
-
-					<a href="/2019/06/02/面试准备/" title="面试准备">				
-						<img src="/img/post-cover/36.jpg" class="relateImg" alt="面试准备">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -703,6 +531,27 @@ Request
 
 					<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">				
 						<img src="/img/post-cover/28.png" class="relateImg" alt="tp5学习笔记5">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">
+							tp5学习笔记4
+						</a>
+						<p>
+							    tp5学习笔记4
+
+1、新建控制器(前台模块为例)
+1、在前台控制器目录下(/var/www/tp5/application/index/controller) 新建控制器文件 User.php
+
+2、User.php文件中如...
+						</p>
+					</div>
+
+					<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">				
+						<img src="/img/post-cover/27.png" class="relateImg" alt="tp5学习笔记4">
 					</a>
 				</li>											
 		
