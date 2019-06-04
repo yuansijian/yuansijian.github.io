@@ -297,7 +297,7 @@
 	更新于
 	<a href="/2019/06/02/面试准备/" itemprop="url">
 		<time datetime="2019-06-02T08:24:22.000Z" itemprop="dateUpdated">
-	  		2019-06-02
+	  		2019-06-04
 	  </time>
 	</a> 	
 
@@ -335,12 +335,9 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    PHP面试题目<br></center>
-
-<p>1、阿里PHP面试</p>
-<p>​    <a href="https://blog.csdn.net/qishouzhang/article/details/47007177" target="_blank" rel="noopener">https://blog.csdn.net/qishouzhang/article/details/47007177</a></p>
-<p>1、get与post的区别</p>
-<p>​    最直观的区别就是GET把参数包含在URL中，POST通过request body传递参数。</p>
+		<p><center><br>    PHP面试题目<br></center></p>
+<h3 id="1、阿里PHP面试"><a href="#1、阿里PHP面试" class="headerlink" title="1、阿里PHP面试"></a>1、阿里PHP面试</h3><p>​    <a href="https://blog.csdn.net/qishouzhang/article/details/47007177" target="_blank" rel="noopener">https://blog.csdn.net/qishouzhang/article/details/47007177</a></p>
+<h3 id="1、get与post的区别"><a href="#1、get与post的区别" class="headerlink" title="1、get与post的区别"></a>1、get与post的区别</h3><p>​    最直观的区别就是GET把参数包含在URL中，POST通过request body传递参数。</p>
 <p>​    GET在浏览器回退时是无害的，而POST会再次提交请求    </p>
 <p>​    GET产生的URL地址可以被Bookmark，而POST不可以。</p>
 <p>​    GET请求只能进行url编码，而POST支持多种编码方式。</p>
@@ -349,13 +346,10 @@
 <p>​    对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</p>
 <p>​    GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</p>
 <p>​    GET产生一个TCP数据包；POST产生两个TCP数据包。</p>
-<p>2、cookie和session的区别</p>
-<p>​    cookie数据保存在客户端，session数据保存在服务器端。</p>
-<p>3、MySQL中myisam和innodb的区别</p>
-<p>​    MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持以及外部键等高级数据库功能。</p>
+<h3 id="2、cookie和session的区别"><a href="#2、cookie和session的区别" class="headerlink" title="2、cookie和session的区别"></a>2、cookie和session的区别</h3><p>​    cookie数据保存在客户端，session数据保存在服务器端。</p>
+<h3 id="3、MySQL中myisam和innodb的区别"><a href="#3、MySQL中myisam和innodb的区别" class="headerlink" title="3、MySQL中myisam和innodb的区别"></a>3、MySQL中myisam和innodb的区别</h3><p>​    MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持以及外部键等高级数据库功能。</p>
 <p>​    两种类型最主要的差别就是Innodb 支持事务处理与外键和行级锁。</p>
-<p>4、如何定位sql慢查询以及优化处理流程</p>
-<p>查询是否开启了慢查询日志</p>
+<h3 id="4、如何定位sql慢查询以及优化处理流程"><a href="#4、如何定位sql慢查询以及优化处理流程" class="headerlink" title="4、如何定位sql慢查询以及优化处理流程"></a>4、如何定位sql慢查询以及优化处理流程</h3><p>查询是否开启了慢查询日志</p>
 <p>​    mysql&gt; show variables like ‘%slow%’;<br>​    如果slow_query_log 为 off，则<br>​    mysql&gt; set global slow_query_log=1;</p>
 <p>在mysql的my.ini中，查找datadir<br>    在data目录下，会生成一个log日志，里面即可定位慢查询的sql语句！</p>
 <p>优化</p>
@@ -366,19 +360,25 @@
 <li><p>确定是否是因为高并发引起行锁的超时问题</p>
 </li>
 </ol>
-<p>5、获取服务器ip和客户端ip的方法</p>
-<p>​    客户端</p>
+<h3 id="5、获取服务器ip和客户端ip的方法"><a href="#5、获取服务器ip和客户端ip的方法" class="headerlink" title="5、获取服务器ip和客户端ip的方法"></a>5、获取服务器ip和客户端ip的方法</h3><p>​    客户端</p>
 <p>​    <em>$_SERVER[“REMOTE_ADDR”]</em> ，客户用代理器的话不能访问正确的地址，若代理想获得真实的    $_SERVER[“HTTP_X_FORWARDED_FOR”]</p>
 <p>​    服务端</p>
 <p>​    a. $_SERVER[“SERVER_NAME”]，需要使用函数gethostbyname()获得。这个变量无论在服务器端还是客户端均能正确显示。</p>
 <p>​    b. $_SERVER[“SERVER_ADDR”]，在服务器端测试：127.0.0.1（这个与httpd.conf中BindAddress的设置值相关）。在客户端测试结果正确。</p>
 <p>7、二分法、快速排序、递归思想、时间复杂度、PHP实现栈和队列封装成类</p>
 <p>8、linux基本命令，独立搭建lamp</p>
-<p>9、strstr和stristr、explode和implode、include和require的区别</p>
-<p>​    strstr是大小写敏感的。 stristr是大小写不敏感的。</p>
+<h3 id="9、strstr和stristr、explode和implode、include和require的区别"><a href="#9、strstr和stristr、explode和implode、include和require的区别" class="headerlink" title="9、strstr和stristr、explode和implode、include和require的区别"></a>9、strstr和stristr、explode和implode、include和require的区别</h3><p>​    strstr是大小写敏感的。 stristr是大小写不敏感的。</p>
 <p>​    implode 把数组输出为字符串 ，explode 把字符串分割为数组</p>
 <p>​    require()语句的性能与include()相类似，都是包括并运行指定文件。不同之处在于：对include()语句来说，在执行文件时每次都要进行读取和评估；而对于require()来说，文件只处理一次（实际上，文件内容替换require()语句）。这就意味着如果可能执行多次的代码，则使用require()效率比较高。另外一方面，如果每次执行代码时是读取不同的文件，或者有通过一组文件迭代的循环，就使用include()语句。</p>
-<hr>
+<h3 id="10、进程和线程的区别"><a href="#10、进程和线程的区别" class="headerlink" title="10、进程和线程的区别"></a>10、进程和线程的区别</h3><p>​    进程和线程的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。</p>
+<p>1) 简而言之,一个程序至少有一个进程,一个进程至少有一个线程.</p>
+<p>2) 线程的划分尺度小于进程，使得多线程程序的并发性高。</p>
+<p>3) 另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。</p>
+<p>4) 线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。</p>
+<p>5) 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。</p>
+<h3 id="11、操作系统中堆和栈的区别"><a href="#11、操作系统中堆和栈的区别" class="headerlink" title="11、操作系统中堆和栈的区别"></a>11、操作系统中堆和栈的区别</h3><p>​    1、栈区（stack）— 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放</p>
+<pre><code>2、堆区（heap）— 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。堆则是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些
+</code></pre><hr>
 <p>​    </p>
 	
 	</div>
@@ -792,6 +792,13 @@ ThinkPHP 使用了MVC模式，它强制性的使应用程序的输入、处理�
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	
 		</main>
 		
