@@ -378,7 +378,54 @@
 <p>5) 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。</p>
 <h3 id="11、操作系统中堆和栈的区别"><a href="#11、操作系统中堆和栈的区别" class="headerlink" title="11、操作系统中堆和栈的区别"></a>11、操作系统中堆和栈的区别</h3><p>​    1、栈区（stack）— 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放</p>
 <pre><code>2、堆区（heap）— 一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。堆则是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些
-</code></pre><hr>
+</code></pre><h3 id="12、单例模式"><a href="#12、单例模式" class="headerlink" title="12、单例模式"></a>12、单例模式</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Created by PhpStorm.</span></span><br><span class="line"><span class="comment">User: protecting</span></span><br><span class="line"><span class="comment">Date: 19-4-15</span></span><br><span class="line"><span class="comment">Time: 下午8:41</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">单例类</span></span><br><span class="line"><span class="comment">Singleton.class</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">静态成品变量 保存全局实例</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> $_instance = <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">私有化默认构造方法，保证外界无法直接实例化</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">静态工厂方法，返还此类的唯一实例</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (is_null(<span class="keyword">self</span>::$instance)) &#123;</span><br><span class="line">    <span class="keyword">self</span>::$instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span>::$_instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">防止用户克隆实例</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__clone</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">die</span>(<span class="string">'Clone is not allowed.'</span> . E_USER_ERROR);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">测试用方法</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'Singleton Test OK!'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">客户端</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Main program.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">$instance = Singleton::getInstance();</span><br><span class="line">$instance-&gt;test();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Client::main();</span><br></pre></td></tr></table></figure>
+<p>/**</p>
+<ul>
+<li>Created by PhpStorm.</li>
+<li>User: protecting</li>
+<li>Date: 19-4-15</li>
+<li>Time: 下午8:41<br> */</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>单例类</li>
+<li><p>Singleton.class<br> */<br> class Singleton<br> {<br> /**</p>
+<ul>
+<li><p>静态成品变量 保存全局实例<br> */<br> private static $_instance = NULL;</p>
+<p>/**</p>
+</li>
+<li><p>私有化默认构造方法，保证外界无法直接实例化<br> */<br> private function __construct()<br> {</p>
+<p>}</p>
+<p>/**</p>
+</li>
+<li><p>静态工厂方法，返还此类的唯一实例<br> */<br> public static function getInstance() {<br> if (is_null(self::$_instance)) {</p>
+<pre><code>self::$_instance = new Singleton();
+
+// 或者这样写
+// self::$_instance = new self();
+</code></pre><p> }</p>
+<p> return self::$_instance;<br> }</p>
+<p>/**</p>
+</li>
+<li><p>防止用户克隆实例<br> */<br> public function __clone(){<br> die(‘Clone is not allowed.’ . E_USER_ERROR);<br> }</p>
+<p>/**</p>
+</li>
+<li>测试用方法<br> */<br> public function test()<br> {<br> echo ‘Singleton Test OK!’;<br> }</li>
+</ul>
+</li>
+</ul>
+<p>}</p>
+<p>/**</p>
+<ul>
+<li><p>客户端<br> */<br> class Client {</p>
+<p> /**</p>
+<ul>
+<li>Main program.<br> */<br> public static function main() {<br> $instance = Singleton::getInstance();<br> $instance-&gt;test();<br> }<br> }</li>
+</ul>
+</li>
+</ul>
+<p>Client::main(); <code>`</code></p>
+<hr>
 <p>​    </p>
 	
 	</div>
