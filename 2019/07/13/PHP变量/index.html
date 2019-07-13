@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      算法训练-审美课 | 守护
+      为什么PHP变量以$开头 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《算法训练-审美课》
+						当前文章&nbsp;:&nbsp;《为什么PHP变量以$开头》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/02/19/算法训练-审美课/" itemprop="url">
-		算法训练-审美课
+	<a href="/2019/07/13/PHP变量/" itemprop="url">
+		为什么PHP变量以$开头
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/02/19/算法训练-审美课/" itemprop="url">
-		<time datetime="2019-02-19T15:24:26.000Z" itemprop="datePublished">
-	  		2019-02-19
+	<a href="/2019/07/13/PHP变量/" itemprop="url">
+		<time datetime="2019-07-13T01:16:47.000Z" itemprop="datePublished">
+	  		2019-07-13
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/02/19/算法训练-审美课/" itemprop="url">
-		<time datetime="2019-02-19T15:24:26.000Z" itemprop="dateUpdated">
-	  		2019-02-19
+	<a href="/2019/07/13/PHP变量/" itemprop="url">
+		<time datetime="2019-07-13T01:16:47.000Z" itemprop="dateUpdated">
+	  		2019-07-13
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/蓝桥杯/" class=" ">
-			蓝桥杯
+		<a href="/tags/PHP变量/" class=" ">
+			PHP变量
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/02/19/算法训练-审美课/_visitors" data-url="/2019/02/19/算法训练-审美课/" data-title="算法训练-审美课">
+    <span class="leancloud_visitors" id="/2019/07/13/PHP变量/_visitors" data-url="/2019/07/13/PHP变量/" data-title="为什么PHP变量以$开头">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/02/19/算法训练-审美课/_likes" data-url="/2019/02/19/算法训练-审美课/" data-title="算法训练-审美课" rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/13/PHP变量/_likes" data-url="/2019/07/13/PHP变量/" data-title="为什么PHP变量以$开头" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,15 +335,17 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><center>算法训练-审美课   </center></p>
-<p>思路：</p>
-<p>统计所有相同字符串的个数<br>寻找和本身字符串数字完全相反的字符串<br>两个字符串个数相乘<br>将所有相乘的和加起来<br>大佬解题思路：用map&lt;string,int&gt;cnt 存   </p>
-<p>注意：map&lt;string, int&gt;中的键-值   </p>
-<p>完整代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">map&lt;string, int&gt; cnt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n, m, sum = 0;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    for(int i=0; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        string s = &quot;&quot;;      //新的键值对应，防止所有数据集合为一个字符串</span><br><span class="line">        for(int j=0; j&lt;m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            //将第n个人的打分记下为一个字符串</span><br><span class="line">            char x;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            s+=x;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt[s]++;       //相同评分的+1</span><br><span class="line">    &#125;</span><br><span class="line">    for(map&lt;string, int&gt;::iterator it=cnt.begin(); it!=cnt.end(); it++)</span><br><span class="line">    &#123;</span><br><span class="line">        //cout &lt;&lt; it-&gt;first &lt;&lt; &apos; &apos; &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">        //这里查看有没有相反的，即求出第n个的相反的评分，然后根据键值查看</span><br><span class="line">        string s=&quot;&quot;;</span><br><span class="line">        for(int i=0; i&lt;m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(it-&gt;first[i] == &apos;0&apos;)</span><br><span class="line">            &#123;</span><br><span class="line">                s += &quot;1&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                s += &quot;0&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //cout &lt;&lt; it-&gt;first &lt;&lt; &apos; &apos; &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line">        //cout &lt;&lt;  &quot;s=&quot; &lt;&lt; s &lt;&lt; &apos; &apos; &lt;&lt; &quot;cnt[s]= &quot; &lt;&lt; cnt[s] &lt;&lt; &quot;it-&gt;sexond= &quot; &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line">        //这里表示若有相反的，即键值和it-&gt;second不为0，存到sum中，但是由于相反事互相的，所以后面要除以2</span><br><span class="line">        sum += cnt[s]*it-&gt;second;       //it-&gt;first表示 map&lt;string,int&gt;中的string部分，it-&gt;second表示map&lt;string,int&gt;中的int部分</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; sum/2 &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//#include &lt;iostream&gt;</span><br><span class="line">//#include &lt;map&gt;</span><br><span class="line">//#include &lt;algorithm&gt;</span><br><span class="line">//using namespace std;</span><br><span class="line">//map&lt;string, int&gt; cnt;</span><br><span class="line">//int main()</span><br><span class="line">//&#123;</span><br><span class="line">//    for(int j=0; j&lt;2; j++)</span><br><span class="line">//    &#123;</span><br><span class="line">//        string s=&quot;&quot;;</span><br><span class="line">//        for(int i=0; i&lt;3; i++)</span><br><span class="line">//        &#123;</span><br><span class="line">//            char x;</span><br><span class="line">//            cin &gt;&gt; x;</span><br><span class="line">//            s+=x;</span><br><span class="line">//        &#125;</span><br><span class="line">//        cnt[s]++;</span><br><span class="line">//    &#125;</span><br><span class="line">//    for(map&lt;string, int&gt;::iterator it=cnt.begin(); it!=cnt.end(); it++)</span><br><span class="line">//    &#123;</span><br><span class="line">//        cout &lt;&lt; it-&gt;first &lt;&lt; &apos; &apos; &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line">//    &#125;</span><br><span class="line">//    return 0;</span><br><span class="line">//&#125;</span><br></pre></td></tr></table></figure></p>
+		<center><br>    PHP变量<br></center>
+
+<p>​    Because PHP was based on Perl which used $, though the symbols Perl used were meaningful and<br>plenty used to indicate the data type, ( such as @ used to indicate an array ) PHP just has $.<br>​    PHP in its early stages was a simplistic version of Perl but over time incorporated more of<br>Perl’s features, though one may argue PHP is still a simplistic primitive version of Perl since<br>to this day most installed versions of it don’t include features that have been around in<br>other languages forever, such as closures/namespacing.</p>
+<p><a href="http://en.wikipedia.org/wiki/PHP" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/PHP</a>   </p>
+<p>这里说明了早期PHP是借鉴Perl语言的，所以采用了Perl语言命名变量的方式。</p>
+<p>个人理解：</p>
+<p>​    标识变量，例如在双引号里面直接写变量，看到$就是变量一目了然等。</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/11.png"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/41.png"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -357,12 +359,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/02/22/最短路径/" title="最短路径" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs" rel="next">
+			<a href="/2019/07/10/PHP超全局变量/" title="PHP超全局变量" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -380,173 +378,226 @@
 		
 				<li>
 					<div>
-						<a href="/2019/02/23/SPFA/" title="SPFA">
-							SPFA
+						<a href="/2019/07/10/PHP超全局变量/" title="PHP超全局变量">
+							PHP超全局变量
 						</a>
 						<p>
-							 算法训练-最短路径  
-适用范围：给定的图存在负权边，这时类似Dijkstra等算法便没有了用武之地，而Bellman-Ford算法的复杂度又过高，SPFA算法便派上用场了。 我们约定有向加权图G不存在负权回路，即最短路径一定存在。...
+							    PHP超全局变量
+
+PHP中预定义了几个超级全局变量（superglobals） ，这意味着它们在一个脚本的全部作用域中都可用。 你不需要特别说明，就可以在函数及类中使用。
+PHP 超级全局变量列表:
+
+$GLOBALS
+$G...
 						</p>
 					</div>
 
-					<a href="/2019/02/23/SPFA/" title="SPFA">				
-						<img src="/img/post-cover/13.jpg" class="relateImg" alt="SPFA">
+					<a href="/2019/07/10/PHP超全局变量/" title="PHP超全局变量">				
+						<img src="/img/post-cover/40.jpg" class="relateImg" alt="PHP超全局变量">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/22/最短路径/" title="最短路径">
-							最短路径
+						<a href="/2019/06/02/面试准备/" title="面试准备">
+							面试准备
 						</a>
 						<p>
-							 最短路径   
-建立邻接表（邻接矩阵也可以）12345678struct Node&#123;    int v;          //顶点    int dis;        //权值    Node(int x, int y...
+							    PHP面试题目
+1、阿里PHP面试​    https://blog.csdn.net/qishouzhang/article/details/47007177
+1、get与post的区别​    最直观的区别就是GET把参数...
 						</p>
 					</div>
 
-					<a href="/2019/02/22/最短路径/" title="最短路径">				
-						<img src="/img/post-cover/12.png" class="relateImg" alt="最短路径">
+					<a href="/2019/06/02/面试准备/" title="面试准备">				
+						<img src="/img/post-cover/36.jpg" class="relateImg" alt="面试准备">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs">
-							简单dfs和bfs
+						<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9">
+							tp5学习笔记9
 						</a>
 						<p>
-							 简单dfs和bfs
-主要为如何做标记及递归处理
- 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950...
+							    tp5学习笔记9
+
+1、验证器1) 控制器中使用验证器
+
+        // 实例化验证器类
+
+        $validate=new Validate(
+            [
+                &q...
 						</p>
 					</div>
 
-					<a href="/2019/02/19/简单dfs和bfs/" title="简单dfs和bfs">				
-						<img src="/img/post-cover/10.jpg" class="relateImg" alt="简单dfs和bfs">
+					<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9">				
+						<img src="/img/post-cover/35.jpg" class="relateImg" alt="tp5学习笔记9">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/18/快速排序/" title="快速排序">
-							快速排序
+						<a href="/2019/05/11/tp5学习笔记8/" title="tp5学习笔记8">
+							tp5学习笔记8
 						</a>
 						<p>
-							快速排序(Quick Sort)  
-主要事如何划分再排序，使用递归方法，即创建两个函数，一个划分，一个排序。划分伪代码：123456789101112i = lowx = A[low]for j=low+1 to high     ...
+							    tp5学习笔记8    
+
+1、视图a) 加载页面
+
+    1、继承系统控制器类
+
+        return $this-&gt;fetch(参数1,参数2,参数3,参数4);
+
+        参数1(字符串): 模板...
 						</p>
 					</div>
 
-					<a href="/2019/02/18/快速排序/" title="快速排序">				
-						<img src="/img/post-cover/9.png" class="relateImg" alt="快速排序">
+					<a href="/2019/05/11/tp5学习笔记8/" title="tp5学习笔记8">				
+						<img src="/img/post-cover/34.png" class="relateImg" alt="tp5学习笔记8">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/归并排序/" title="归并排序">
-							归并排序
+						<a href="/2019/05/09/tp5学习笔记7/" title="tp5学习笔记7">
+							tp5学习笔记7
 						</a>
 						<p>
-							 归并排序(Merge Sort)  
-是创建在归并操作上的一种有效的排序算法，效率为O(nlog n)（大O符号）。1945年由约翰·冯·诺伊曼首次提出。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用...
+							    tp5学习笔记7
+
+1、模型(model)数据模型
+2、新建数据模型​    
+1) 手动新建
+
+    在model目录下 新建 User.php
+
+        // 声明命名空间
+        namespace a...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/归并排序/" title="归并排序">				
-						<img src="/img/post-cover/8.png" class="relateImg" alt="归并排序">
+					<a href="/2019/05/09/tp5学习笔记7/" title="tp5学习笔记7">				
+						<img src="/img/post-cover/33.jpg" class="relateImg" alt="tp5学习笔记7">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/插入排序/" title="插入排序">
-							插入排序
+						<a href="/2019/05/09/tp5学习笔记6/" title="tp5学习笔记6">
+							tp5学习笔记6
 						</a>
 						<p>
-							 插入排序(Insert Sort)  
-插入排序（英语：Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序在实现上，通常采...
+							    tp5学习笔记6
+
+1、TP5.0 支持数据库类型1Mysql、SqlServer、PgSQL、Sqlite等数据库的支持。
+2、如何连接数据库1、配置文件定义
+
+    a、配置文件目录
+        /var/www/t...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/插入排序/" title="插入排序">				
-						<img src="/img/post-cover/7.jpg" class="relateImg" alt="插入排序">
+					<a href="/2019/05/09/tp5学习笔记6/" title="tp5学习笔记6">				
+						<img src="/img/post-cover/32.png" class="relateImg" alt="tp5学习笔记6">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/冒泡排序/" title="冒泡排序">
-							冒泡排序
+						<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">
+							tp5学习笔记5
 						</a>
 						<p>
-							冒泡排序(Bubble Sort)
-是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是...
+							    tp5学习笔记5
+
+1、系统类(/var/www/tp5/thinkphp/library/think)    
+Config
+Controller
+Env
+Route
+Url
+View
+Request 
+2、系统方法(/va...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/冒泡排序/" title="冒泡排序">				
-						<img src="/img/post-cover/6.jpg" class="relateImg" alt="冒泡排序">
+					<a href="/2019/04/28/tp5学习笔记5/" title="tp5学习笔记5">				
+						<img src="/img/post-cover/28.png" class="relateImg" alt="tp5学习笔记5">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/02/17/选择排序/" title="选择排序">
-							选择排序
+						<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">
+							tp5学习笔记4
 						</a>
 						<p>
-							选择排序  
-选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排...
+							    tp5学习笔记4
+
+1、新建控制器(前台模块为例)
+1、在前台控制器目录下(/var/www/tp5/application/index/controller) 新建控制器文件 User.php
+
+2、User.php文件中如...
 						</p>
 					</div>
 
-					<a href="/2019/02/17/选择排序/" title="选择排序">				
-						<img src="/img/post-cover/5.png" class="relateImg" alt="选择排序">
+					<a href="/2019/04/27/tp5学习笔记4/" title="tp5学习笔记4">				
+						<img src="/img/post-cover/27.png" class="relateImg" alt="tp5学习笔记4">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/01/27/链表基本操作/" title="链表基本操作">
-							链表基本操作
+						<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">
+							tp5学习笔记3
 						</a>
 						<p>
-							 链表基本操作
-首先生成一个结构体，例如struct node{    int data;    node *link;};  
-1、创建单链表123456789101112131415161718192021222324252627...
+							    tp5学习笔记3
+
+1、路由作用:    1、简化URL地址，方便大家记忆
+2、有利于搜索引擎优化
+2、入口文件:
+1、前后台分离
+
+    a、在网站public目录下(/var/www/tp5/public) 新建admi...
 						</p>
 					</div>
 
-					<a href="/2019/01/27/链表基本操作/" title="链表基本操作">				
-						<img src="/img/post-cover/1-1.png" class="relateImg" alt="链表基本操作">
+					<a href="/2019/04/26/tp5学习笔记3/" title="tp5学习笔记3">				
+						<img src="/img/post-cover/26.jpg" class="relateImg" alt="tp5学习笔记3">
 					</a>
 				</li>											
 		
 		
 				<li>
 					<div>
-						<a href="/2019/07/13/PHP变量/" title="为什么PHP变量以$开头">
-							为什么PHP变量以$开头
+						<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">
+							tp5学习笔记2
 						</a>
 						<p>
-							    PHP变量
+							    tp5学习笔记2
 
-​    Because PHP was based on Perl which used $, though the symbols Perl used were meaningful andplenty us...
+1、配置文件格式    a) ThinkPHP支持多种格式的配置格式，但最终都是解析为PHP数组的方式。
+b) 我们主要的学习形式就是数组
+    return [
+        &apos;name&a...
 						</p>
 					</div>
 
-					<a href="/2019/07/13/PHP变量/" title="为什么PHP变量以$开头">				
-						<img src="/img/post-cover/41.png" class="relateImg" alt="为什么PHP变量以$开头">
+					<a href="/2019/04/26/tp5学习笔记2/" title="tp5学习笔记2">				
+						<img src="/img/post-cover/25.jpg" class="relateImg" alt="tp5学习笔记2">
 					</a>
 				</li>											
 		
