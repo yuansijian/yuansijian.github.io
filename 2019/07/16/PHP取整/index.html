@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      tp5学习笔记9 | 守护
+      PHP取整 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《tp5学习笔记9》
+						当前文章&nbsp;:&nbsp;《PHP取整》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/05/11/tp5学习笔记9/" itemprop="url">
-		tp5学习笔记9
+	<a href="/2019/07/16/PHP取整/" itemprop="url">
+		PHP取整
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/05/11/tp5学习笔记9/" itemprop="url">
-		<time datetime="2019-05-11T06:34:21.000Z" itemprop="datePublished">
-	  		2019-05-11
+	<a href="/2019/07/16/PHP取整/" itemprop="url">
+		<time datetime="2019-07-16T01:29:49.000Z" itemprop="datePublished">
+	  		2019-07-16
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/05/11/tp5学习笔记9/" itemprop="url">
-		<time datetime="2019-05-11T06:34:21.000Z" itemprop="dateUpdated">
-	  		2019-05-11
+	<a href="/2019/07/16/PHP取整/" itemprop="url">
+		<time datetime="2019-07-16T01:29:49.000Z" itemprop="dateUpdated">
+	  		2019-07-16
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/thinkPhp5/" class=" ">
-			thinkPhp5
+		<a href="/tags/PHP变量/" class=" ">
+			PHP变量
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/05/11/tp5学习笔记9/_visitors" data-url="/2019/05/11/tp5学习笔记9/" data-title="tp5学习笔记9">
+    <span class="leancloud_visitors" id="/2019/07/16/PHP取整/_visitors" data-url="/2019/07/16/PHP取整/" data-title="PHP取整">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/05/11/tp5学习笔记9/_likes" data-url="/2019/05/11/tp5学习笔记9/" data-title="tp5学习笔记9" rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/16/PHP取整/_likes" data-url="/2019/07/16/PHP取整/" data-title="PHP取整" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,332 +335,15 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    tp5学习笔记9<br></center>
+		<center><br>    PHP取整<br></center>
 
-<h3 id="1、验证器"><a href="#1、验证器" class="headerlink" title="1、验证器"></a>1、验证器</h3><pre><code>1) 控制器中使用验证器
 
-        // 实例化验证器类
 
-        $validate=new Validate(
-            [
-                &quot;username&quot;=&gt;&quot;require|length:6,12&quot;,
-                &quot;password&quot;=&gt;&quot;require|confirm:repassword&quot;
-            ],
-            [
-                &quot;username.require&quot;=&gt;&apos;用户名不存在&apos;,
-                &quot;username.length&quot;=&gt;&apos;用户名长度不满足&apos;,
-                &quot;password.require&quot;=&gt;&apos;密码不存在&apos;,
-                &quot;password.confirm&quot;=&gt;&apos;两次密码不一致&apos;,
-            ]
-        );
-
-        // 接收用户提交的数据
-        $data=input(&quot;post.&quot;);
-
-        // 进行验证
-        if ($validate-&gt;check($data)) {
-
-        }else{
-            dump($validate-&gt;getError());
-        }
-</code></pre><h3 id="1、缓存"><a href="#1、缓存" class="headerlink" title="1、缓存"></a>1、缓存</h3><pre><code>a) 缓存的作用：
-
-    减少数据库压力
-    用户交互比较
-
-b) TP对缓存的支持
-
-    支持的缓存类型包括file、memcache、wincache、sqlite、redis和xcache。
-
-c) 缓存设置(C:\AppServ\www\tp5\application\config.php)
-
-    &apos;cache&apos;                  =&gt; [
-        // 驱动方式
-        &apos;type&apos;   =&gt; &apos;File&apos;,
-        // 缓存保存目录
-        &apos;path&apos;   =&gt; CACHE_PATH,
-        // 缓存前缀
-        &apos;prefix&apos; =&gt; &apos;&apos;,
-        // 缓存有效期 0表示永久缓存
-        &apos;expire&apos; =&gt; 0,
-    ],
-
-d) 使用
-
-    1、设置缓存
-
-        Cache::set(名字,值,时间);
-        cache(名字,值,时间);
-
-        # 返回值 如果设置成功 true
-        # 如果设置失败 false
-    2、读取缓存
-
-        Cache::get(名字);
-        cache(名字);
-
-        # 返回值 如果获取成功 获取到的数据
-        # 如果获取失败 false
-
-    3、删除缓存
-
-        Cache::rm(&apos;UserData&apos;);
-        cache(&apos;UserData&apos;,NULL);
-
-        # 返回值 删除成功 true
-        # 删除失败 false
-
-    4、清空缓存
-
-        Cache::clear();
-
-        # 返回值 清空缓存成功 true 否则 false
-    5、使用缓存
-
-        // 从缓存中获取数据
-
-        if ($data=cache(&apos;UserData&apos;)) {
-
-            // 如果数据存在
-
-        }else{
-            // 如果缓存中没有数据
-            $data=Db::table(&apos;User&apos;)-&gt;select();
-
-            cache(&apos;UserData&apos;,$data,20);
-        }
-</code></pre><h3 id="2、Session"><a href="#2、Session" class="headerlink" title="2、Session"></a>2、Session</h3><pre><code>1、设置session
-
-    Session::set(&apos;name&apos;,&apos;云知梦&apos;);
-
-    session(&apos;name&apos;,&apos;100&apos;);
-
-2、获取session
-
-    Session::get(&apos;name&apos;);
-    session(&apos;name&apos;);
-
-    # 返回值 如果获取成功 返回获取到的值 如果失败 NULL
-
-3、判断是否设置
-
-    Session::has(&apos;name1&apos;);
-    session(&quot;?name&quot;); 
-
-    # 返回值 如果存在返回True 如果不存在 false
-
-4、删除session
-
-    Session::delete(&apos;data&apos;);
-    session(&apos;name&apos;,null);
-
-    # 删除session 无返回值
-
-5、清空session
-
-    Session::clear();
-    session(null);
-</code></pre><h3 id="3、Cookie"><a href="#3、Cookie" class="headerlink" title="3、Cookie"></a>3、Cookie</h3><pre><code>1、设置Cookie
-
-    Cookie::set(&apos;name&apos;,&apos;云知梦&apos;);
-    Cookie::set(&apos;info&apos;,&apos;云知梦只为有梦想的人&apos;,50);
-
-    cookie(&apos;time&apos;,&apos;2017-10-25&apos;);
-    cookie(&apos;age&apos;,5,50);
-
-2、获取Cookie
-
-    Cookie::get(&apos;name&apos;);
-    cookie(&apos;time&apos;);
-
-    # 获取Cookie 如果成功 返回获取值，如果失败返回NULL
-
-3、判断Cookie
-
-    Cookie::has(&apos;name&apos;);
-    cookie(&quot;?name&quot;);
-
-    # 判断cookie是否设置，如果设置返回true，如果没有设置返回false
-
-4、删除Cookie
-
-    Cookie::delete(&apos;name&apos;);
-    cookie(&apos;name&apos;,null);
-
-5、清空Cookie
-
-    Cookie::clear();
-    cookie(null);
-</code></pre><h3 id="4、分页"><a href="#4、分页" class="headerlink" title="4、分页"></a>4、分页</h3><pre><code>1、控制器中如何书写
-
-    // 查询数据
-    // 分页效果
-    $data=Db::table(&apos;user&apos;)-&gt;paginate(3);
-    // 简化的分页效果
-    $data=Db::table(&apos;user&apos;)-&gt;paginate(3,true);
-
-    // 分配数据
-    $this-&gt;assign(&apos;data&apos;,$data);
-
-    // 加载页面
-    return $this-&gt;fetch();
-
-2、页面中如何书写
-    {volist name=&quot;data&quot; id=&quot;val&quot;}
-        &lt;tr&gt;
-            &lt;td&gt;{$val.id}&lt;/td&gt;
-            &lt;td&gt;{$val.name}&lt;/td&gt;
-            &lt;td&gt;{$val.pass}&lt;/td&gt;
-        &lt;/tr&gt;
-
-    {/volist}
-
-    {$data-&gt;render()}
-</code></pre><h3 id="5、文件上传"><a href="#5、文件上传" class="headerlink" title="5、文件上传"></a>5、文件上传</h3><pre><code>1、页面
-    &lt;form action=&quot;{:url(&apos;upload&apos;)}&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
-        &lt;p&gt;
-            File:
-            &lt;input type=&quot;file&quot; name=&quot;file&quot; id=&quot;&quot;&gt;
-        &lt;/p&gt;
-        &lt;p&gt;
-            &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-        &lt;/p&gt;
-    &lt;/form&gt;
-
-2、控制器
-
-    public function upload(Request $request){
-
-        // 接收数据
-        $file=$request-&gt;file(&apos;file&apos;);
-
-        // 进行文件上传
-        if ($info=$file-&gt;move(&apos;./upload/&apos;)) {
-            dump($info-&gt;getsaveName());
-        }else{
-            dump($info-&gt;getError());
-        }
-    }
-</code></pre><p>6、验证码</p>
-<pre><code>1、首先判断系统是否支持验证码
-
-2、使用
-
-    1) 页面中
-
-        &lt;form action=&quot;{:url(&apos;check&apos;)}&quot; method=&quot;post&quot;&gt;
-            &lt;!-- {:captcha_img()} --&gt;
-            &lt;img src=&quot;{:captcha_src()}&quot; alt=&quot;&quot;&gt;
-            &lt;input type=&quot;text&quot; name=&quot;code&quot; id=&quot;&quot;&gt;
-            &lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;
-        &lt;/form&gt;
-    2) 判断验证码
-        $code=input(&apos;post.code&apos;);
-
-        // 判断验证码是否正确
-        if (captcha_check($code)) {
-            echo &quot;okokok&quot;;
-        }else{
-            echo &quot;error&quot;;
-        }
-3、验证码相关设置
-    &apos;captcha&apos;=&gt;[
-
-        &apos;codeSet&apos;  =&gt; &apos;2345678abcdefhijkmnpqrstuvwxyzABCDEFGHJKLMNPQRTUVWXY&apos;,
-        // 验证码字符集合
-        &apos;expire&apos;   =&gt; 1800,
-        // 验证码过期时间（s）
-        &apos;useZh&apos;    =&gt; false,
-        // 使用中文验证码
-        &apos;zhSet&apos;    =&gt; &apos;们以我&apos;,
-        // 中文验证码字符串
-        &apos;useImgBg&apos; =&gt; false,
-        // 使用背景图片
-        &apos;fontSize&apos; =&gt; 25,
-        // 验证码字体大小(px)
-        &apos;useCurve&apos; =&gt; true,
-        // 是否画混淆曲线
-        &apos;useNoise&apos; =&gt; true,
-        // 是否添加杂点
-        &apos;imageH&apos;   =&gt; 0,
-        // 验证码图片高度
-        &apos;imageW&apos;   =&gt; 0,
-        // 验证码图片宽度
-        &apos;length&apos;   =&gt; 5,
-        // 验证码位数
-        &apos;fontttf&apos;  =&gt; &apos;&apos;,
-        // 验证码字体，不设置随机获取
-        &apos;bg&apos;       =&gt; [243, 251, 254],
-        // 背景颜色
-        &apos;reset&apos;    =&gt; true,
-        // 验证成功后是否重置
-
-    ]
-</code></pre><h3 id="7、图片处理"><a href="#7、图片处理" class="headerlink" title="7、图片处理"></a>7、图片处理</h3><pre><code>1、读取图片
-
-    $images=Image::open(&quot;./img/c.jpg&quot;);
-
-2、获取基本信息
-    // 宽度
-    dump($images-&gt;width());
-    // 高度
-    dump($images-&gt;height());
-    // 类型
-    dump($images-&gt;type());
-    // 宽和高
-    dump($images-&gt;size());
-    // mime
-    dump($images-&gt;mime());
-
-3、图片裁剪
-
-    crop(100,200,300,350);
-    // 从(300,350)的位置开始裁剪,裁剪100,200 大小，默认从(0,0)位置开始裁剪
-
-    // 裁剪默认从顶点开始裁剪
-        $images-&gt;crop(300,300)-&gt;save(&quot;./img/cai.jpg&quot;);
-    // 设置裁剪位置
-        $images-&gt;crop(300,300,100,100)-&gt;save(&apos;./img/cai1.jpg&apos;);
-
-4、图片缩放
-
-    // 图片缩放 默认是等比例缩放，可以进行设置
-
-    // //常量，标识缩略图等比例缩放类型
-    // constTHUMB_SCALING???=?1
-    // //常量，标识缩略图缩放后填充类型
-    // constTHUMB_FILLED????=?2;
-    // //常量，标识缩略图居中裁剪类型
-    // constTHUMB_CENTER????=?3;
-    // //常量，标识缩略图左上角裁剪类型
-    // constTHUMB_NORTHWEST?=?4;
-    // //常量，标识缩略图右下角裁剪类型
-    // constTHUMB_SOUTHEAST?=?5;
-    // //常量，标识缩略图固定尺寸缩放类型
-    // constTHUMB_FIXED?????=?6;
-
-    $images-&gt;thumb(300,300,2)-&gt;save(&apos;./img/th.jpg&apos;);
-
-5、图片翻转
-
-    $images-&gt;flip()-&gt;save(&quot;./img/fan.jpg&quot;);
-
-6、图片旋转
-
-    $images-&gt;rotate(180)-&gt;save(&quot;./img/xuan.jpg&quot;);
-
-7、水印
-
-    // 图片水印
-        $images-&gt;water(&quot;./img/logo.png&quot;,5,50)-&gt;save(&quot;./img/water.jpg&quot;);
-
-    // 文字水印
-
-        $images-&gt;text(&apos;123&apos;,&quot;msyh.ttf&quot;,20,&quot;#ff0000&quot;)-&gt;save(&apos;./img/text.jpg&apos;);
-</code></pre>	
+<p>1.直接取整，舍弃小数，保留整数：intval($a)；<br>2.四舍五入取整：round($a)；<br>3.向上取整，有小数就加1：ceil($a)；<br>4.向下取整：floor($a)。</p>
+	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/35.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/43.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -674,12 +357,8 @@ d) 使用
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/06/02/面试准备/" title="面试准备" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/05/11/tp5学习笔记8/" title="tp5学习笔记8" rel="next">
+			<a href="/2019/07/13/http与https区别/" title="http与https区别" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -694,27 +373,6 @@ d) 使用
 
 <div class="relate-post">
 	<ul>
-		
-				<li>
-					<div>
-						<a href="/2019/07/16/PHP取整/" title="PHP取整">
-							PHP取整
-						</a>
-						<p>
-							    PHP取整
-
-
-
-1.直接取整，舍弃小数，保留整数：intval($a)；2.四舍五入取整：round($a)；3.向上取整，有小数就加1：ceil($a)；4.向下取整：floor($a)。
-
-						</p>
-					</div>
-
-					<a href="/2019/07/16/PHP取整/" title="PHP取整">				
-						<img src="/img/post-cover/43.jpg" class="relateImg" alt="PHP取整">
-					</a>
-				</li>											
-		
 		
 				<li>
 					<div>
@@ -770,6 +428,30 @@ $G...
 
 					<a href="/2019/06/02/面试准备/" title="面试准备">				
 						<img src="/img/post-cover/36.jpg" class="relateImg" alt="面试准备">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9">
+							tp5学习笔记9
+						</a>
+						<p>
+							    tp5学习笔记9
+
+1、验证器1) 控制器中使用验证器
+
+        // 实例化验证器类
+
+        $validate=new Validate(
+            [
+                &q...
+						</p>
+					</div>
+
+					<a href="/2019/05/11/tp5学习笔记9/" title="tp5学习笔记9">				
+						<img src="/img/post-cover/35.jpg" class="relateImg" alt="tp5学习笔记9">
 					</a>
 				</li>											
 		
@@ -1070,13 +752,6 @@ Request
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
-
-		
-
-		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
 	
 		</main>
 		
