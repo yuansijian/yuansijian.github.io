@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      PHP取整 | 守护
+      global与GLOBAL区别 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《PHP取整》
+						当前文章&nbsp;:&nbsp;《global与GLOBAL区别》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/07/16/PHP取整/" itemprop="url">
-		PHP取整
+	<a href="/2019/07/16/global与GLOBAL区别/" itemprop="url">
+		global与GLOBAL区别
 	</a>
 
 	</div>
@@ -287,16 +287,16 @@
 		<span>
 			
 	发布于
-	<a href="/2019/07/16/PHP取整/" itemprop="url">
-		<time datetime="2019-07-16T01:29:49.000Z" itemprop="datePublished">
+	<a href="/2019/07/16/global与GLOBAL区别/" itemprop="url">
+		<time datetime="2019-07-16T14:22:22.000Z" itemprop="datePublished">
 	  		2019-07-16
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/07/16/PHP取整/" itemprop="url">
-		<time datetime="2019-07-16T01:29:49.000Z" itemprop="dateUpdated">
+	<a href="/2019/07/16/global与GLOBAL区别/" itemprop="url">
+		<time datetime="2019-07-16T14:22:22.000Z" itemprop="dateUpdated">
 	  		2019-07-16
 	  </time>
 	</a> 	
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/PHP变量/" class=" ">
-			PHP变量
+		<a href="/tags/PHP关键字/" class=" ">
+			PHP关键字
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/07/16/PHP取整/_visitors" data-url="/2019/07/16/PHP取整/" data-title="PHP取整">
+    <span class="leancloud_visitors" id="/2019/07/16/global与GLOBAL区别/_visitors" data-url="/2019/07/16/global与GLOBAL区别/" data-title="global与GLOBAL区别">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/07/16/PHP取整/_likes" data-url="/2019/07/16/PHP取整/" data-title="PHP取整" rel="unlike">
+    <span class="leancloud_likes" id="/2019/07/16/global与GLOBAL区别/_likes" data-url="/2019/07/16/global与GLOBAL区别/" data-title="global与GLOBAL区别" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,15 +335,30 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    PHP取整<br></center>
+		<center><br>    global与GLOBAL区别<br></center>
 
-
-
-<p>1.直接取整，舍弃小数，保留整数：intval($a)；<br>2.四舍五入取整：round($a)；<br>3.向上取整，有小数就加1：ceil($a)；<br>4.向下取整：floor($a)。</p>
+<p>1.有些场合需要全局变量的出现，如下例子：<br>&lt;?php<br>$name=”why”;//定义变量name,并初始化<br>function echoName()<br>{<br>//试图引用函数外面的变量<br>echo “myname is “.$name.”<br>“;<br>}<br>echoName();<br>?&gt;</p>
+<p>上面的代码的结果为：”myname is” 。而不是期望中的：”myname is why”。因为函数没有传递参数$name的值，企图引用外部变量，不会成功。这时候考虑使用global。</p>
+<p>2.于是将上述代码改为<br>&lt;?php<br>global $name=”why”;//用global声明的同时赋值<br>function echoName()<br>{<br>//试图引用函数外面的变量<br>echo “myname is “.$name.”<br>“;<br>}<br>echoName();<br>?&gt;</p>
+<p>结果为：Parse error: syntax error, unexpected ‘=’, expecting ‘,’ or ‘;’ in http:\xxxxxxx.com on line 2<br>也即上述代码有错误。原因是不能在用global声明变量的同时给变量赋值。</p>
+<p>3.再次更改上述代码：<br>&lt;?php<br>global $name;<br>$name=”why”;//将global声明与赋值分开<br>function echoName()<br>{<br>//试图引用函数外面的变量<br>echo “myname is “.$name.”<br>“;<br>}<br>echoName();<br>?&gt;</p>
+<p>但是得到的结果依然为：”myname is” ,原因是global的用法不对。</p>
+<p>global的正确用法是：”在一个函数中引入外部的一个变量，如果该变量没有通过参数传递进来，那么就通过global引入进来。” 也就是说，当一个函数引用一个外部变量时，可以在函数内通过global来声明该变量，这样该变量就可以在函数中使用了（相当于当作参数传递进来）。</p>
+<p>4.于是进一步改动上述代码：<br>&lt;?php<br>$name=”why”;//定义变量name,并初始化<br>function echoName()<br>{<br>//通过global来声明$name，相当于传递参数<br>global $name;<br>echo “myname is “.$name.”<br>“;<br>}<br>echoName();<br>?&gt;</p>
+<p>此时得到期望中的结果：”myname is why”。<br>以上代码说明，global是起传递参数的作用，而并非使变量的作用域为全局。</p>
+<p>5.以下代码证明了这一点:<br>&lt;?php<br>$name=”why”;//声明变量$name,并初始化<br>function echoName1()<br>{<br>//在函数echoName1()里使用global来声明$name<br>global  $name;<br>echo “the first name is “.$name.”<br>“;<br>}<br>function echoName2()<br>{<br>//在函数echoName2()里没有使用global来声明$name<br>echo “the second name is “.$name.”<br>“;<br>}<br>echoName1();<br>echoName2();<br>?&gt;</p>
+<p>结果为:</p>
+<p>the first name is why<br>the second name is</p>
+<p>上面的结果说明在函数echoName2()中，$name变量仍然是未知的，因为没有用global来声明，也就没有传递进去。同时也证明了global的作用并不是使变量的作用域为全局。</p>
+<p>综上，global的作用就相当于传递参数，在函数外部声明的变量，如果在函数内想要使用，就用global来声明该变量，这样就相当于把该变量传递进来了，就可以引用该变量了。</p>
+<p>当然，除了通过上述方法外，还可以使用全局数组$GLOBALS来解决问题，在需要用到外部变量的地方，使用$GLOBALS[‘var’]就可以了。例：</p>
+<p>&lt;?php</p>
+<p>$name=”why”;//定义变量name,并初始化<br>function echoName()<br>{<br>//通过全局数组$GLOBALS来引用外部变量<br>echo “myname is “.$GLOBALS[‘name’].”<br>“;<br>}<br>echoName();<br>?&gt;</p>
+<p>得到的结果为:   myname is why 。</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/43.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/44.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -357,12 +372,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/07/16/global与GLOBAL区别/" title="global与GLOBAL区别" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/07/13/http与https区别/" title="http与https区别" rel="next">
+			<a href="/2019/07/16/PHP取整/" title="PHP取整" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -380,18 +391,21 @@
 		
 				<li>
 					<div>
-						<a href="/2019/07/16/global与GLOBAL区别/" title="global与GLOBAL区别">
-							global与GLOBAL区别
+						<a href="/2019/07/16/PHP取整/" title="PHP取整">
+							PHP取整
 						</a>
 						<p>
-							    global与GLOBAL区别
+							    PHP取整
 
-1.有些场合需要全局变量的出现，如下例子：&lt;?php$name=”why”;//定义变量name,并初始化function echoName(){//试图引用函数外面的变量echo “m...
+
+
+1.直接取整，舍弃小数，保留整数：intval($a)；2.四舍五入取整：round($a)；3.向上取整，有小数就加1：ceil($a)；4.向下取整：floor($a)。
+
 						</p>
 					</div>
 
-					<a href="/2019/07/16/global与GLOBAL区别/" title="global与GLOBAL区别">				
-						<img src="/img/post-cover/44.jpg" class="relateImg" alt="global与GLOBAL区别">
+					<a href="/2019/07/16/PHP取整/" title="PHP取整">				
+						<img src="/img/post-cover/43.jpg" class="relateImg" alt="PHP取整">
 					</a>
 				</li>											
 		
