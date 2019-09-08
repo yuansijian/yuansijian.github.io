@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      http状态码 | 守护
+      TCP与UDP区别 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《http状态码》
+						当前文章&nbsp;:&nbsp;《TCP与UDP区别》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/07/10/http状态码/" itemprop="url">
-		http状态码
+	<a href="/2019/09/08/TCP与UDP区别/" itemprop="url">
+		TCP与UDP区别
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/07/10/http状态码/" itemprop="url">
-		<time datetime="2019-07-10T03:26:21.000Z" itemprop="datePublished">
-	  		2019-07-10
+	<a href="/2019/09/08/TCP与UDP区别/" itemprop="url">
+		<time datetime="2019-09-08T09:38:29.000Z" itemprop="datePublished">
+	  		2019-09-08
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/07/10/http状态码/" itemprop="url">
-		<time datetime="2019-07-10T03:26:21.000Z" itemprop="dateUpdated">
-	  		2019-07-10
+	<a href="/2019/09/08/TCP与UDP区别/" itemprop="url">
+		<time datetime="2019-09-08T09:38:29.000Z" itemprop="dateUpdated">
+	  		2019-09-08
 	  </time>
 	</a> 	
 
@@ -305,12 +305,18 @@
 		/
 		<span>
 			<i class="fa fa-tags"></i>
-					
+			
+	
+		<a href="/tags/TCP-UDP/" class=" ">
+			TCP/UDP
+		</a>
+	
+		
 		</span>
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/07/10/http状态码/_visitors" data-url="/2019/07/10/http状态码/" data-title="http状态码">
+    <span class="leancloud_visitors" id="/2019/09/08/TCP与UDP区别/_visitors" data-url="/2019/09/08/TCP与UDP区别/" data-title="TCP与UDP区别">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -319,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/07/10/http状态码/_likes" data-url="/2019/07/10/http状态码/" data-title="http状态码" rel="unlike">
+    <span class="leancloud_likes" id="/2019/09/08/TCP与UDP区别/_likes" data-url="/2019/09/08/TCP与UDP区别/" data-title="TCP与UDP区别" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -329,282 +335,42 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    http状态码<br></center>
+		<center><br>    TCP与UDP区别<br></center>
 
-<p>HTTP状态码由三个十进制数字组成，第一个十进制数字定义了状态码的类型，后两个数字没有分类的作用。HTTP状态码共分为5种类型：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">分类</th>
-<th style="text-align:left">分类描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1**</td>
-<td style="text-align:left">信息，服务器收到请求，需要请求者继续执行操作</td>
-</tr>
-<tr>
-<td style="text-align:left">2**</td>
-<td style="text-align:left">成功，操作被成功接收并处理</td>
-</tr>
-<tr>
-<td style="text-align:left">3**</td>
-<td style="text-align:left">重定向，需要进一步的操作以完成请求</td>
-</tr>
-<tr>
-<td style="text-align:left">4**</td>
-<td style="text-align:left">客户端错误，请求包含语法错误或无法完成请求</td>
-</tr>
-<tr>
-<td style="text-align:left">5**</td>
-<td style="text-align:left">服务器错误，服务器在处理请求的过程中发生了错误</td>
-</tr>
-</tbody>
-</table>
-<center><br>    HTTP状态码列表<br></center>
-
-<p>​    </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">状态码</th>
-<th style="text-align:left">状态码英文名称</th>
-<th style="text-align:left">中文描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">100</td>
-<td style="text-align:left">Continue</td>
-<td style="text-align:left">继续。<a href="http://www.dreamdu.com/webbuild/client_vs_server/" target="_blank" rel="noopener">客户端</a>应继续其请求</td>
-</tr>
-<tr>
-<td style="text-align:left">101</td>
-<td style="text-align:left">Switching Protocols</td>
-<td style="text-align:left">切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">200</td>
-<td style="text-align:left">OK</td>
-<td style="text-align:left">请求成功。一般用于GET与POST请求</td>
-</tr>
-<tr>
-<td style="text-align:left">201</td>
-<td style="text-align:left">Created</td>
-<td style="text-align:left">已创建。成功请求并创建了新的资源</td>
-</tr>
-<tr>
-<td style="text-align:left">202</td>
-<td style="text-align:left">Accepted</td>
-<td style="text-align:left">已接受。已经接受请求，但未处理完成</td>
-</tr>
-<tr>
-<td style="text-align:left">203</td>
-<td style="text-align:left">Non-Authoritative Information</td>
-<td style="text-align:left">非授权信息。请求成功。但返回的meta信息不在原始的服务器，而是一个副本</td>
-</tr>
-<tr>
-<td style="text-align:left">204</td>
-<td style="text-align:left">No Content</td>
-<td style="text-align:left">无内容。服务器成功处理，但未返回内容。在未更新网页的情况下，可确保浏览器继续显示当前文档</td>
-</tr>
-<tr>
-<td style="text-align:left">205</td>
-<td style="text-align:left">Reset Content</td>
-<td style="text-align:left">重置内容。服务器处理成功，用户终端（例如：浏览器）应重置文档视图。可通过此返回码清除浏览器的表单域</td>
-</tr>
-<tr>
-<td style="text-align:left">206</td>
-<td style="text-align:left">Partial Content</td>
-<td style="text-align:left">部分内容。服务器成功处理了部分GET请求</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">300</td>
-<td style="text-align:left">Multiple Choices</td>
-<td style="text-align:left">多种选择。请求的资源可包括多个位置，相应可返回一个资源特征与地址的列表用于用户终端（例如：浏览器）选择</td>
-</tr>
-<tr>
-<td style="text-align:left">301</td>
-<td style="text-align:left">Moved Permanently</td>
-<td style="text-align:left">永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替</td>
-</tr>
-<tr>
-<td style="text-align:left">302</td>
-<td style="text-align:left">Found</td>
-<td style="text-align:left">临时移动。与301类似。但资源只是临时被移动。客户端应继续使用原有URI</td>
-</tr>
-<tr>
-<td style="text-align:left">303</td>
-<td style="text-align:left">See Other</td>
-<td style="text-align:left">查看其它地址。与301类似。使用GET和POST请求查看</td>
-</tr>
-<tr>
-<td style="text-align:left">304</td>
-<td style="text-align:left">Not Modified</td>
-<td style="text-align:left">未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源。客户端通常会缓存访问过的资源，通过提供一个头信息指出客户端希望只返回在指定日期之后修改的资源</td>
-</tr>
-<tr>
-<td style="text-align:left">305</td>
-<td style="text-align:left">Use Proxy</td>
-<td style="text-align:left">使用代理。所请求的资源必须通过代理访问</td>
-</tr>
-<tr>
-<td style="text-align:left">306</td>
-<td style="text-align:left">Unused</td>
-<td style="text-align:left">已经被废弃的HTTP状态码</td>
-</tr>
-<tr>
-<td style="text-align:left">307</td>
-<td style="text-align:left">Temporary Redirect</td>
-<td style="text-align:left">临时重定向。与302类似。使用GET请求重定向</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">400</td>
-<td style="text-align:left">Bad Request</td>
-<td style="text-align:left">客户端请求的语法错误，服务器无法理解</td>
-</tr>
-<tr>
-<td style="text-align:left">401</td>
-<td style="text-align:left">Unauthorized</td>
-<td style="text-align:left">请求要求用户的身份认证</td>
-</tr>
-<tr>
-<td style="text-align:left">402</td>
-<td style="text-align:left">Payment Required</td>
-<td style="text-align:left">保留，将来使用</td>
-</tr>
-<tr>
-<td style="text-align:left">403</td>
-<td style="text-align:left">Forbidden</td>
-<td style="text-align:left">服务器理解请求客户端的请求，但是拒绝执行此请求</td>
-</tr>
-<tr>
-<td style="text-align:left">404</td>
-<td style="text-align:left">Not Found</td>
-<td style="text-align:left">服务器无法根据客户端的请求找到资源（网页）。通过此代码，网站设计人员可设置”您所请求的资源无法找到”的个性页面</td>
-</tr>
-<tr>
-<td style="text-align:left">405</td>
-<td style="text-align:left">Method Not Allowed</td>
-<td style="text-align:left">客户端请求中的方法被禁止</td>
-</tr>
-<tr>
-<td style="text-align:left">406</td>
-<td style="text-align:left">Not Acceptable</td>
-<td style="text-align:left">服务器无法根据客户端请求的内容特性完成请求</td>
-</tr>
-<tr>
-<td style="text-align:left">407</td>
-<td style="text-align:left">Proxy Authentication Required</td>
-<td style="text-align:left">请求要求代理的身份认证，与401类似，但请求者应当使用代理进行授权</td>
-</tr>
-<tr>
-<td style="text-align:left">408</td>
-<td style="text-align:left">Request Time-out</td>
-<td style="text-align:left">服务器等待客户端发送的请求时间过长，超时</td>
-</tr>
-<tr>
-<td style="text-align:left">409</td>
-<td style="text-align:left">Conflict</td>
-<td style="text-align:left">服务器完成客户端的 PUT 请求时可能返回此代码，服务器处理请求时发生了冲突</td>
-</tr>
-<tr>
-<td style="text-align:left">410</td>
-<td style="text-align:left">Gone</td>
-<td style="text-align:left">客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置</td>
-</tr>
-<tr>
-<td style="text-align:left">411</td>
-<td style="text-align:left">Length Required</td>
-<td style="text-align:left">服务器无法处理客户端发送的不带Content-Length的请求信息</td>
-</tr>
-<tr>
-<td style="text-align:left">412</td>
-<td style="text-align:left">Precondition Failed</td>
-<td style="text-align:left">客户端请求信息的先决条件错误</td>
-</tr>
-<tr>
-<td style="text-align:left">413</td>
-<td style="text-align:left">Request Entity Too Large</td>
-<td style="text-align:left">由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息</td>
-</tr>
-<tr>
-<td style="text-align:left">414</td>
-<td style="text-align:left">Request-URI Too Large</td>
-<td style="text-align:left">请求的URI过长（URI通常为网址），服务器无法处理</td>
-</tr>
-<tr>
-<td style="text-align:left">415</td>
-<td style="text-align:left">Unsupported Media Type</td>
-<td style="text-align:left">服务器无法处理请求附带的媒体格式</td>
-</tr>
-<tr>
-<td style="text-align:left">416</td>
-<td style="text-align:left">Requested range not satisfiable</td>
-<td style="text-align:left">客户端请求的范围无效</td>
-</tr>
-<tr>
-<td style="text-align:left">417</td>
-<td style="text-align:left">Expectation Failed</td>
-<td style="text-align:left">服务器无法满足Expect的请求头信息</td>
-</tr>
-<tr>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">500</td>
-<td style="text-align:left">Internal Server Error</td>
-<td style="text-align:left">服务器内部错误，无法完成请求</td>
-</tr>
-<tr>
-<td style="text-align:left">501</td>
-<td style="text-align:left">Not Implemented</td>
-<td style="text-align:left">服务器不支持请求的功能，无法完成请求</td>
-</tr>
-<tr>
-<td style="text-align:left">502</td>
-<td style="text-align:left">Bad Gateway</td>
-<td style="text-align:left">作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应</td>
-</tr>
-<tr>
-<td style="text-align:left">503</td>
-<td style="text-align:left">Service Unavailable</td>
-<td style="text-align:left">由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中</td>
-</tr>
-<tr>
-<td style="text-align:left">504</td>
-<td style="text-align:left">Gateway Time-out</td>
-<td style="text-align:left">充当网关或代理的服务器，未及时从远端服务器获取请求</td>
-</tr>
-<tr>
-<td style="text-align:left">505</td>
-<td style="text-align:left">HTTP Version not supported</td>
-<td style="text-align:left">服务器不支持请求的HTTP协议的版本，无法完成处理</td>
-</tr>
-</tbody>
-</table>
+<p>​    TCP/IP协议是一个协议簇。里面包括很多协议的，UDP只是其中的一个， 之所以命名为TCP/IP协议，因为TCP、IP协议是两个很重要的协议，就用他两命名了。</p>
+<p><strong>TCP三次握手过程</strong></p>
+<p>第一次握手：主机A通过向主机B 发送一个含有同步序列号的标志位的数据段给主机B，向主机B 请求建立连接，通过这个数据段， 主机A告诉主机B 两件事：我想要和你通信；你可以用哪个序列号作为起始数据段来回应我。</p>
+<p>第二次握手：主机B 收到主机A的请求后，用一个带有确认应答（ACK）和同步序列号（SYN）标志位的数据段响应主机A，也告诉主机A两件事：我已经收到你的请求了，你可以传输数据了；你要用那个序列号作为起始数据段来回应我</p>
+<p>第三次握手：主机A收到这个数据段后，再发送一个确认应答，确认已收到主机B 的数据段：”我已收到回复，我现在要开始传输实际数据了，这样3次握手就完成了，主机A和主机B 就可以传输数据了。</p>
+<h2 id="3次握手的特点"><a href="#3次握手的特点" class="headerlink" title="3次握手的特点"></a><strong>3次握手的特点</strong></h2><p>没有应用层的数据 ,SYN这个标志位只有在TCP建立连接时才会被置1 ,握手完成后SYN标志位被置0。</p>
+<h2 id="TCP建立连接要进行3次握手，而断开连接要进行4次"><a href="#TCP建立连接要进行3次握手，而断开连接要进行4次" class="headerlink" title="TCP建立连接要进行3次握手，而断开连接要进行4次"></a><strong>TCP建立连接要进行3次握手，而断开连接要进行4次</strong></h2><p>第一次： 当主机A完成数据传输后,将控制位FIN置1，提出停止TCP连接的请求 ；</p>
+<p>第二次： 主机B收到FIN后对其作出响应，确认这一方向上的TCP连接将关闭,将ACK置1；</p>
+<p>第三次： 由B 端再提出反方向的关闭请求,将FIN置1 ；</p>
+<p>第四次： 主机A对主机B的请求进行确认，将ACK置1，双方向的关闭结束.。</p>
+<p>由TCP的三次握手和四次断开可以看出，TCP使用面向连接的通信方式， 大大提高了数据通信的可靠性，使发送数据端和接收端在数据正式传输前就有了交互， 为数据正式传输打下了可靠的基础。</p>
+<h2 id="UDP（User-Data-Protocol，用户数据报协议）"><a href="#UDP（User-Data-Protocol，用户数据报协议）" class="headerlink" title="UDP（User Data Protocol，用户数据报协议）"></a><strong>UDP（User Data Protocol，用户数据报协议）</strong></h2><p>1、UDP是一个非连接的协议，传输数据之前源端和终端不建立连接， 当它想传送时就简单地去抓取来自应用程序的数据，并尽可能快地把它扔到网络上。 在发送端，UDP传送数据的速度仅仅是受应用程序生成数据的速度、 计算机的能力和传输带宽的限制； 在接收端，UDP把每个消息段放在队列中，应用程序每次从队列中读一个消息段。</p>
+<p>2、 由于传输数据不建立连接，因此也就不需要维护连接状态，包括收发状态等， 因此一台服务机可同时向多个客户机传输相同的消息。</p>
+<p>3、UDP信息包的标题很短，只有8个字节，相对于TCP的20个字节信息包的额外开销很小。</p>
+<p>4、吞吐量不受拥挤控制算法的调节，只受应用软件生成数据的速率、传输带宽、 源端和终端主机性能的限制。</p>
+<p>5、UDP使用尽最大努力交付，即不保证可靠交付， 因此主机不需要维持复杂的链接状态表（这里面有许多参数）。</p>
+<p>6、UDP是面向报文的。发送方的UDP对应用程序交下来的报文， 在添加首部后就向下交付给IP层。既不拆分，也不合并，而是保留这些报文的边界， 因此，应用程序需要选择合适的报文大小。</p>
+<p>我们经常使用“ping”命令来测试两台主机之间TCP/IP通信是否正常， 其实“ping”命令的原理就是向对方主机发送UDP数据包，然后对方主机确认收到数据包， 如果数据包是否到达的消息及时反馈回来，那么网络就是通的。</p>
+<p><strong>ping命令</strong>是用来探测主机到主机之间是否可通信，如果不能<strong>ping</strong>到某台主机，表明不能和这台主机建立连接。<strong>ping命令</strong>是使用 IP 和网络控制信息协议 (ICMP)，因而没有涉及到任何传输协议(UDP/TCP) 和应用程序。它发送icmp回送请求消息给目的主机。</p>
+<p>ICMP协议规定：目的主机必须返回ICMP回送应答消息给源主机。如果源主机在一定时间内收到应答，则认为主机可达。</p>
+<h2 id="UDP的包头结构："><a href="#UDP的包头结构：" class="headerlink" title="UDP的包头结构："></a><strong>UDP的包头结构：</strong></h2><p>源端口 16位</p>
+<p>目的端口 16位</p>
+<p>长度 16位</p>
+<p>校验和 16位</p>
+<h2 id="小结TCP与UDP的区别："><a href="#小结TCP与UDP的区别：" class="headerlink" title="小结TCP与UDP的区别："></a><strong>小结TCP与UDP的区别：</strong></h2><p>1、基于连接与无连接；</p>
+<p>2、对系统资源的要求（TCP较多，UDP少）；</p>
+<p>3、UDP程序结构较简单；</p>
+<p>4、流模式与数据报模式 ；</p>
+<p>5、TCP保证数据正确性，UDP可能丢包；</p>
+<p>6、TCP保证数据顺序，UDP不保证。</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/39.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/51.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -618,12 +384,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/07/10/PHP超全局变量/" title="PHP超全局变量" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/06/18/Linux链接/" title="Linux链接" rel="next">
+			<a href="/2019/09/04/thinkCMF上传图片/" title="thinkCMF上传图片" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -641,20 +403,37 @@
 		
 				<li>
 					<div>
-						<a href="/2019/09/08/TCP与UDP区别/" title="TCP与UDP区别">
-							TCP与UDP区别
+						<a href="/2019/07/13/http与https区别/" title="http与https区别">
+							http与https区别
 						</a>
 						<p>
-							    TCP与UDP区别
+							    http与https区别
 
-​    TCP/IP协议是一个协议簇。里面包括很多协议的，UDP只是其中的一个， 之所以命名为TCP/IP协议，因为TCP、IP协议是两个很重要的协议，就用他两命名了。
-TCP三次握手过程
-第一次握手：...
+超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读...
 						</p>
 					</div>
 
-					<a href="/2019/09/08/TCP与UDP区别/" title="TCP与UDP区别">				
-						<img src="/img/post-cover/51.jpg" class="relateImg" alt="TCP与UDP区别">
+					<a href="/2019/07/13/http与https区别/" title="http与https区别">				
+						<img src="/img/post-cover/42.png" class="relateImg" alt="http与https区别">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/06/17/why三次握手四次挥手/" title="why三次握手四次挥手">
+							why三次握手四次挥手
+						</a>
+						<p>
+							    为什么是三次握手四次挥手
+
+1、为什么要三次握手？为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。
+谢希仁《计算机网络》书中的举例：“已失效的连接请求报文段”的产生在这样一种情况下：client发出的第一个连...
+						</p>
+					</div>
+
+					<a href="/2019/06/17/why三次握手四次挥手/" title="why三次握手四次挥手">				
+						<img src="/img/post-cover/37.jpg" class="relateImg" alt="why三次握手四次挥手">
 					</a>
 				</li>											
 		
@@ -788,24 +567,6 @@ use ...
 
 					<a href="/2019/07/16/PHP取整/" title="PHP取整">				
 						<img src="/img/post-cover/43.jpg" class="relateImg" alt="PHP取整">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/13/http与https区别/" title="http与https区别">
-							http与https区别
-						</a>
-						<p>
-							    http与https区别
-
-超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读...
-						</p>
-					</div>
-
-					<a href="/2019/07/13/http与https区别/" title="http与https区别">				
-						<img src="/img/post-cover/42.png" class="relateImg" alt="http与https区别">
 					</a>
 				</li>											
 		
@@ -983,6 +744,13 @@ use ...
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
 	
 		</main>
 		
