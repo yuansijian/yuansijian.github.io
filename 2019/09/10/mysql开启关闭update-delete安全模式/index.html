@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      数据库 | 守护
+      mysql开启关闭update/delete安全模式 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《数据库》
+						当前文章&nbsp;:&nbsp;《mysql开启关闭update/delete安全模式》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/04/03/数据库/" itemprop="url">
-		数据库
+	<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" itemprop="url">
+		mysql开启关闭update/delete安全模式
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/04/03/数据库/" itemprop="url">
-		<time datetime="2019-04-03T12:36:38.000Z" itemprop="datePublished">
-	  		2019-04-03
+	<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" itemprop="url">
+		<time datetime="2019-09-10T06:31:32.000Z" itemprop="datePublished">
+	  		2019-09-10
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/04/03/数据库/" itemprop="url">
-		<time datetime="2019-04-03T12:36:38.000Z" itemprop="dateUpdated">
-	  		2019-04-03
+	<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" itemprop="url">
+		<time datetime="2019-09-10T06:31:32.000Z" itemprop="dateUpdated">
+	  		2019-09-10
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/牛客网/" class=" ">
-			牛客网
+		<a href="/tags/Mysql/" class=" ">
+			Mysql
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/04/03/数据库/_visitors" data-url="/2019/04/03/数据库/" data-title="数据库">
+    <span class="leancloud_visitors" id="/2019/09/10/mysql开启关闭update-delete安全模式/_visitors" data-url="/2019/09/10/mysql开启关闭update-delete安全模式/" data-title="mysql开启关闭update/delete安全模式">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/04/03/数据库/_likes" data-url="/2019/04/03/数据库/" data-title="数据库" rel="unlike">
+    <span class="leancloud_likes" id="/2019/09/10/mysql开启关闭update-delete安全模式/_likes" data-url="/2019/09/10/mysql开启关闭update-delete安全模式/" data-title="mysql开启关闭update/delete安全模式" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,60 +335,18 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    牛客网–数据库<br></center>
+		<center><br>    mysql开启关闭update/delete安全模式<br></center>
 
-<p>1、数据库系统由数据库(数据)、数据库管理系统(软件)、数据库管理员(人员)、硬件平台(硬件)、软件平台5个部分构成。其中数据库管理系统是数据库系统的核心，它负责数据库中的数据组织、数据操纵、数据维护、控制及保护和数据服务等工作。</p>
-<p>2、使用%进行查询是全表扫描</p>
-<p>3、DBMS提供DML实现对数据的操作。嵌入高级语言中使用的 DML称为交互型。</p>
-<p>4、数据库语言</p>
-<p><strong>1.数据查询语言DQL</strong></p>
-<p>数据查询语言DQL基本结构是由SELECT子句，FROM子句，WHERE子句组成的查询块：</p>
-<p>SELECT &lt;字段名表&gt;</p>
-<p>FROM &lt;表或视图名&gt;</p>
-<p>WHERE &lt;查询条件&gt;</p>
-<p><strong>2 .数据操纵语言DML</strong></p>
-<p>数据操纵语言DML主要有三种形式：</p>
-<p>1) 插入：INSERT</p>
-<p>2) 更新：UPDATE</p>
-<p>3) 删除：DELETE</p>
-<p><strong>3. 数据定义语言DDL（数据库模式描述语言）</strong></p>
-<p>数据定义语言DDL用来创建数据库中的各种对象—–表、视图、</p>
-<p>索引、同义词、聚簇等如：</p>
-<p>CREATE TABLE/VIEW/INDEX/SYN/CLUSTER</p>
-<p>​        表 视图 索引 同义词 簇</p>
-<p>DDL操作是隐性提交的！不能rollback</p>
-<p><strong>4. 数据控制语言DCL</strong></p>
-<p>数据控制语言DCL用来授予或回收访问数据库的某种特权，并控制</p>
-<p>数据库操纵事务发生的时间及效果，对数据库实行监视等。如：</p>
-<p>1) GRANT：授权。</p>
-<p>2) ROLLBACK [WORK] TO [SAVEPOINT]：回退到某一点。</p>
-<p>回滚—ROLLBACK</p>
-<p>回滚命令使数据库状态回到上次最后提交的状态。其格式为：</p>
-<p>SQL&gt;ROLLBACK;</p>
-<p>3) COMMIT [WORK]：提交。</p>
-<p>​    在数据库的插入、删除和修改操作时，只有当事务在提交到数据</p>
-<p>库时才算完成。在事务提交前，只有操作数据库的这个人才能有权看</p>
-<p>到所做的事情，别人只有在最后提交完成后才可以看到。</p>
-<p>提交数据有三种类型：显式提交、隐式提交及自动提交。</p>
-<p>5、<strong>数据库中可能存在不一致的数据，主要有以下三个方面：</strong></p>
-<p><strong>A.数据冗余；</strong></p>
-<p><strong>B.并发控制不当；</strong></p>
-<p><strong>C.故障或者错误</strong></p>
-<p>6、数据库系统与文件系统的主要区别是文件系统不能解决数据冗余和数据独立性问题，而数据库系统可以解决。<br>7、丢失修改：原本两个事务的目的是T1先把A的值加10，A变为58。然后T2把A的值再减2，即A变成56。但是根据题目中的执行顺序，A的值变为48-2=46，即T2的修改覆盖了T1的修改，这种现象叫做丢失修改。</p>
-<p>不可重复读：不可重复读是指事务T1读取数据后，事务T2执行更新操作，使T1无法再现前一次读取结果。</p>
-<p>读”脏”数据：读”脏”数据是指事务T1修改某一数据，并将其写回磁盘，事务T2读取同一数据后，T1由于某种原因被撤消，这时T1已修改过的数据恢复原值，T2读到的数据就与数据库中的数据不一致，则T2读到的数据就为”脏”数据，即不正确的数据。</p>
-<p>8、按照规范的设计方法，一个完整的数据库设计一般分为以下六个阶段：</p>
-<p>⑴需求分析：分析用户的需求，包括数据、功能和性能需求；</p>
-<p>⑵概念结构设计：主要采用E-R模型进行设计，包括画E-R图；</p>
-<p>⑶逻辑结构设计：通过将E-R图转换成表，实现从E-R模型到关系模型的转换；</p>
-<p>⑷数据库物理设计：主要是为所设计的数据库选择合适的存储结构和存取路径；</p>
-<p>⑸数据库的实施：包括编程、测试和试运行；</p>
-<p>⑹数据库运行与维护：系统的运行与数据库的日常维护。</p>
-<p>9、规范化过程主要为克服数据库逻辑结构中的插入异常、删除异常以及冗余度大的缺陷。</p>
+<p>在使用mysql执行update的时候，如果不是用主键当where语句，会报如下错误，使用主键用于where语句中正常。</p>
+<p>异常内容：Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode, toggle the option in Preferences -&gt; SQL Queries and reconnect.</p>
+<p>因为MySql运行在safe-updates模式下，该模式会导致非主键条件下无法执行update或者delete命令，执行命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> SQL_SAFE_UPDATES = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>修改下数据库模式 </p>
+<p>安全起见，执行完操作后，建议在恢复成默认状态1</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/19.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/52.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -402,12 +360,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/04/07/念奴娇·赤壁怀古/" title="念奴娇·赤壁怀古" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/03/27/扩张欧几里得算法/" title="扩展欧几里得算法" rel="next">
+			<a href="/2019/09/08/TCP与UDP区别/" title="TCP与UDP区别" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -425,19 +379,130 @@
 		
 				<li>
 					<div>
-						<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" title="mysql开启关闭update/delete安全模式">
-							mysql开启关闭update/delete安全模式
+						<a href="/2019/07/29/关于COLLATE-utf8mb4-0900-ai-ci问题/" title="关于COLLATE=utf8mb4_0900_ai_ci问题">
+							关于COLLATE=utf8mb4_0900_ai_ci问题
 						</a>
 						<p>
-							    mysql开启关闭update/delete安全模式
+							    关于COLLATE=utf8mb4_0900_ai_ci问题
 
-在使用mysql执行update的时候，如果不是用主键当where语句，会报如下错误，使用主键用于where语句中正常。
-异常内容：Error Code: 1175. Y...
+mysql8版本特有的对照，排序之类的，备份数据库时.sql脚本会自动设置COLLATE=utf8mb4_0900_ai_ci，，若将此脚本迁徙到mysql5.6...
 						</p>
 					</div>
 
-					<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" title="mysql开启关闭update/delete安全模式">				
-						<img src="/img/post-cover/52.jpg" class="relateImg" alt="mysql开启关闭update/delete安全模式">
+					<a href="/2019/07/29/关于COLLATE-utf8mb4-0900-ai-ci问题/" title="关于COLLATE=utf8mb4_0900_ai_ci问题">				
+						<img src="/img/post-cover/46.jpg" class="relateImg" alt="关于COLLATE=utf8mb4_0900_ai_ci问题">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/29/root-localhost拒绝问题/" title="root@localhost拒绝问题">
+							root@localhost拒绝问题
+						</a>
+						<p>
+							mysqlworkbench连接mysql出现root@localhost denied问题，发现原因是登录mysql需要sudo，就是建立建立mysql连接是需要超级权限，所以连接不上去。
+解决办法：
+登录mysql，然后
+use ...
+						</p>
+					</div>
+
+					<a href="/2019/07/29/root-localhost拒绝问题/" title="root@localhost拒绝问题">				
+						<img src="/img/post-cover/45.jpg" class="relateImg" alt="root@localhost拒绝问题">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/Mysql细节/" title="Mysql细节">
+							Mysql细节
+						</a>
+						<p>
+							    Mysql
+
+Mysql插入语句之value与values区别:
+​    二者可以混着用,不报错,但是value插入多行数据会快一点.
+
+						</p>
+					</div>
+
+					<a href="/2019/05/06/Mysql细节/" title="Mysql细节">				
+						<img src="/img/post-cover/31.png" class="relateImg" alt="Mysql细节">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
+							数据库的锁
+						</a>
+						<p>
+							    数据库的锁
+
+
+概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
+乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
+						</p>
+					</div>
+
+					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
+						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/05/06/ACID/" title="ACID">
+							ACID
+						</a>
+						<p>
+							    数据库的ACID性质
+
+原子性:指整个数据库事务是不可分割的工作单位。只有使据库中所有的操作执行成功，才算整个事务成功；事务中任何一个SQL语句执行失败，那么已经执行成功的SQL语句也必须撤销，数据库状态应该退回到执行事务前的...
+						</p>
+					</div>
+
+					<a href="/2019/05/06/ACID/" title="ACID">				
+						<img src="/img/post-cover/29.jpg" class="relateImg" alt="ACID">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/25/sql连接/" title="SQL连接">
+							SQL连接
+						</a>
+						<p>
+							 sql连接操作
+
+left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
+						</p>
+					</div>
+
+					<a href="/2019/03/25/sql连接/" title="SQL连接">				
+						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">
+							mysql执行顺序
+						</a>
+						<p>
+							 mysql执行顺序  
+(1)from(3) join(2) on(4) where(5)group by(开始使用select中的别名，后面的语句中都可以使用)(6)avg,sum….(7)having(8) select(9) ...
+						</p>
+					</div>
+
+					<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">				
+						<img src="/img/post-cover/15.jpg" class="relateImg" alt="mysql执行顺序">
 					</a>
 				</li>											
 		
@@ -496,119 +561,6 @@ wget -N –no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/d.
 
 					<a href="/2019/08/22/ssr服务器一键部署脚本/" title="ssr服务器一键部署脚本">				
 						<img src="/img/post-cover/49.jpg" class="relateImg" alt="ssr服务器一键部署脚本">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/31/小程序开发/" title="小程序开发">
-							小程序开发
-						</a>
-						<p>
-							    小程序开发
-
-获取access_token要将申请的测试号的appid和secret填在相应的位置，而不是填公众号的appid和secret。
-
-						</p>
-					</div>
-
-					<a href="/2019/07/31/小程序开发/" title="小程序开发">				
-						<img src="/img/post-cover/48.jpg" class="relateImg" alt="小程序开发">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/29/关于COLLATE-utf8mb4-0900-ai-ci问题/" title="关于COLLATE=utf8mb4_0900_ai_ci问题">
-							关于COLLATE=utf8mb4_0900_ai_ci问题
-						</a>
-						<p>
-							    关于COLLATE=utf8mb4_0900_ai_ci问题
-
-mysql8版本特有的对照，排序之类的，备份数据库时.sql脚本会自动设置COLLATE=utf8mb4_0900_ai_ci，，若将此脚本迁徙到mysql5.6...
-						</p>
-					</div>
-
-					<a href="/2019/07/29/关于COLLATE-utf8mb4-0900-ai-ci问题/" title="关于COLLATE=utf8mb4_0900_ai_ci问题">				
-						<img src="/img/post-cover/46.jpg" class="relateImg" alt="关于COLLATE=utf8mb4_0900_ai_ci问题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/29/root-localhost拒绝问题/" title="root@localhost拒绝问题">
-							root@localhost拒绝问题
-						</a>
-						<p>
-							mysqlworkbench连接mysql出现root@localhost denied问题，发现原因是登录mysql需要sudo，就是建立建立mysql连接是需要超级权限，所以连接不上去。
-解决办法：
-登录mysql，然后
-use ...
-						</p>
-					</div>
-
-					<a href="/2019/07/29/root-localhost拒绝问题/" title="root@localhost拒绝问题">				
-						<img src="/img/post-cover/45.jpg" class="relateImg" alt="root@localhost拒绝问题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/16/global与GLOBAL区别/" title="global与GLOBAL区别">
-							global与GLOBAL区别
-						</a>
-						<p>
-							    global与GLOBAL区别
-
-1.有些场合需要全局变量的出现，如下例子：&lt;?php$name=”why”;//定义变量name,并初始化function echoName(){//试图引用函数外面的变量echo “m...
-						</p>
-					</div>
-
-					<a href="/2019/07/16/global与GLOBAL区别/" title="global与GLOBAL区别">				
-						<img src="/img/post-cover/44.jpg" class="relateImg" alt="global与GLOBAL区别">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/16/PHP取整/" title="PHP取整">
-							PHP取整
-						</a>
-						<p>
-							    PHP取整
-
-
-
-1.直接取整，舍弃小数，保留整数：intval($a)；2.四舍五入取整：round($a)；3.向上取整，有小数就加1：ceil($a)；4.向下取整：floor($a)。
-
-						</p>
-					</div>
-
-					<a href="/2019/07/16/PHP取整/" title="PHP取整">				
-						<img src="/img/post-cover/43.jpg" class="relateImg" alt="PHP取整">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/13/http与https区别/" title="http与https区别">
-							http与https区别
-						</a>
-						<p>
-							    http与https区别
-
-超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读...
-						</p>
-					</div>
-
-					<a href="/2019/07/13/http与https区别/" title="http与https区别">				
-						<img src="/img/post-cover/42.png" class="relateImg" alt="http与https区别">
 					</a>
 				</li>											
 		
