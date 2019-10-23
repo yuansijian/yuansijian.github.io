@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      mysql执行顺序 | 守护
+      网站攻击 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《mysql执行顺序》
+						当前文章&nbsp;:&nbsp;《网站攻击》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/03/23/mysql执行顺序/" itemprop="url">
-		mysql执行顺序
+	<a href="/2019/10/23/网站攻击/" itemprop="url">
+		网站攻击
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/03/23/mysql执行顺序/" itemprop="url">
-		<time datetime="2019-03-23T08:42:19.000Z" itemprop="datePublished">
-	  		2019-03-23
+	<a href="/2019/10/23/网站攻击/" itemprop="url">
+		<time datetime="2019-10-23T01:15:30.000Z" itemprop="datePublished">
+	  		2019-10-23
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/03/23/mysql执行顺序/" itemprop="url">
-		<time datetime="2019-03-23T08:42:19.000Z" itemprop="dateUpdated">
-	  		2019-03-25
+	<a href="/2019/10/23/网站攻击/" itemprop="url">
+		<time datetime="2019-10-23T01:15:30.000Z" itemprop="dateUpdated">
+	  		2019-10-23
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/Mysql/" class=" ">
-			Mysql
+		<a href="/tags/网络安全/" class=" ">
+			网络安全
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/03/23/mysql执行顺序/_visitors" data-url="/2019/03/23/mysql执行顺序/" data-title="mysql执行顺序">
+    <span class="leancloud_visitors" id="/2019/10/23/网站攻击/_visitors" data-url="/2019/10/23/网站攻击/" data-title="网站攻击">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/03/23/mysql执行顺序/_likes" data-url="/2019/03/23/mysql执行顺序/" data-title="mysql执行顺序" rel="unlike">
+    <span class="leancloud_likes" id="/2019/10/23/网站攻击/_likes" data-url="/2019/10/23/网站攻击/" data-title="网站攻击" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,20 +335,15 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p><center> mysql执行顺序  </center></p>
-<p>(1)from<br>(3) join<br>(2) on<br>(4) where<br>(5)group by(开始使用select中的别名，后面的语句中都可以使用)<br>(6)avg,sum….<br>(7)having<br>(8) select<br>(9) distinct<br>(10) order by<br>(11) limit  </p>
-<p>从这个顺序中我们不难发现，所有的 查询语句都是从from开始执行的，在执行过程中，每个步骤都会为下一个步骤生成一个虚拟表，这个虚拟表将作为下一个执行步骤的输入。<br>第一步：首先对from子句中的前两个表执行一个笛卡尔乘积，此时生成虚拟表 vt1（选择相对小的表做基础表）<br>第二步：接下来便是应用on筛选器，on 中的逻辑表达式将应用到 vt1 中的各个行，筛选出满足on逻辑表达式的行，生成虚拟表 vt2<br>第三步：如果是outer join 那么这一步就将添加外部行，left outer jion 就把左表在第二步中过滤的添加进来，如果是right outer join 那么就将右表在第二步中过滤掉的行添加进来，这样生成虚拟表 vt3 </p>
-<p>第四步：如果 from 子句中的表数目多余两个表，那么就将vt3和第三个表连接从而计算笛卡尔乘积，生成虚拟表，该过程就是一个重复1-3的步骤，最终得到一个新的虚拟表 vt3。 </p>
-<p>第五步：应用where筛选器，对上一步生产的虚拟表引用where筛选器，生成虚拟表vt4，在这有个比较重要的细节不得不说一下，对于包含outer join子句的查询，就有一个让人感到困惑的问题，到底在on筛选器还是用where筛选器指定逻辑表达式呢？on和where的最大区别在于，如果在on应用逻辑表达式那么在第三步outer join中还可以把移除的行再次添加回来，而where的移除的最终的。举个简单的例子，有一个学生表（班级,姓名）和一个成绩表(姓名,成绩)，我现在需要返回一个x班级的全体同学的成绩，但是这个班级有几个学生缺考，也就是说在成绩表中没有记录。为了得到我们预期的结果我们就需要在on子句指定学生和成绩表的关系（学生.姓名=成绩.姓名）那么我们是否发现在执行第二步的时候，对于没有参加考试的学生记录就不会出现在vt2中，因为他们被on的逻辑表达式过滤掉了,但是我们用left outer join就可以把左表（学生）中没有参加考试的学生找回来，因为我们想返回的是x班级的所有学生，如果在on中应用学生.班级=’x’的话，left outer join会把x班级的所有学生记录找回（感谢网友康钦谋__康钦苗的指正），所以只能在where筛选器中应用学生.班级=’x’ 因为它的过滤是最终的。 </p>
-<p>第六步：group by 子句将中的唯一的值组合成为一组，得到虚拟表vt5。如果应用了group by，那么后面的所有步骤都只能得到的vt5的列或者是聚合函数（count、sum、avg等）。原因在于最终的结果集中只为每个组包含一行。这一点请牢记。 </p>
-<p>第七步：应用cube或者rollup选项，为vt5生成超组，生成vt6.<br>第八步：应用having筛选器，生成vt7。having筛选器是第一个也是为唯一一个应用到已分组数据的筛选器。<br>第九步：处理select子句。将vt7中的在select中出现的列筛选出来。生成vt8. </p>
-<p>第十步：应用distinct子句，vt8中移除相同的行，生成vt9。事实上如果应用了group by子句那么distinct是多余的，原因同样在于，分组的时候是将列中唯一的值分成一组，同时只为每一组返回一行记录，那么所以的记录都将是不相同的。 </p>
-<p>第十一步：应用order by子句。按照order_by_condition排序vt9，此时返回的一个游标，而不是虚拟表。sql是基于集合的理论的，集合不会预先对他的行排序，它只是成员的逻辑集合，成员的顺序是无关紧要的。对表进行排序的查询可以返回一个对象，这个对象包含特定的物理顺序的逻辑组织。这个对象就叫游标。正因为返回值是游标，那么使用order by 子句查询不能应用于表表达式。排序是很需要成本的，除非你必须要排序，否则最好不要指定order by，最后，在这一步中是第一个也是唯一一个可以使用select列表中别名的步骤。 </p>
-<p>第十二步：应用top选项。此时才返回结果给请求者即用户</p>
+		<center><br>    网站攻击<br></center>
+
+<p>CSRF（英语：Cross-site request forgery）：也被称为 <strong>one-click attack</strong> 或者 <strong>session riding</strong>，通常缩写为 <strong>CSRF</strong> 或者 <strong>XSRF</strong>， 是一种挟制用户在当前已登录的Web应用程序上执行非本意的操作的攻击方法。<a href="https://zh.wikipedia.org/wiki/跨站请求伪造#cite_note-Ristic-1" target="_blank" rel="noopener">[1]</a> 跟<a href="https://zh.wikipedia.org/wiki/跨網站指令碼" target="_blank" rel="noopener">跨网站脚本</a>（XSS）相比，<strong>XSS</strong> 利用的是用户对指定网站的信任，CSRF 利用的是网站对用户网页浏览器的信任。</p>
+<p><strong>跨站脚本</strong>（英语：Cross-site scripting，通常简称为：XSS）是一种网站应用程序的安全漏洞攻击，是<a href="https://zh.wikipedia.org/wiki/代碼注入" target="_blank" rel="noopener">代码注入</a>的一种。它允许恶意用户将代码注入到网页上，其他用户在观看网页时就会受到影响。这类攻击通常包含了<a href="https://zh.wikipedia.org/wiki/HTML" target="_blank" rel="noopener">HTML</a>以及用户端<a href="https://zh.wikipedia.org/wiki/腳本語言" target="_blank" rel="noopener">脚本语言</a>。</p>
+<p><strong>XSS</strong>攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。这些恶意网页程序通常是<a href="https://zh.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a>，但实际上也可以包括<a href="https://zh.wikipedia.org/wiki/Java" target="_blank" rel="noopener">Java</a>，<a href="https://zh.wikipedia.org/wiki/VBScript" target="_blank" rel="noopener">VBScript</a>，<a href="https://zh.wikipedia.org/wiki/ActiveX" target="_blank" rel="noopener">ActiveX</a>，<a href="https://zh.wikipedia.org/wiki/Flash" target="_blank" rel="noopener">Flash</a>或者甚至是普通的<a href="https://zh.wikipedia.org/wiki/HTML" target="_blank" rel="noopener">HTML</a>。攻击成功后，攻击者可能得到更高的权限（如执行一些操作）、私密网页内容、<a href="https://zh.wikipedia.org/wiki/会话" target="_blank" rel="noopener">会话</a>和<a href="https://zh.wikipedia.org/wiki/Cookie" target="_blank" rel="noopener">cookie</a>等各种内容。</p>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/15.jpg"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/54.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -362,12 +357,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/03/25/hello-world/" title="Hello World" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/03/01/牛客网练习/" title="牛客网练习" rel="next">
+			<a href="/2019/09/11/libgnutls-so问题/" title="libgnutls.so问题" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -385,6 +376,81 @@
 		
 				<li>
 					<div>
+						<a href="/2019/09/08/TCP与UDP区别/" title="TCP与UDP区别">
+							TCP与UDP区别
+						</a>
+						<p>
+							    TCP与UDP区别
+
+​    TCP/IP协议是一个协议簇。里面包括很多协议的，UDP只是其中的一个， 之所以命名为TCP/IP协议，因为TCP、IP协议是两个很重要的协议，就用他两命名了。
+TCP三次握手过程
+第一次握手：...
+						</p>
+					</div>
+
+					<a href="/2019/09/08/TCP与UDP区别/" title="TCP与UDP区别">				
+						<img src="/img/post-cover/51.jpg" class="relateImg" alt="TCP与UDP区别">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/13/http与https区别/" title="http与https区别">
+							http与https区别
+						</a>
+						<p>
+							    http与https区别
+
+超文本传输协议HTTP协议被用于在Web浏览器和网站服务器之间传递信息，HTTP协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了Web浏览器和网站服务器之间的传输报文，就可以直接读...
+						</p>
+					</div>
+
+					<a href="/2019/07/13/http与https区别/" title="http与https区别">				
+						<img src="/img/post-cover/42.png" class="relateImg" alt="http与https区别">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/06/17/why三次握手四次挥手/" title="why三次握手四次挥手">
+							why三次握手四次挥手
+						</a>
+						<p>
+							    为什么是三次握手四次挥手
+
+1、为什么要三次握手？为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误。
+谢希仁《计算机网络》书中的举例：“已失效的连接请求报文段”的产生在这样一种情况下：client发出的第一个连...
+						</p>
+					</div>
+
+					<a href="/2019/06/17/why三次握手四次挥手/" title="why三次握手四次挥手">				
+						<img src="/img/post-cover/37.jpg" class="relateImg" alt="why三次握手四次挥手">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/09/11/libgnutls-so问题/" title="libgnutls.so问题">
+							libgnutls.so问题
+						</a>
+						<p>
+							    libgnutls.so问题
+
+​    今天更新系统 然后启动软件就起不来了，报错误如下/usr/lib/apt/methods/http: relocation error: /usr/lib/x86_64-linux-g...
+						</p>
+					</div>
+
+					<a href="/2019/09/11/libgnutls-so问题/" title="libgnutls.so问题">				
+						<img src="/img/post-cover/53.jpg" class="relateImg" alt="libgnutls.so问题">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
 						<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" title="mysql开启关闭update/delete安全模式">
 							mysql开启关闭update/delete安全模式
 						</a>
@@ -398,6 +464,63 @@
 
 					<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" title="mysql开启关闭update/delete安全模式">				
 						<img src="/img/post-cover/52.jpg" class="relateImg" alt="mysql开启关闭update/delete安全模式">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/09/04/thinkCMF上传图片/" title="thinkCMF上传图片">
+							thinkCMF上传图片
+						</a>
+						<p>
+							    thinkCMF上传图片    
+1、要使用这个功能，首先要引入框架自带的admin.js或者frontend.js文件
+再上传的地方添加
+1234567891011121314151617181920212223242526...
+						</p>
+					</div>
+
+					<a href="/2019/09/04/thinkCMF上传图片/" title="thinkCMF上传图片">				
+						<img src="/img/post-cover/50.jpg" class="relateImg" alt="thinkCMF上传图片">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/08/22/ssr服务器一键部署脚本/" title="ssr服务器一键部署脚本">
+							ssr服务器一键部署脚本
+						</a>
+						<p>
+							     ssr服务器一键部署脚本
+
+用于快速搭建配置服务器，傻瓜式配置ssr
+wget -N –no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/d...
+						</p>
+					</div>
+
+					<a href="/2019/08/22/ssr服务器一键部署脚本/" title="ssr服务器一键部署脚本">				
+						<img src="/img/post-cover/49.jpg" class="relateImg" alt="ssr服务器一键部署脚本">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/07/31/小程序开发/" title="小程序开发">
+							小程序开发
+						</a>
+						<p>
+							    小程序开发
+
+获取access_token要将申请的测试号的appid和secret填在相应的位置，而不是填公众号的appid和secret。
+
+						</p>
+					</div>
+
+					<a href="/2019/07/31/小程序开发/" title="小程序开发">				
+						<img src="/img/post-cover/48.jpg" class="relateImg" alt="小程序开发">
 					</a>
 				</li>											
 		
@@ -435,138 +558,6 @@ use ...
 
 					<a href="/2019/07/29/root-localhost拒绝问题/" title="root@localhost拒绝问题">				
 						<img src="/img/post-cover/45.jpg" class="relateImg" alt="root@localhost拒绝问题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/Mysql细节/" title="Mysql细节">
-							Mysql细节
-						</a>
-						<p>
-							    Mysql
-
-Mysql插入语句之value与values区别:
-​    二者可以混着用,不报错,但是value插入多行数据会快一点.
-
-						</p>
-					</div>
-
-					<a href="/2019/05/06/Mysql细节/" title="Mysql细节">				
-						<img src="/img/post-cover/31.png" class="relateImg" alt="Mysql细节">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
-							数据库的锁
-						</a>
-						<p>
-							    数据库的锁
-
-
-概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
-乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
-						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/ACID/" title="ACID">
-							ACID
-						</a>
-						<p>
-							    数据库的ACID性质
-
-原子性:指整个数据库事务是不可分割的工作单位。只有使据库中所有的操作执行成功，才算整个事务成功；事务中任何一个SQL语句执行失败，那么已经执行成功的SQL语句也必须撤销，数据库状态应该退回到执行事务前的...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/ACID/" title="ACID">				
-						<img src="/img/post-cover/29.jpg" class="relateImg" alt="ACID">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/25/sql连接/" title="SQL连接">
-							SQL连接
-						</a>
-						<p>
-							 sql连接操作
-
-left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
-						</p>
-					</div>
-
-					<a href="/2019/03/25/sql连接/" title="SQL连接">				
-						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/10/23/网站攻击/" title="网站攻击">
-							网站攻击
-						</a>
-						<p>
-							    网站攻击
-
-CSRF（英语：Cross-site request forgery）：也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已...
-						</p>
-					</div>
-
-					<a href="/2019/10/23/网站攻击/" title="网站攻击">				
-						<img src="/img/post-cover/54.jpg" class="relateImg" alt="网站攻击">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/09/11/libgnutls-so问题/" title="libgnutls.so问题">
-							libgnutls.so问题
-						</a>
-						<p>
-							    libgnutls.so问题
-
-​    今天更新系统 然后启动软件就起不来了，报错误如下/usr/lib/apt/methods/http: relocation error: /usr/lib/x86_64-linux-g...
-						</p>
-					</div>
-
-					<a href="/2019/09/11/libgnutls-so问题/" title="libgnutls.so问题">				
-						<img src="/img/post-cover/53.jpg" class="relateImg" alt="libgnutls.so问题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/09/08/TCP与UDP区别/" title="TCP与UDP区别">
-							TCP与UDP区别
-						</a>
-						<p>
-							    TCP与UDP区别
-
-​    TCP/IP协议是一个协议簇。里面包括很多协议的，UDP只是其中的一个， 之所以命名为TCP/IP协议，因为TCP、IP协议是两个很重要的协议，就用他两命名了。
-TCP三次握手过程
-第一次握手：...
-						</p>
-					</div>
-
-					<a href="/2019/09/08/TCP与UDP区别/" title="TCP与UDP区别">				
-						<img src="/img/post-cover/51.jpg" class="relateImg" alt="TCP与UDP区别">
 					</a>
 				</li>											
 		
