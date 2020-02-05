@@ -1,0 +1,927 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      从ssr到v2ray | 守护
+    
+  </title>
+  <meta name="author" content="Estace-Kidd">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/3.jpg">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
+
+					
+						<li class="menu-search">
+							<a href="javascript:;" class="popup-trigger" title="Search">搜索</a>
+						</li>
+					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《从ssr到v2ray》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<!-- <a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a> -->
+				</li>
+				<li>
+					<!-- <a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a> -->
+				</li>
+				<li>
+					<!-- <a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a> -->
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<!-- <style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script> -->
+</div></header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+				<li class="menu-search">
+					<a href="javascript:;" class="popup-trigger" title="Search">搜索</a>
+				</li>
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="https://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2020/02/06/从ssr到v2ray/" itemprop="url">
+		从ssr到v2ray
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2020/02/06/从ssr到v2ray/" itemprop="url">
+		<time datetime="2020-02-05T16:23:12.000Z" itemprop="datePublished">
+	  		2020-02-06
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2020/02/06/从ssr到v2ray/" itemprop="url">
+		<time datetime="2020-02-05T16:23:12.000Z" itemprop="dateUpdated">
+	  		2020-02-06
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/v2ray/" class=" ">
+			v2ray
+		</a>
+	
+		
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2020/02/06/从ssr到v2ray/_visitors" data-url="/2020/02/06/从ssr到v2ray/" data-title="从ssr到v2ray">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2020/02/06/从ssr到v2ray/_likes" data-url="/2020/02/06/从ssr到v2ray/" data-title="从ssr到v2ray" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<center><br>    从ssr到v2ray(ubuntu 18.04)<br></center>
+
+<p>​        事件起因是因为用shadowsocks被封得太平常了，记得那天晚上我改一个端口就被封一个，无奈之下转到v2ray。</p>
+<p>其中要做好准备工作。</p>
+<p>1、申请域名。因为我是学生，所以我拿到了github学生包的优惠后，<a href="https://blog.csdn.net/dta0502/article/details/81262127" target="_blank" rel="noopener">点击这里跳转查看认证教程</a>,看教程就可以了，但不要从教程链接进去，不然优惠会变低。认证过后，从github学生包进去namecheap申请一个××××.me的域名，免费期限为一年。就直接在搜索框了写你要的域名，然后搜索，如果可用就添加到购物车，然后点击complete order，然后选中github优惠，填写你github的主邮箱，然后点击fishup。（如果你未在namecheap上注册，可能会跳转登录页面。这时你去注册一个namecheap账号就好了）</p>
+<p>2、添加解析。因为普遍推荐的加密方式是webSocket+TLS，所以就要到cloudflare去添加解析。首先注册好账号后点击Add Site添加一个站点，然后天上你的××××.me（你的域名），然后添加一个DNS解析，类似这样：</p>
+<p><img src="/img/article-picture/61-1.png" alt="avatar"></p>
+<p>type选A就行了，name就填一个二级域名，推荐填v2ray，IPv4 address就填你的IP，ttl选择auto，然后save，之后把Proxy status那朵黄色的小云点一下变成灰色。添加完成之后类似这样(除云的颜色不同外，因为我已经配好了，最后要点亮的，现在先变灰）:</p>
+<p><img src="/img/article-picture/61-2.jpeg" alt="avatar"></p>
+<p>然后点击continue。最后出现unknown什么的，然后下面会有nameServers，就是把它下面两个复制修改为它的DNS服务器，集体操作为回到你域名注册的网站（比如我的是namecheap注册的，那么我就会到namecheap），但是不要关闭当前网页。回到namecheap后，在Domain的nameServers选择personal nameServers，新增两个，一次把cloudflare的黏贴进去，保存确认，然后回到cloudflare页面点击完成。一般这样就表示还没生效，要等几分钟</p>
+<p><img src="/img/article-picture/61-3.jpg" alt="avatar"></p>
+<p>当变成这样后就可以了</p>
+<p><img src="/img/article-picture/61-4.jpg" alt="avatar"></p>
+<p>在外面看是为active的</p>
+<p><img src="/img/article-picture/61-5.png" alt="avatar"></p>
+<p>到此准备工作完成。</p>
+<p>然后登录vps，如果有安装ssr的</p>
+<p>首先执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br></pre></td></tr></table></figure>
+<p>选中执行项，将原来的ssr删除。没有则跳过</p>
+<p>然后执行脚本安装v2ray</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
+<p>一次填1安装，选择WebSocket+Tls，然后后面的端口默认就行，紧接着填域名，要填全部，二级域名+你的域名，如v2ray.×××.com,正确解析域名之后，继续运行脚本；域名解析检测正确，安装Caddy自动配置TLS，按“Y”继续.是否开启网站伪装和路径分流，默认否；是否开启广告拦截，默认否；是否配置Shadowsocks，默认否；准备安装，确认配置正确，按回车继续； 最后输入v2ray status 查看运行状态，确认V2Ray和Caddy都在运行；</p>
+<p>然后回到cloundflare，进入域名管理界面，看看OverView里有没有选择FULL和Edge Certificates的status有没有active，</p>
+<p><img src="/img/article-picture/61-6.png" alt="avatar"></p>
+<p><img src="/img/article-picture/61-7.png" alt="avatar"></p>
+<p>之后回到DNs将上边变灰的小云把它点亮。至此vps的服务端就配好了，紧接着配客户端。建议配置客户端顺序为手机–&gt;windows–&gt;ubuntu。输入v2ray info可以查看配置信息。</p>
+<p>首先安卓手机：链接: <a href="https://pan.baidu.com/s/1MPSQjKrrSrEkYjlHPUEISw" target="_blank" rel="noopener">https://pan.baidu.com/s/1MPSQjKrrSrEkYjlHPUEISw</a>  密码: migj，下载安装后在服务端输入输入 v2ray url 可生成 vmess url 链接；输入 v2ray qr 可生成二维码链接，二者选一即可，例如选url，将生成的url黏贴到v2ray.apk里面就会自动配置好了。</p>
+<p>然后是Windows系统：衔接：链接: <a href="https://pan.baidu.com/s/1_AyBAxxpMxwxwbeDB3I5Cg" target="_blank" rel="noopener">https://pan.baidu.com/s/1_AyBAxxpMxwxwbeDB3I5Cg</a>  密码: iefr，解压后放在文件夹里面，找到v2ray.exe点击运行，然后点击新建一个服务器，手机那边点击分享–&gt;导出至剪贴板，windows复制后直接在新增填信息的左上角导入就ok了。然后在chrome浏览器安装插件<a href="chrome-extension://padekgcemlokbadohgkifijomclgjgif/options.html#!/about" target="_blank" rel="noopener">SwitchyOmega</a>，代理协议（选择Socket4、 5或http）与端口要一致（这里的端口是主界面的UDP端口设置）,如果出现faile header这样的字眼，表示当前系统时间与网络时间不一致。这时生成的config.json文件复制一份，配置ubuntu时用的到。</p>
+<p>ubuntu：链接: <a href="https://pan.baidu.com/s/1CYtLeM2EYNlJmU9KeCYx1A" target="_blank" rel="noopener">https://pan.baidu.com/s/1CYtLeM2EYNlJmU9KeCYx1A</a>  密码: jnqt，下载后放到你想要放的位置，然后将Windows的config.json与ubuntu的进行替换。chrome的SwitchyOmega的配置也和windows一样。</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/post-cover/61.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+		
+			<a href="/2020/02/04/山川异域，风月同天/" title="山川异域，风月同天" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+				<li>
+					<div>
+						<a href="/2019/09/11/libgnutls-so问题/" title="libgnutls.so问题">
+							libgnutls.so问题
+						</a>
+						<p>
+							    libgnutls.so问题
+
+​    今天更新系统 然后启动软件就起不来了，报错误如下/usr/lib/apt/methods/http: relocation error: /usr/lib/x86_64-linux-g...
+						</p>
+					</div>
+
+					<a href="/2019/09/11/libgnutls-so问题/" title="libgnutls.so问题">				
+						<img src="/img/post-cover/53.jpg" class="relateImg" alt="libgnutls.so问题">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/08/22/ssr服务器一键部署脚本/" title="ssr服务器一键部署脚本">
+							ssr服务器一键部署脚本
+						</a>
+						<p>
+							     ssr服务器一键部署脚本
+
+用于快速搭建配置服务器，傻瓜式配置ssr
+1wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi...
+						</p>
+					</div>
+
+					<a href="/2019/08/22/ssr服务器一键部署脚本/" title="ssr服务器一键部署脚本">				
+						<img src="/img/post-cover/49.jpg" class="relateImg" alt="ssr服务器一键部署脚本">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/06/18/Linux链接/" title="Linux链接">
+							Linux链接
+						</a>
+						<p>
+							    Linux链接
+
+ 一 链接文件    链接有两种方式，软链接和硬链接。　　1 软链接文件　　软链接又叫符号链接，这个文件包含了另一个文件的路径名。可以是任意文件或目录，可以链接不同文件系统的文件。       链接文件甚至可...
+						</p>
+					</div>
+
+					<a href="/2019/06/18/Linux链接/" title="Linux链接">				
+						<img src="/img/post-cover/38.png" class="relateImg" alt="Linux链接">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/04/山川异域，风月同天/" title="山川异域，风月同天">
+							山川异域，风月同天
+						</a>
+						<p>
+							    山川异域，风月同天
+
+1一個國度的山川，不可能跑到另一個國度。而天上的風月，則不受此拘限，不同國度的人可以共見
+
+						</p>
+					</div>
+
+					<a href="/2020/02/04/山川异域，风月同天/" title="山川异域，风月同天">				
+						<img src="/img/post-cover/60.jpg" class="relateImg" alt="山川异域，风月同天">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/04/突变/" title="突变">
+							突变
+						</a>
+						<p>
+							    突变
+
+1突变是以闪电和雷鸣的方式入侵的，像一颗子弹撞到胸口上炸开，爆炸带来的瞬间的压力从心脏传到每一根毛细血管，全身的细胞都停止住代谢和思考，仔细的聆听这一刹那的震荡。没有任何力量可以挽留住心，它只向无底深渊的黑暗更深处下坠...
+						</p>
+					</div>
+
+					<a href="/2020/02/04/突变/" title="突变">				
+						<img src="/img/post-cover/59.jpg" class="relateImg" alt="突变">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/04/简单的hexo指令/" title="简单的hexo指令">
+							简单的hexo指令
+						</a>
+						<p>
+							    简单的hexo指令
+
+新建md文件
+1sudo hexo n &lt;title&gt;
+生成后的tag是标签，categories是目录，都是用来分类的，cover是封面图片路径。
+之后就是生成和上传文件
+12sudo he...
+						</p>
+					</div>
+
+					<a href="/2020/02/04/简单的hexo指令/" title="简单的hexo指令">				
+						<img src="/img/post-cover/58.jpg" class="relateImg" alt="简单的hexo指令">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/11/29/Java-用法/" title="Java@用法">
+							Java@用法
+						</a>
+						<p>
+							    Java@用法
+
+​    java用  @interface Annotation{ } 定义一个注解 @Annotation，一个注解是一个类。@Override，@Deprecated，@SuppressWarnings...
+						</p>
+					</div>
+
+					<a href="/2019/11/29/Java-用法/" title="Java@用法">				
+						<img src="/img/post-cover/57.png" class="relateImg" alt="Java@用法">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/11/07/计算机网络/" title="计算机网络">
+							计算机网络
+						</a>
+						<p>
+							    计算机网络
+
+ICMP :   网络层协议
+TCP   :   传输层协议
+SNMP:   应用层协议
+NFS   :   会话层协议
+
+
+
+分层
+作用
+协议
+
+
+
+
+物理层
+通过媒介传输比特，确定机械及电气规范（比特 Bit...
+						</p>
+					</div>
+
+					<a href="/2019/11/07/计算机网络/" title="计算机网络">				
+						<img src="/img/post-cover/56.jpg" class="relateImg" alt="计算机网络">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/11/07/java基础/" title="java基础">
+							java基础
+						</a>
+						<p>
+							    java基础
+
+
+						</p>
+					</div>
+
+					<a href="/2019/11/07/java基础/" title="java基础">				
+						<img src="/img/post-cover/55.jpg" class="relateImg" alt="java基础">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/10/23/网站攻击/" title="网站攻击">
+							网站攻击
+						</a>
+						<p>
+							    网站攻击
+
+CSRF（英语：Cross-site request forgery）：也被称为 one-click attack 或者 session riding，通常缩写为 CSRF 或者 XSRF， 是一种挟制用户在当前已...
+						</p>
+					</div>
+
+					<a href="/2019/10/23/网站攻击/" title="网站攻击">				
+						<img src="/img/post-cover/54.jpg" class="relateImg" alt="网站攻击">
+					</a>
+				</li>											
+		
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- comment gitalk -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: '7804c452d8a6ef41b38c',
+		clientSecret: '47320bfee029561d9258f1fc1b0917537a21fd36',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'Blog_Comment_Repo',
+		owner: 'yuansijian',
+		admin: 'yuansijian',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+		
+		
+	
+
+</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'bY0zCnrsY68XAgtOIKtjsOC2-gzGzoHsz',
+            appkey = 'YqU8sg6hWf3OPGkNkCekDPew';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+	
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="https://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://www.weibo.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://mail.google.com/mail/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="https://qzone.qq.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="https://twitter.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2020, content by Estace-Kidd. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
+</footer>
+		
+    <!-- set '1' to show motto in all pages! -->
+<!---->
+	<!--<script src="/js/motto.js"></script>-->
+	<!--<script type="text/javascript">-->
+		<!--$(".motto").html( getMingYanContent() );-->
+	<!--</script>	-->
+<!---->
+
+
+
+    <!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup">
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      ESC
+   </span>
+		<div class="local-search-header">
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			
+
+   
+	<div id="topN"></div>
+	
+    <script>
+        var appid = 'bY0zCnrsY68XAgtOIKtjsOC2-gzGzoHsz',
+            appkey = 'YqU8sg6hWf3OPGkNkCekDPew',
+            limitCount = 10;
+        if( $('#topN').length ){
+            AV.initialize(appid, appkey);
+            var Counter = AV.Object.extend("Counter");  
+            topNPost(Counter, limitCount);
+        }
+    </script>
+   
+
+		</div>
+	</div>
+</div>
+
+<script src="/js/ziploader.js"></script>
+<script src="/js/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>
