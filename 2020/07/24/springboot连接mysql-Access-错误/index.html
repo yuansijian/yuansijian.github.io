@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Mysql细节 | 守护
+      springboot连接mysql(Access)错误 | 守护
     
   </title>
   <meta name="author" content="Estace-Kidd">
@@ -114,7 +114,7 @@
 				<!-- Page title -->
 				<p>
 					
-						当前文章&nbsp;:&nbsp;《Mysql细节》
+						当前文章&nbsp;:&nbsp;《springboot连接mysql(Access)错误》
 					
 				</p>
 				<!-- Progress bar -->
@@ -277,8 +277,8 @@
 	
 	<div class="article-title">
 		
-	<a href="/2019/05/06/Mysql细节/" itemprop="url">
-		Mysql细节
+	<a href="/2020/07/24/springboot连接mysql-Access-错误/" itemprop="url">
+		springboot连接mysql(Access)错误
 	</a>
 
 	</div>
@@ -287,17 +287,17 @@
 		<span>
 			
 	发布于
-	<a href="/2019/05/06/Mysql细节/" itemprop="url">
-		<time datetime="2019-05-06T12:22:04.000Z" itemprop="datePublished">
-	  		2019-05-06
+	<a href="/2020/07/24/springboot连接mysql-Access-错误/" itemprop="url">
+		<time datetime="2020-07-24T10:53:04.000Z" itemprop="datePublished">
+	  		2020-07-24
 	  </time>
 	</a> 
 
 	/
 	更新于
-	<a href="/2019/05/06/Mysql细节/" itemprop="url">
-		<time datetime="2019-05-06T12:22:04.000Z" itemprop="dateUpdated">
-	  		2019-05-06
+	<a href="/2020/07/24/springboot连接mysql-Access-错误/" itemprop="url">
+		<time datetime="2020-07-24T10:53:04.000Z" itemprop="dateUpdated">
+	  		2020-07-24
 	  </time>
 	</a> 	
 
@@ -307,8 +307,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="/tags/Mysql/" class=" ">
-			Mysql
+		<a href="/tags/SpringBoot/" class=" ">
+			SpringBoot
 		</a>
 	
 		
@@ -316,7 +316,7 @@
 		/
 		
 
-    <span class="leancloud_visitors" id="/2019/05/06/Mysql细节/_visitors" data-url="/2019/05/06/Mysql细节/" data-title="Mysql细节">
+    <span class="leancloud_visitors" id="/2020/07/24/springboot连接mysql-Access-错误/_visitors" data-url="/2020/07/24/springboot连接mysql-Access-错误/" data-title="springboot连接mysql(Access)错误">
         热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
     </span>
@@ -325,7 +325,7 @@
 
 
 
-    <span class="leancloud_likes" id="/2019/05/06/Mysql细节/_likes" data-url="/2019/05/06/Mysql细节/" data-title="Mysql细节" rel="unlike">
+    <span class="leancloud_likes" id="/2020/07/24/springboot连接mysql-Access-错误/_likes" data-url="/2020/07/24/springboot连接mysql-Access-错误/" data-title="springboot连接mysql(Access)错误" rel="unlike">
         喜欢
         <i class="fa fa-heart"></i>
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -335,14 +335,16 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<center><br>    Mysql<br></center>
+		<center><br>    SpringBoot连接MySQL时遇到ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)<br></center>
 
-<p>Mysql插入语句之value与values区别:</p>
-<p>​    二者可以混着用,不报错,但是value插入多行数据会快一点.</p>
+<p>在yml配置文件中，数据库连接的url为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: jdbc:mysql://localhost:3306/数据库名?useUnicode=true&amp;characterEncoding=utf8</span><br></pre></td></tr></table></figure>
+<p>报错，可能是Maven的依赖导入包冲突的原因，后续在加上时区即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: jdbc:mysql://localhost:3306/数据库名?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT</span><br></pre></td></tr></table></figure>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="/img/post-cover/31.png"></div>
+	<div id="current-post-cover" data-scr="/img/post-cover/65.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -356,12 +358,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="/2019/05/09/tp5学习笔记6/" title="tp5学习笔记6" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2019/05/06/数据库的锁/" title="数据库的锁" rel="next">
+			<a href="/2020/07/19/FirstLove/" title="FirstLove" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -379,147 +377,18 @@
 		
 				<li>
 					<div>
-						<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" title="mysql开启关闭update/delete安全模式">
-							mysql开启关闭update/delete安全模式
+						<a href="/2019/11/29/Java-用法/" title="Java@用法">
+							Java@用法
 						</a>
 						<p>
-							    mysql开启关闭update/delete安全模式
+							    Java@用法
 
-在使用mysql执行update的时候，如果不是用主键当where语句，会报如下错误，使用主键用于where语句中正常。
-异常内容：Error Code: 1175. Y...
+​    java用  @interface Annotation{ } 定义一个注解 @Annotation，一个注解是一个类。@Override，@Deprecated，@SuppressWarnings...
 						</p>
 					</div>
 
-					<a href="/2019/09/10/mysql开启关闭update-delete安全模式/" title="mysql开启关闭update/delete安全模式">				
-						<img src="/img/post-cover/52.jpg" class="relateImg" alt="mysql开启关闭update/delete安全模式">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/29/关于COLLATE-utf8mb4-0900-ai-ci问题/" title="关于COLLATE=utf8mb4_0900_ai_ci问题">
-							关于COLLATE=utf8mb4_0900_ai_ci问题
-						</a>
-						<p>
-							    关于COLLATE=utf8mb4_0900_ai_ci问题
-
-mysql8版本特有的对照，排序之类的，备份数据库时.sql脚本会自动设置COLLATE=utf8mb4_0900_ai_ci，，若将此脚本迁徙到mysql5.6...
-						</p>
-					</div>
-
-					<a href="/2019/07/29/关于COLLATE-utf8mb4-0900-ai-ci问题/" title="关于COLLATE=utf8mb4_0900_ai_ci问题">				
-						<img src="/img/post-cover/46.jpg" class="relateImg" alt="关于COLLATE=utf8mb4_0900_ai_ci问题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/07/29/root-localhost拒绝问题/" title="root@localhost拒绝问题">
-							root@localhost拒绝问题
-						</a>
-						<p>
-							mysqlworkbench连接mysql出现root@localhost denied问题，发现原因是登录mysql需要sudo，就是建立建立mysql连接是需要超级权限，所以连接不上去。
-解决办法：
-登录mysql，然后
-use ...
-						</p>
-					</div>
-
-					<a href="/2019/07/29/root-localhost拒绝问题/" title="root@localhost拒绝问题">				
-						<img src="/img/post-cover/45.jpg" class="relateImg" alt="root@localhost拒绝问题">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/数据库的锁/" title="数据库的锁">
-							数据库的锁
-						</a>
-						<p>
-							    数据库的锁
-
-
-概要数据库锁一般可以分为两类，一个是悲观锁，一个是乐观锁。
-乐观锁一般是指用户自己实现的一种锁机制，假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/数据库的锁/" title="数据库的锁">				
-						<img src="/img/post-cover/30.png" class="relateImg" alt="数据库的锁">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/05/06/ACID/" title="ACID">
-							ACID
-						</a>
-						<p>
-							    数据库的ACID性质
-
-原子性:指整个数据库事务是不可分割的工作单位。只有使据库中所有的操作执行成功，才算整个事务成功；事务中任何一个SQL语句执行失败，那么已经执行成功的SQL语句也必须撤销，数据库状态应该退回到执行事务前的...
-						</p>
-					</div>
-
-					<a href="/2019/05/06/ACID/" title="ACID">				
-						<img src="/img/post-cover/29.jpg" class="relateImg" alt="ACID">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/25/sql连接/" title="SQL连接">
-							SQL连接
-						</a>
-						<p>
-							 sql连接操作
-
-left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录inner join(等值连接) 只返回两个表中联结...
-						</p>
-					</div>
-
-					<a href="/2019/03/25/sql连接/" title="SQL连接">				
-						<img src="/img/post-cover/16.jpg" class="relateImg" alt="SQL连接">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">
-							mysql执行顺序
-						</a>
-						<p>
-							 mysql执行顺序  
-(1)from(3) join(2) on(4) where(5)group by(开始使用select中的别名，后面的语句中都可以使用)(6)avg,sum….(7)having(8) select(9) ...
-						</p>
-					</div>
-
-					<a href="/2019/03/23/mysql执行顺序/" title="mysql执行顺序">				
-						<img src="/img/post-cover/15.jpg" class="relateImg" alt="mysql执行顺序">
-					</a>
-				</li>											
-		
-		
-				<li>
-					<div>
-						<a href="/2020/07/24/springboot连接mysql-Access-错误/" title="springboot连接mysql(Access)错误">
-							springboot连接mysql(Access)错误
-						</a>
-						<p>
-							    SpringBoot连接MySQL时遇到ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)
-
-在yml配置文件...
-						</p>
-					</div>
-
-					<a href="/2020/07/24/springboot连接mysql-Access-错误/" title="springboot连接mysql(Access)错误">				
-						<img src="/img/post-cover/65.jpg" class="relateImg" alt="springboot连接mysql(Access)错误">
+					<a href="/2019/11/29/Java-用法/" title="Java@用法">				
+						<img src="/img/post-cover/57.png" class="relateImg" alt="Java@用法">
 					</a>
 				</li>											
 		
@@ -571,6 +440,155 @@ left join(左联接) 返回包括左表中的所有记录和右表中联结字�
 
 					<a href="/2020/07/14/侠客行/" title="侠客行">				
 						<img src="/img/post-cover/63.jpg" class="relateImg" alt="侠客行">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/05/26/毕业感想/" title="毕业感想">
+							毕业感想
+						</a>
+						<p>
+							
+						</p>
+					</div>
+
+					<a href="/2020/05/26/毕业感想/" title="毕业感想">				
+						<img src="/img/post-cover/29.jpg" class="relateImg" alt="毕业感想">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/06/可爱的小马/" title="可爱的小马">
+							可爱的小马
+						</a>
+						<p>
+							    可爱的小马
+
+小套路，感谢陈同学的配合，可惜陈同学好像不喜欢（无奈～
+
+要图片可以私信，哈哈哈！！！
+
+						</p>
+					</div>
+
+					<a href="/2020/02/06/可爱的小马/" title="可爱的小马">				
+						<img src="/img/post-cover/62.jpg" class="relateImg" alt="可爱的小马">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/06/从ssr到v2ray/" title="从ssr到v2ray">
+							从ssr到v2ray
+						</a>
+						<p>
+							    从ssr到v2ray(ubuntu 18.04)
+
+​        事件起因是因为用shadowsocks被封得太平常了，记得那天晚上我改一个端口就被封一个，无奈之下转到v2ray。
+其中要做好准备工作。
+1、申请域名。因为...
+						</p>
+					</div>
+
+					<a href="/2020/02/06/从ssr到v2ray/" title="从ssr到v2ray">				
+						<img src="/img/post-cover/61.jpg" class="relateImg" alt="从ssr到v2ray">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/04/山川异域，风月同天/" title="山川异域，风月同天">
+							山川异域，风月同天
+						</a>
+						<p>
+							    山川异域，风月同天
+
+1一個國度的山川，不可能跑到另一個國度。而天上的風月，則不受此拘限，不同國度的人可以共見
+
+						</p>
+					</div>
+
+					<a href="/2020/02/04/山川异域，风月同天/" title="山川异域，风月同天">				
+						<img src="/img/post-cover/60.jpg" class="relateImg" alt="山川异域，风月同天">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/04/突变/" title="突变">
+							突变
+						</a>
+						<p>
+							    突变
+
+1突变是以闪电和雷鸣的方式入侵的，像一颗子弹撞到胸口上炸开，爆炸带来的瞬间的压力从心脏传到每一根毛细血管，全身的细胞都停止住代谢和思考，仔细的聆听这一刹那的震荡。没有任何力量可以挽留住心，它只向无底深渊的黑暗更深处下坠...
+						</p>
+					</div>
+
+					<a href="/2020/02/04/突变/" title="突变">				
+						<img src="/img/post-cover/59.jpg" class="relateImg" alt="突变">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2020/02/04/简单的hexo指令/" title="简单的hexo指令">
+							简单的hexo指令
+						</a>
+						<p>
+							    简单的hexo指令
+
+新建md文件
+1sudo hexo n &lt;title&gt;
+生成后的tag是标签，categories是目录，都是用来分类的，cover是封面图片路径。
+之后就是生成和上传文件
+12sudo he...
+						</p>
+					</div>
+
+					<a href="/2020/02/04/简单的hexo指令/" title="简单的hexo指令">				
+						<img src="/img/post-cover/58.jpg" class="relateImg" alt="简单的hexo指令">
+					</a>
+				</li>											
+		
+		
+				<li>
+					<div>
+						<a href="/2019/11/07/计算机网络/" title="计算机网络">
+							计算机网络
+						</a>
+						<p>
+							    计算机网络
+
+ICMP :   网络层协议
+TCP   :   传输层协议
+SNMP:   应用层协议
+NFS   :   会话层协议
+
+
+
+分层
+作用
+协议
+
+
+
+
+物理层
+通过媒介传输比特，确定机械及电气规范（比特 Bit...
+						</p>
+					</div>
+
+					<a href="/2019/11/07/计算机网络/" title="计算机网络">				
+						<img src="/img/post-cover/56.jpg" class="relateImg" alt="计算机网络">
 					</a>
 				</li>											
 		
